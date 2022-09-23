@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/bNewScreen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="newScreen" />
+    <Button
+        android:id="@+id/bClearBackStack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="clearBackStack" />
+
+    <Button
+        android:id="@+id/bReplaceScreen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="replaceScreen" />
+
+    <Button
+        android:id="@+id/bPopBack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="PopBack" />
+
+    <Button
+        android:id="@+id/bIntent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Intent" />
+
+    <TextView
+        android:id="@+id/tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Hello world"
+        android:textAlignment="center"
+        android:textColor="#E91E63"
+        android:textSize="32sp" />
+
+
+</LinearLayout>
