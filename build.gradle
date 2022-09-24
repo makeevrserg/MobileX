@@ -46,7 +46,7 @@ ext {
     appMinSdk = 21
     appTargetSdk = 33
 
-    libVersion = '1.0.1'
+    libVersion = '1.0.2'
 }
 
 task clean(type: Delete) {
