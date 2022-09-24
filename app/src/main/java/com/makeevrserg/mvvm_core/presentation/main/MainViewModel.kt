@@ -46,4 +46,8 @@ class MainViewModel : CoreViewModel() {
             )
         )
     }
+
+    fun onListOpenClicked() {
+        _nextRoute.value = RouteInfo.NextScreen(NavigationProvider.List).singleLiveEvent()
+    }
 }

@@ -50,6 +50,6 @@ dependencies {
     testImplementation "junit:junit:$jUnit"
     androidTestImplementation "androidx.test.ext:junit:$extJunit"
     androidTestImplementation "androidx.test.espresso:espresso-core:$espressoCore"
-
+//    implementation 'com.github.makeevrserg:MVVM-core:1.0.1'
     implementation(project(":core"))
 }

@@ -34,6 +34,10 @@ class MainFragment :
             viewModel.onBasicNavigationClicked()
 
         }
+        binding.bListFragment.setOnClickListener {
+            viewModel.onListOpenClicked()
+
+        }
     }
 }
 
