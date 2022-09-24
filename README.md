@@ -1,3 +1,6 @@
+
+[![jitpack](https://img.shields.io/jitpack/version/com.github.makeevrserg/MVVM-core?style=for-the-badge)](https://github.com/makeevrserg/MVVM-core/releases)
+
 # MVVM-core
 MVVM core is a library which I'm using in my projects - it helps to reduce boiler-plate code a lot
 
