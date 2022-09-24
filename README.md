@@ -23,3 +23,17 @@ MVVMCore allows:
 TODO:
 
 - [ ] - Logger implementation which supports android > 28 saving strategy
+
+## Setup
+
+Add required modules to your module`s build.gradle file:
+```groovy
+implementation 'com.github.makeevrserg:MVVM-core:<version>'
+```
+
+Add jitpack
+```groovy
+repositories {
+  maven { url 'https://jitpack.io' }
+}
+```
