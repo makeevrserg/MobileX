@@ -1,10 +1,10 @@
 plugins {
-    id 'com.android.library'
-    id 'org.jetbrains.kotlin.android'
+    id "com.android.library"
+    id "org.jetbrains.kotlin.android"
 }
 
 android {
-    namespace 'com.makeevrserg.mvvmcore.core'
+    namespace "com.makeevrserg.mvvmcore.core_compose"
     compileSdk appCompileSdk
 
     defaultConfig {
@@ -18,7 +18,7 @@ android {
     buildTypes {
         release {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
         }
     }
     compileOptions {
@@ -26,8 +26,16 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = "1.8"
     }
+    buildFeatures {
+        compose true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion = compose_kotlinCompilerExtensionVersion
+    }
+
 }
 
 dependencies {
@@ -39,9 +47,19 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle"
 
 
-    implementation "androidx.databinding:viewbinding:$viewBinding"
-
     testImplementation "junit:junit:$jUnit"
     androidTestImplementation "androidx.test.ext:junit:$extJunit"
     androidTestImplementation "androidx.test.espresso:espresso-core:$espressoCore"
+
+    implementation "androidx.activity:activity-compose:$activityCompose"
+    implementation "androidx.compose.material:material:$composeMaterial"
+    implementation "androidx.compose.animation:animation:$composeAnimation"
+    implementation "androidx.compose.ui:ui-tooling:$composeUiTooling"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-compose:$lifecycleViewModelCompose"
+
+    debugImplementation "androidx.compose.ui:ui-tooling:$composeUiTooling"
+    implementation "androidx.compose.ui:ui-tooling-preview:$composeUiTooling"
+
+
+    implementation(project(":core"))
 }

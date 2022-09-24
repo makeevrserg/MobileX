@@ -5,12 +5,12 @@ plugins {
 
 android {
     namespace "com.makeevrserg.mvvm_core"
-    compileSdk 33
+    compileSdk appCompileSdk
 
     defaultConfig {
         applicationId "com.makeevrserg.mvvm_core"
-        minSdk 21
-        targetSdk 33
+        minSdk appMinSdk
+        targetSdk appTargetSdk
         versionCode 1
         versionName "1.0.0"
 
