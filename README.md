@@ -4,6 +4,20 @@
 # MVVM-core
 MVVM core is a library which I'm using in my projects - it helps to reduce boiler-plate code a lot
 
+## Setup
+
+Add required modules to your module`s build.gradle file:
+```groovy
+implementation 'com.github.makeevrserg:MVVM-core:<version>'
+```
+
+Add jitpack
+```groovy
+repositories {
+  maven { url 'https://jitpack.io' }
+}
+```
+
 And of course, it breaks some of MVVM rules:
 - You are controlling navigation from ViewModel by using RouteInfo
 - You are making dialogs interfaces in ViewModel using UIDialogMessage
@@ -27,16 +41,3 @@ TODO:
 
 - [ ] - Logger implementation which supports android > 28 saving strategy
 
-## Setup
-
-Add required modules to your module`s build.gradle file:
-```groovy
-implementation 'com.github.makeevrserg:MVVM-core:<version>'
-```
-
-Add jitpack
-```groovy
-repositories {
-  maven { url 'https://jitpack.io' }
-}
-```
