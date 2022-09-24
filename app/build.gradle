@@ -12,7 +12,7 @@ android {
         minSdk appMinSdk
         targetSdk appTargetSdk
         versionCode 1
-        versionName "1.0.0"
+        versionName libVersion
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }

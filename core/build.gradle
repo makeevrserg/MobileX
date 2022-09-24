@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
+    id 'maven-publish'
 }
 
 android {
@@ -44,4 +45,16 @@ dependencies {
     testImplementation "junit:junit:$jUnit"
     androidTestImplementation "androidx.test.ext:junit:$extJunit"
     androidTestImplementation "androidx.test.espresso:espresso-core:$espressoCore"
+}
+afterEvaluate{
+    publishing{
+        publications{
+            release(MavenPublication){
+                from components.release
+                groupId = 'com.github.makeevrserg.mvvmcore'
+                artifactId = 'core'
+                version = libVersion
+            }
+        }
+    }
 }

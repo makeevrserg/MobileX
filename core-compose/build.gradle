@@ -1,6 +1,7 @@
 plugins {
     id "com.android.library"
     id "org.jetbrains.kotlin.android"
+    id 'maven-publish'
 }
 
 android {
@@ -62,4 +63,16 @@ dependencies {
 
 
     implementation(project(":core"))
+}
+afterEvaluate{
+    publishing{
+        publications{
+            release(MavenPublication){
+                from components.release
+                groupId = 'com.github.makeevrserg.mvvmcore'
+                artifactId = 'core-compose'
+                version = libVersion
+            }
+        }
+    }
 }
