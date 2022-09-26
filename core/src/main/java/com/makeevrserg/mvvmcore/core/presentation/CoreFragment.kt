@@ -7,7 +7,10 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
 import com.makeevrserg.mvvmcore.core.collectOn
-import com.makeevrserg.mvvmcore.core.presentation.intent_manager.IIntentManager
+import com.makeevrserg.mvvmcore.core.presentation.ui_provider.ILoadingIndicatorListener
+import com.makeevrserg.mvvmcore.core.presentation.ui_provider.INextRouteListener
+import com.makeevrserg.mvvmcore.core.presentation.ui_provider.IUiDialogListener
+import com.makeevrserg.mvvmcore.core.presentation.ui_provider.IUiMessageListener
 import kotlinx.coroutines.Dispatchers
 
 /**
@@ -20,9 +23,12 @@ abstract class CoreBindingFragment<T : ViewBinding, V : CoreViewModel>(private v
 
     protected var binding: T? = null
 
-    abstract val viewModel: V
+    abstract val uiMessageListener: IUiMessageListener
+    abstract val uiDialogListener: IUiDialogListener
+    abstract val nextRouteListener: INextRouteListener
+    abstract val loadingIndicatorListener: ILoadingIndicatorListener
 
-    protected abstract val intentManager: IIntentManager<V>
+    abstract val viewModel: V
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -39,37 +45,34 @@ abstract class CoreBindingFragment<T : ViewBinding, V : CoreViewModel>(private v
 
     protected open fun collectUiDialogMessage() {
         viewModel.uiDialogMessage.collectOn(this, Dispatchers.Main) {
-            it?.let(intentManager::onUiDialogMessage)
+            it?.let(uiDialogListener::onUiDialog)
         }
     }
+
     protected open fun collectUiMessage() {
         viewModel.uiMessage.collectOn(this, Dispatchers.Main) {
             val binding = binding ?: return@collectOn
             it.value?.let {
-                intentManager.onUiMessage(binding.root,it)
+                uiMessageListener.onUiMessage(binding.root, it)
             }
         }
     }
 
     protected open fun collectLoadingIndicator() {
         viewModel.loadingIndicator.collectOn(this, Dispatchers.Main) {
-            intentManager.onLoadingIndicator(it)
+            loadingIndicatorListener.onLoadingIndication(it)
         }
     }
 
     protected open fun collectRouteAction() {
         viewModel.routeAction.collectOn(this, Dispatchers.Main) {
-            it.value?.let {
-                intentManager.onRouteAction(it)
-            }
+//            it.value?.let(intentManager::onRouteAction)
         }
     }
 
     protected open fun collectNextRoute() {
         viewModel.nextRoute.collectOn(this, Dispatchers.Main) {
-            it.value?.let {
-                intentManager.onRouteInfo(it)
-            }
+            it.value?.let(nextRouteListener::onRouteInfo)
         }
     }
 

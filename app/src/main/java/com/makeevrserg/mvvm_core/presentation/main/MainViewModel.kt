@@ -40,10 +40,14 @@ class MainViewModel : CoreViewModel() {
             description = UiText.DynamicString("Some Description"),
             positiveButton = UIDialogButton(
                 text = UiText.DynamicString("Positive")
-            ),
+            ){
+                _uiDialogMessage.value = null
+            },
             negativeButton = UIDialogButton(
                 text = UiText.DynamicString("Negative")
-            )
+            ){
+                _uiDialogMessage.value = null
+            }
         )
     }
 

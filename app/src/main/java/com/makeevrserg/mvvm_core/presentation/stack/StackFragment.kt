@@ -1,17 +1,12 @@
 package com.makeevrserg.mvvm_core.presentation.stack
 
 import com.makeevrserg.mvvm_core.databinding.FragmentStackBinding
-import com.makeevrserg.mvvm_core.lazyIntentManager
-import com.makeevrserg.mvvm_core.presentation.main.MainViewModel
+import com.makeevrserg.mvvm_core.presentation.main.BindingFragment
 import com.makeevrserg.mvvmcore.core.lazyViewModel
-import com.makeevrserg.mvvmcore.core.presentation.CoreBindingFragment
-import com.makeevrserg.mvvmcore.core.presentation.intent_manager.IIntentManager
 
 class StackFragment :
-    CoreBindingFragment<FragmentStackBinding, StackViewModel>(FragmentStackBinding::inflate) {
+    BindingFragment<FragmentStackBinding, StackViewModel>(FragmentStackBinding::inflate) {
     override val viewModel: StackViewModel by lazyViewModel()
-
-    override val intentManager: IIntentManager<StackViewModel> by lazyIntentManager()
 
     override fun onBinding(binding: FragmentStackBinding) {
         super.onBinding(binding)

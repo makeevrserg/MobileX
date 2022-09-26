@@ -1,17 +1,14 @@
 package com.makeevrserg.mvvm_core.presentation.main
 
 import com.makeevrserg.mvvm_core.databinding.FragmentMainBinding
-import com.makeevrserg.mvvm_core.lazyIntentManager
 import com.makeevrserg.mvvmcore.core.lazyViewModel
-import com.makeevrserg.mvvmcore.core.presentation.CoreBindingFragment
-import com.makeevrserg.mvvmcore.core.presentation.intent_manager.IIntentManager
 
 
 class MainFragment :
-    CoreBindingFragment<FragmentMainBinding, MainViewModel>(FragmentMainBinding::inflate) {
-    override val viewModel: MainViewModel by lazyViewModel()
+    BindingFragment<FragmentMainBinding, MainViewModel>(FragmentMainBinding::inflate) {
 
-    override val intentManager: IIntentManager<MainViewModel> by lazyIntentManager()
+
+    override val viewModel: MainViewModel by lazyViewModel()
 
     override fun onBinding(binding: FragmentMainBinding) {
         super.onBinding(binding)
