@@ -2,10 +2,10 @@ package com.makeevrserg.mvvmcore.core.presentation.ui_provider
 
 import android.content.Context
 import androidx.fragment.app.Fragment
-import com.makeevrserg.mvvmcore.core.presentation.progress_dialog.IProgressDialog
-import com.makeevrserg.mvvmcore.core.routing.INavigationProvider
+import com.makeevrserg.mvvmcore.core.presentation.ui.IProgressDialogBuilder
+import com.makeevrserg.mvvmcore.core.presentation.ui_provider.listeners.ILoadingIndicatorListener
 
-fun Fragment.coreLoadingIndicatorListener(progressDialogProvider: () -> IProgressDialog) = lazy {
+fun Fragment.coreLoadingIndicatorListener(progressDialogProvider: () -> IProgressDialogBuilder) = lazy {
     CoreLoadingIndicatorListener(
         contextProvider = { context },
         progressDialogProvider = progressDialogProvider
@@ -13,11 +13,11 @@ fun Fragment.coreLoadingIndicatorListener(progressDialogProvider: () -> IProgres
 }
 class CoreLoadingIndicatorListener(
     val contextProvider: () -> Context?,
-    val progressDialogProvider: () -> IProgressDialog,
+    val progressDialogProvider: () -> IProgressDialogBuilder,
 ) : ILoadingIndicatorListener {
     val progressDialog by lazy {
         val provider = progressDialogProvider()
-        contextProvider()?.let(provider::provide)
+        contextProvider()?.let(provider::build)
     }
 
     override fun onLoadingIndication(state: Boolean) {

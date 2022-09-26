@@ -1,4 +1,4 @@
-package com.makeevrserg.mvvmcore.core.presentation.progress_dialog
+package com.makeevrserg.mvvmcore.core.presentation.ui
 
 import android.app.Dialog
 import android.content.Context
@@ -7,8 +7,8 @@ import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AlertDialog
 import com.makeevrserg.mvvmcore.core.R
 
-object CoreProgressDialog : IProgressDialog {
-    override fun provide(context: Context): Dialog = AlertDialog.Builder(context).apply {
+object CoreProgressDialog : IProgressDialogBuilder {
+    override fun build(context: Context): Dialog = AlertDialog.Builder(context).apply {
         this.setView(R.layout.progress_dialog)
         setCancelable(false)
     }.create().apply {

@@ -1,12 +1,12 @@
-package com.makeevrserg.mvvmcore.core.presentation.ui_dialog
+package com.makeevrserg.mvvmcore.core.presentation.ui
 
 import android.app.Dialog
 import android.content.Context
 import androidx.appcompat.app.AlertDialog
 import com.makeevrserg.mvvmcore.core.UIDialogMessage
 
-object CoreAlertUiDialog : IUiDialogProvider {
-    override fun provide(context: Context, uiDialogMessage: UIDialogMessage): Dialog =
+object CoreAlertUiDialog : IUiDialogBuilder {
+    override fun build(context: Context, uiDialogMessage: UIDialogMessage): Dialog =
         AlertDialog.Builder(context).apply {
             this.setCancelable(uiDialogMessage.isCancellable)
             this.setTitle(uiDialogMessage.title.asString(context))

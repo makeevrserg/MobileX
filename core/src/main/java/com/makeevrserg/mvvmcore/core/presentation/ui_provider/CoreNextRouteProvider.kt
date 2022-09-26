@@ -2,7 +2,7 @@ package com.makeevrserg.mvvmcore.core.presentation.ui_provider
 
 import android.content.Context
 import androidx.fragment.app.Fragment
-import com.makeevrserg.mvvmcore.core.presentation.ui_dialog.IUiDialogProvider
+import com.makeevrserg.mvvmcore.core.presentation.ui_provider.listeners.INextRouteListener
 import com.makeevrserg.mvvmcore.core.routing.INavigationProvider
 import com.makeevrserg.mvvmcore.core.routing.RouteInfo
 

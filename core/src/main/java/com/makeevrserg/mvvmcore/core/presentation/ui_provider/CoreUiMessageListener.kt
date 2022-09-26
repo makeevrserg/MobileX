@@ -6,6 +6,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.google.android.material.snackbar.Snackbar
 import com.makeevrserg.mvvmcore.core.UIMessage
+import com.makeevrserg.mvvmcore.core.presentation.ui_provider.listeners.IUiMessageListener
 
 fun Fragment.coreUiMessageListener() = lazy {
     CoreUiMessageListener { context }
