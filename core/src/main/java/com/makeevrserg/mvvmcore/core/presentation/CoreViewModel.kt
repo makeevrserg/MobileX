@@ -4,10 +4,10 @@ import androidx.lifecycle.ViewModel
 import com.makeevrserg.mvvmcore.core.SingleLiveEvent
 import com.makeevrserg.mvvmcore.core.UIDialogMessage
 import com.makeevrserg.mvvmcore.core.UIMessage
-import com.makeevrserg.mvvmcore.core.presentation.ui_provider.ILoadingIndicatorProvider
-import com.makeevrserg.mvvmcore.core.presentation.ui_provider.INextRouteProvider
-import com.makeevrserg.mvvmcore.core.presentation.ui_provider.IUiDialogProvider
-import com.makeevrserg.mvvmcore.core.presentation.ui_provider.IUiMessageProvider
+import com.makeevrserg.mvvmcore.core.presentation.ui_provider.providers.ILoadingIndicatorProvider
+import com.makeevrserg.mvvmcore.core.presentation.ui_provider.providers.INextRouteProvider
+import com.makeevrserg.mvvmcore.core.presentation.ui_provider.providers.IUiDialogProvider
+import com.makeevrserg.mvvmcore.core.presentation.ui_provider.providers.IUiMessageProvider
 import com.makeevrserg.mvvmcore.core.routing.RouteAction
 import com.makeevrserg.mvvmcore.core.routing.RouteInfo
 import kotlinx.coroutines.flow.MutableStateFlow

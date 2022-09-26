@@ -7,10 +7,10 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
 import com.makeevrserg.mvvmcore.core.collectOn
-import com.makeevrserg.mvvmcore.core.presentation.ui_provider.ILoadingIndicatorListener
-import com.makeevrserg.mvvmcore.core.presentation.ui_provider.INextRouteListener
-import com.makeevrserg.mvvmcore.core.presentation.ui_provider.IUiDialogListener
-import com.makeevrserg.mvvmcore.core.presentation.ui_provider.IUiMessageListener
+import com.makeevrserg.mvvmcore.core.presentation.ui_provider.listeners.ILoadingIndicatorListener
+import com.makeevrserg.mvvmcore.core.presentation.ui_provider.listeners.INextRouteListener
+import com.makeevrserg.mvvmcore.core.presentation.ui_provider.listeners.IUiDialogListener
+import com.makeevrserg.mvvmcore.core.presentation.ui_provider.listeners.IUiMessageListener
 import kotlinx.coroutines.Dispatchers
 
 /**

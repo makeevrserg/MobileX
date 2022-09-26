@@ -35,6 +35,9 @@ class MainFragment :
             viewModel.onListOpenClicked()
 
         }
+        binding.bComposeActivity.setOnClickListener {
+            viewModel.onCompsoeActivityClicked()
+        }
     }
 }
 

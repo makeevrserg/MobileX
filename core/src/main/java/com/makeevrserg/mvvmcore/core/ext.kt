@@ -17,10 +17,10 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch
 import java.io.Serializable
 
-inline fun <T> Flow<T>.collectOn(
+fun <T> Flow<T>.collectOn(
     lifecycleOwner: LifecycleOwner,
     scope: CoroutineDispatcher = Dispatchers.Main,
-    crossinline action: suspend CoroutineScope.(value: T) -> Unit
+    action: suspend CoroutineScope.(value: T) -> Unit
 ): Job = lifecycleOwner.lifecycleScope.launch(scope) {
     collect {
         action(it)

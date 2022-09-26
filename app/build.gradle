@@ -32,6 +32,10 @@ android {
     }
     buildFeatures {
         viewBinding true
+        compose true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion = compose_kotlinCompilerExtensionVersion
     }
 }
 
@@ -52,4 +56,15 @@ dependencies {
     androidTestImplementation "androidx.test.espresso:espresso-core:$espressoCore"
 //    implementation 'com.github.makeevrserg:MVVM-core:1.0.1'
     implementation(project(":core"))
+    implementation(project(":core-compose"))
+
+    // compose
+    implementation "androidx.activity:activity-compose:$activityCompose"
+    implementation "androidx.compose.material:material:$composeMaterial"
+    implementation "androidx.compose.animation:animation:$composeAnimation"
+    implementation "androidx.compose.ui:ui-tooling:$composeUiTooling"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-compose:$lifecycleViewModelCompose"
+
+    debugImplementation "androidx.compose.ui:ui-tooling:$composeUiTooling"
+    implementation "androidx.compose.ui:ui-tooling-preview:$composeUiTooling"
 }

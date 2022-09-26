@@ -2,6 +2,7 @@ package com.makeevrserg.mvvm_core.presentation.main
 
 import androidx.lifecycle.viewModelScope
 import com.makeevrserg.mvvm_core.main.NavigationProvider
+import com.makeevrserg.mvvm_core.presentation.compose.ExampleComposeActivity
 import com.makeevrserg.mvvmcore.core.UIDialogButton
 import com.makeevrserg.mvvmcore.core.UIDialogMessage
 import com.makeevrserg.mvvmcore.core.UIMessage
@@ -53,5 +54,9 @@ class MainViewModel : CoreViewModel() {
 
     fun onListOpenClicked() {
         _nextRoute.value = RouteInfo.NextScreen(NavigationProvider.List).singleLiveEvent()
+    }
+
+    fun onCompsoeActivityClicked() {
+        _nextRoute.value = RouteInfo.Intent(ExampleComposeActivity::class.java).singleLiveEvent()
     }
 }

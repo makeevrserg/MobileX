@@ -1,7 +1,7 @@
 package com.makeevrserg.mvvmcore.core
 
 
-sealed class UIMessage {
-    class SnackBar(val uiText: UiText) : UIMessage()
-    class Toast(val uiText: UiText) : UIMessage()
+sealed class UIMessage(val uiText: UiText) {
+    class SnackBar(uiText: UiText) : UIMessage(uiText)
+    class Toast(uiText: UiText) : UIMessage(uiText)
 }
