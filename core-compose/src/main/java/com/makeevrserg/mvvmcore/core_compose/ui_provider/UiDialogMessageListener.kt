@@ -7,6 +7,9 @@ import com.makeevrserg.mvvmcore.core.UIDialogMessage
 import com.makeevrserg.mvvmcore.core.collectOn
 import com.makeevrserg.mvvmcore.core.presentation.ui_provider.providers.IUiDialogProvider
 
+/**
+ *
+ */
 @Composable
 fun UiDialogMessageListener(
     provider: IUiDialogProvider,

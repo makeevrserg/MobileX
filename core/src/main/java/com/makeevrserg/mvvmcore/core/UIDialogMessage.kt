@@ -1,5 +1,8 @@
 package com.makeevrserg.mvvmcore.core
 
+/**
+ * This class is created for handling ui dialogs from viewmodel by stateFlow or etc
+ */
 class UIDialogMessage(
     val title: UiText,
     val description: UiText,

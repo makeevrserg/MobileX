@@ -3,7 +3,7 @@ package com.makeevrserg.mvvmcore.core.routing
 import android.content.Context
 
 /**
- * Тут можно будет вложить также интенты и бандлы при необходимости в будещм
+ * This class allows you to navigation from ViewModels
  */
 sealed class RouteInfo {
     class NextScreen(

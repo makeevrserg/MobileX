@@ -16,11 +16,17 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch
 
+/**
+ * Observe liveData in compose without passing a context
+ */
 @Composable
 fun <T> LiveData<T>.Observe(observer: Observer<T>) {
     this.observe(LocalLifecycleOwner.current, observer)
 }
 
+/**
+ * Compose support for [UiText]
+ */
 @Composable
 fun UiText.asString(): String {
     return when (this) {
@@ -29,6 +35,9 @@ fun UiText.asString(): String {
     }
 }
 
+/**
+ * Compose support for collectOn method without passing a context
+ */
 @Composable
 fun <T> Flow<T>.collectOn(
     scope: CoroutineDispatcher = Dispatchers.Main,

@@ -14,12 +14,12 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 
 /**
- * Не всем экранам нужны ViewModel'и
+ * Not every screen need viewModels, so here's empty one
  */
 class EmptyViewModel : CoreViewModel()
 
 /**
- * Базовая ViewModel для экранов - есть некоторые штуки из RX, с которыми в принципе, нет взаимодействия из вне
+ * Basic viewModel for your needs
  */
 abstract class CoreViewModel() : ViewModel(),
     IUiMessageProvider,
@@ -27,10 +27,6 @@ abstract class CoreViewModel() : ViewModel(),
     ILoadingIndicatorProvider,
     INextRouteProvider {
 
-    /**
-     * UI message, которое обсервится во фрагменте
-     * Возможно, можно заменить на MutableSharedFlow чтобы не использовать SingleLiveEvent
-     */
     protected val _uiMessage = MutableStateFlow<SingleLiveEvent<UIMessage>>(SingleLiveEvent())
     override val uiMessage: StateFlow<SingleLiveEvent<UIMessage>>
         get() = _uiMessage
@@ -39,32 +35,20 @@ abstract class CoreViewModel() : ViewModel(),
     override val uiDialogMessage: StateFlow<UIDialogMessage?>
         get() = _uiDialogMessage
 
-    /**
-     * На экранах можно поставить загрузку, которая блокирует пользовательский Interaction
-     */
     protected val _loadingIndicator = MutableStateFlow(false)
     override val loadingIndicator: StateFlow<Boolean>
         get() = _loadingIndicator
 
-    /**
-     * Навигация во ViewModel'и
-     */
     protected val _nextRoute = MutableStateFlow<SingleLiveEvent<RouteInfo>>(SingleLiveEvent())
     override val nextRoute: StateFlow<SingleLiveEvent<RouteInfo>>
         get() = _nextRoute
 
 
-    /**
-     * Передача параметров из фрагмента в фрагмент
-     */
     protected val _routeAction = MutableStateFlow(SingleLiveEvent<RouteAction<*>>())
     val routeAction: StateFlow<SingleLiveEvent<RouteAction<*>>>
         get() = _routeAction
 
 
-    /**
-     * При первом биндинге - вызывается эта функция
-     */
     open fun onBinding() = Unit
 
     open fun onCreate() = Unit

@@ -13,11 +13,6 @@ import com.makeevrserg.mvvmcore.core.presentation.ui_provider.listeners.IUiDialo
 import com.makeevrserg.mvvmcore.core.presentation.ui_provider.listeners.IUiMessageListener
 import kotlinx.coroutines.Dispatchers
 
-/**
- * Во многих экранах используется android sythetic, который уже давно устарел
- * Этот класс позволяет довольно легко создавать MVVM экраны с ViewBinding'ом и содержит вроде бы всё, что может пригодиться
- * Наследуется от [BaseFragment] - проект очень сильно завязан на MVP, сложно уйти от этого
- */
 abstract class CoreBindingFragment<T : ViewBinding, V : CoreViewModel>(private val bindingFactory: (LayoutInflater) -> T) :
     Fragment() {
 

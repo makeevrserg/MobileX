@@ -1,13 +1,13 @@
 package com.makeevrserg.mvvmcore.core
 
 /**
- * Конвертирует объект в SingleLiveEvent - чтобы не обертывать его в класс
+ * Converting object into SingleLiveEvent sou you won't need to wrap it in class
  */
 fun <T> T.singleLiveEvent() = SingleLiveEvent(this)
 
 /**
- * Класс необходим для реализации единоразового эвента, который должен быть собран единожды
- * Сообщение, роутинг
+ * This class is useful for creating single events
+ * For example: Message, Routing
  */
 class SingleLiveEvent<T>() {
     var value: T? = null

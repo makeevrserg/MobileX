@@ -1,5 +1,9 @@
 package com.makeevrserg.mvvmcore.core
 
+/**
+ * This loading state is useful in custom ui states.
+ * For example list loading from REST-api
+ */
 sealed interface LoadingState {
     object Loading : LoadingState
     object Loaded : LoadingState

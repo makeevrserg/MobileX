@@ -4,10 +4,10 @@ import android.content.Context
 import androidx.annotation.StringRes
 
 /**
- * Позволяет создавать сообщения из ViewModel'ей без привлечения котнекста
- * Будет также работать и с Compsoe, однаком нужно будет добавить Composable функцию
+ * This class allows to create messages from ViewModel without context
+ * The compose integration also avaliable in core-compose
  */
-sealed class UiText() {
+sealed class UiText {
     companion object {
         operator fun invoke(
             resId: Int,
