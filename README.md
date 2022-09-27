@@ -1,5 +1,5 @@
 
-[![jitpack](https://img.shields.io/jitpack/version/com.github.makeevrserg/MVVM-core?style=for-the-badge)](https://github.com/makeevrserg/MVVM-core/releases)
+[![jitpack](https://img.shields.io/jitpack/version/com.github.makeevrserg/AndroidEssentials?style=for-the-badge)](https://github.com/makeevrserg/AndroidEssentials/releases)
 
 # MVVM-core
 MVVM core is a library which I'm using in my projects - it helps to reduce boiler-plate code a lot
@@ -8,7 +8,7 @@ MVVM core is a library which I'm using in my projects - it helps to reduce boile
 
 Add required modules to your module`s build.gradle file:
 ```groovy
-implementation 'com.github.makeevrserg:MVVM-core:<version>'
+implementation 'com.github.makeevrserg:AndroidEssentials:<version>'
 ```
 
 Add jitpack
