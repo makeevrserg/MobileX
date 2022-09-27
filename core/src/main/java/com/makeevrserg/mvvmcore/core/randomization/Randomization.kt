@@ -13,15 +13,13 @@ object Randomization {
     inline fun <reified T> randomize(): T = randomize(T::class.java)
 
     fun <T> randomize(clazz: Class<T>): T = when (clazz) {
-        Int::class.java -> Random.nextInt(Int.MAX_VALUE) as T
+        java.lang.Integer::class.java, Int::class.java -> Random.nextInt(Int.MAX_VALUE) as T
         Long::class.java -> Random.nextInt(Int.MAX_VALUE).toLong() as T
         String::class.java -> UUID.randomUUID().toString() as T
-        Double::class.java -> Random.nextDouble(Double.MAX_VALUE) as T
-        Float::class.java -> Random.nextDouble(Double.MAX_VALUE).toFloat() as T
+        java.lang.Double::class.java,Double::class.java -> Random.nextDouble(Double.MAX_VALUE) as T
+        java.lang.Float::class.java, Float::class.java -> Random.nextDouble(Double.MAX_VALUE).toFloat() as T
         Char::class.java -> UUID.randomUUID().toString()[0] as T
-        Boolean::class.java -> Random.nextBoolean() as T
-        java.lang.Boolean::class.java -> Random.nextBoolean() as T
-        java.lang.Integer::class.java -> Random.nextInt(Int.MAX_VALUE) as T
+        java.lang.Boolean::class.java, Boolean::class.java -> Random.nextBoolean() as T
         else -> throw Exception("Unknown type ${clazz}")
     }
 }
