@@ -5,6 +5,7 @@ import com.github.terrakok.cicerone.androidx.FragmentScreen
 import com.makeevrserg.mvvm_core.databinding.FragmentStackBinding
 import com.makeevrserg.mvvm_core.main.App
 import com.makeevrserg.mvvm_core.main.CiceroneNavigationProvider
+import com.makeevrserg.mvvm_core.modules.RouterModule
 import com.makeevrserg.mvvmcore.core.lazyViewModel
 import com.makeevrserg.mvvmcore.core.presentation.BindingFragment
 import com.makeevrserg.mvvmcore.core.routing.INavigationProvider
@@ -16,7 +17,7 @@ class StackFragment :
     val viewModel: StackViewModel by lazyViewModel()
     override val contextProvider: () -> Context? = { context }
     override val navigationProvider: INavigationProvider<FragmentScreen> =
-        CiceroneNavigationProvider(App.router)
+        CiceroneNavigationProvider(RouterModule.value)
 
     override fun onBinding(binding: FragmentStackBinding) {
         super.onBinding(binding)
