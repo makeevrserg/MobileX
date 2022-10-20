@@ -6,8 +6,8 @@ import android.content.Context
  * This class allows you to navigation from ViewModels
  */
 sealed class RouteInfo {
-    class NextScreen(
-        val screenProvider: IScreenProvider,
+    class NextScreen<T>(
+        val screen: T,
         val clearBackStack: Boolean = false,
         val replaceScreen: Boolean = false
     ) : RouteInfo()
@@ -16,13 +16,11 @@ sealed class RouteInfo {
     class Intent<T>(val clazz: Class<T>) : RouteInfo()
 }
 
-interface IScreenProvider
+interface INavigationProvider<T> {
 
-interface INavigationProvider {
-
-    fun replaceScreen(routeInfo: RouteInfo.NextScreen)
-    fun clearBackStack(routeInfo: RouteInfo.NextScreen)
-    fun navigateTo(routeInfo: RouteInfo.NextScreen)
+    fun replaceScreen(routeInfo: RouteInfo.NextScreen<T>)
+    fun clearBackStack(routeInfo: RouteInfo.NextScreen<T>)
+    fun navigateTo(routeInfo: RouteInfo.NextScreen<T>)
     fun popBack(routeInfo: RouteInfo.PopBack)
-    fun <T> intent(context: Context, routeInfo: RouteInfo.Intent<T>)
+    fun <K> intent(context: Context, routeInfo: RouteInfo.Intent<K>)
 }

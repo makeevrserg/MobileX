@@ -1,62 +1,74 @@
 package com.makeevrserg.mvvm_core.presentation.main
 
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.makeevrserg.mvvm_core.main.NavigationProvider
 import com.makeevrserg.mvvm_core.presentation.compose.ExampleComposeActivity
-import com.makeevrserg.mvvmcore.core.UIDialogButton
-import com.makeevrserg.mvvmcore.core.UIDialogMessage
-import com.makeevrserg.mvvmcore.core.UIMessage
-import com.makeevrserg.mvvmcore.core.UiText
-import com.makeevrserg.mvvmcore.core.presentation.CoreViewModel
+import com.makeevrserg.mvvmcore.core.ui.UIDialogButton
+import com.makeevrserg.mvvmcore.core.ui.UIDialogMessage
+import com.makeevrserg.mvvmcore.core.ui.UIMessage
 import com.makeevrserg.mvvmcore.core.routing.RouteInfo
-import com.makeevrserg.mvvmcore.core.singleLiveEvent
+import com.makeevrserg.mvvmcore.core.ui.UiText
+import com.makeevrserg.mvvmcore.core.ui.SingleLiveEvent
+import com.makeevrserg.mvvmcore.core.ui.dialog.IUIDialogAction
+import com.makeevrserg.mvvmcore.core.ui.emptyLiveEvent
+import com.makeevrserg.mvvmcore.core.ui.loading.IUILoadingAction
+import com.makeevrserg.mvvmcore.core.ui.message.IUIMessageAction
+import com.makeevrserg.mvvmcore.core.ui.route.IUIRouteAction
+import com.makeevrserg.mvvmcore.core.ui.nullableStateFlow
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
 
-class MainViewModel : CoreViewModel() {
+
+class MainViewModel : ViewModel(), IUIRouteAction, IUIDialogAction, IUILoadingAction,
+    IUIMessageAction {
+    override val uiMessage: MutableStateFlow<SingleLiveEvent<UIMessage>> by emptyLiveEvent()
+    override val uiDialog: MutableStateFlow<UIDialogMessage?> by nullableStateFlow()
+    override val uiLoading: MutableStateFlow<Boolean?> by nullableStateFlow()
+    override val uiRoute: MutableStateFlow<SingleLiveEvent<RouteInfo>> by emptyLiveEvent()
     fun onBasicNavigationClicked() {
-        _nextRoute.value = RouteInfo.NextScreen(NavigationProvider.Stack).singleLiveEvent()
+        RouteInfo.NextScreen(NavigationProvider.Stack).navigate()
     }
 
     fun onShowToastClicked() {
-        val toastUiText = UiText.DynamicString("Toast")
-        _uiMessage.value = UIMessage.Toast(toastUiText).singleLiveEvent()
+        UiText.DynamicString("Toast").sendToast()
     }
 
     fun onShoSnackbarClicked() {
-        val toastUiText = UiText.DynamicString("Snackbar")
-        _uiMessage.value = UIMessage.SnackBar(toastUiText).singleLiveEvent()
+        UiText.DynamicString("Snackbar").sendSnackbar()
     }
 
     fun onShowLoadingClicked() = viewModelScope.launch {
-        _loadingIndicator.value = true
+        setLoading(true)
         delay(2000)
-        _loadingIndicator.value = false
+        setLoading(false)
     }
 
 
     fun onShowDialogClicked() {
-        _uiDialogMessage.value = UIDialogMessage(
+        UIDialogMessage(
             title = UiText.DynamicString("Some Title"),
             description = UiText.DynamicString("Some Description"),
+            isCancellable = false,
             positiveButton = UIDialogButton(
-                text = UiText.DynamicString("Positive")
-            ){
-                _uiDialogMessage.value = null
-            },
+                text = UiText.DynamicString("Positive"),
+                ::clearUiDialog
+            ),
             negativeButton = UIDialogButton(
-                text = UiText.DynamicString("Negative")
-            ){
-                _uiDialogMessage.value = null
-            }
-        )
+                text = UiText.DynamicString("Negative"),
+                ::clearUiDialog
+            )
+        ).send()
     }
 
     fun onListOpenClicked() {
-        _nextRoute.value = RouteInfo.NextScreen(NavigationProvider.List).singleLiveEvent()
+        RouteInfo.NextScreen(NavigationProvider.List).navigate()
     }
 
-    fun onCompsoeActivityClicked() {
-        _nextRoute.value = RouteInfo.Intent(ExampleComposeActivity::class.java).singleLiveEvent()
+    fun onComposeActivityClicked() {
+        RouteInfo.Intent(ExampleComposeActivity::class.java).navigate()
     }
+
+
 }

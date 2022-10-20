@@ -1,42 +1,46 @@
 package com.makeevrserg.mvvm_core.presentation.stack
 
+import androidx.lifecycle.ViewModel
 import com.makeevrserg.mvvm_core.main.MainActivity
 import com.makeevrserg.mvvm_core.main.NavigationProvider
-import com.makeevrserg.mvvmcore.core.presentation.CoreViewModel
 import com.makeevrserg.mvvmcore.core.routing.RouteInfo
-import com.makeevrserg.mvvmcore.core.singleLiveEvent
+import com.makeevrserg.mvvmcore.core.ui.SingleLiveEvent
+import com.makeevrserg.mvvmcore.core.ui.emptyLiveEvent
+import com.makeevrserg.mvvmcore.core.ui.route.IUIRouteAction
+import com.makeevrserg.mvvmcore.core.ui.singleLiveEvent
+import kotlinx.coroutines.flow.MutableStateFlow
 
-class StackViewModel : CoreViewModel() {
+class StackViewModel : ViewModel(), IUIRouteAction {
     companion object {
         var totalActiveViewModels = 0
     }
 
+    override val uiRoute: MutableStateFlow<SingleLiveEvent<RouteInfo>> by emptyLiveEvent()
+
     val count = totalActiveViewModels++
 
     fun onClearBackStackClicked() {
-        _nextRoute.value =
-            RouteInfo.NextScreen(NavigationProvider.Stack, clearBackStack = true).singleLiveEvent()
+        RouteInfo.NextScreen(NavigationProvider.Stack, clearBackStack = true).navigate()
     }
 
     fun onIntentClicked() {
-        _nextRoute.value = RouteInfo.Intent(MainActivity::class.java).singleLiveEvent()
+        RouteInfo.Intent(MainActivity::class.java).navigate()
     }
 
     fun onPopBackClicked() {
-        _nextRoute.value = RouteInfo.PopBack.singleLiveEvent()
+        RouteInfo.PopBack.navigate()
     }
 
     fun onReplaceScreenClicked() {
-        _nextRoute.value =
-            RouteInfo.NextScreen(NavigationProvider.Stack, replaceScreen = true).singleLiveEvent()
+        RouteInfo.NextScreen(NavigationProvider.Stack, replaceScreen = true).navigate()
     }
 
     fun onNewScreenClicked() {
-        _nextRoute.value =
-            RouteInfo.NextScreen(NavigationProvider.Stack).singleLiveEvent()
+        RouteInfo.NextScreen(NavigationProvider.Stack).navigate()
     }
 
     fun onViewDestroy() {
         totalActiveViewModels--
     }
+
 }

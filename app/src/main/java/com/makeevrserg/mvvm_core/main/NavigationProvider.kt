@@ -6,19 +6,17 @@ import com.github.terrakok.cicerone.androidx.FragmentScreen
 import com.makeevrserg.mvvm_core.presentation.list.ListFragment
 import com.makeevrserg.mvvm_core.presentation.main.MainFragment
 import com.makeevrserg.mvvm_core.presentation.stack.StackFragment
-import com.makeevrserg.mvvmcore.core.routing.INavigationProvider
-import com.makeevrserg.mvvmcore.core.routing.IScreenProvider
 
 object NavigationProvider {
-    val Main: IScreenProvider = object : FragmentScreen, IScreenProvider {
+    val Main = object : FragmentScreen {
         override fun createFragment(factory: FragmentFactory): Fragment = MainFragment()
-
     }
-    val Stack: IScreenProvider = object : FragmentScreen, IScreenProvider {
+
+    val Stack = object : FragmentScreen {
         override fun createFragment(factory: FragmentFactory): Fragment = StackFragment()
 
     }
-    val List: IScreenProvider = object : FragmentScreen, IScreenProvider {
+    val List = object : FragmentScreen {
         override fun createFragment(factory: FragmentFactory): Fragment = ListFragment()
 
     }

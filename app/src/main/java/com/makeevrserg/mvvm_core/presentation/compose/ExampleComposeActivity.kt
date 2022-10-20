@@ -7,7 +7,6 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -16,7 +15,6 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Button
 import androidx.compose.material.CircularProgressIndicator
-import androidx.compose.material.Colors
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
@@ -30,12 +28,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
 import com.makeevrserg.mvvm_core.presentation.main.MainViewModel
-import com.makeevrserg.mvvmcore.core.UIDialogMessage
+import com.makeevrserg.mvvmcore.core.ui.UIDialogMessage
 import com.makeevrserg.mvvmcore.core.lazyViewModel
 import com.makeevrserg.mvvmcore.core_compose.asString
-import com.makeevrserg.mvvmcore.core_compose.ui_provider.LoadingIndicatorListener
-import com.makeevrserg.mvvmcore.core_compose.ui_provider.UiDialogMessageListener
-import com.makeevrserg.mvvmcore.core_compose.ui_provider.UiMessageListener
 
 class ExampleComposeActivity : ComponentActivity() {
     val viewModel: MainViewModel by lazyViewModel()
@@ -64,11 +59,11 @@ class ExampleComposeActivity : ComponentActivity() {
                     }
                 }
             }
-            LoadingIndicatorListener(viewModel) { MyLoadingIndication(it) }
-            UiMessageListener(provider = viewModel)
-            UiDialogMessageListener(provider = viewModel) {
-                ConfirmDialog(it)
-            }
+//            LoadingIndicatorListener(viewModel) { MyLoadingIndication(it) }
+//            UiMessageListener(provider = viewModel)
+//            UiDialogMessageListener(provider = viewModel) {
+//                ConfirmDialog(it)
+//            }
         }
     }
 }
@@ -108,7 +103,7 @@ fun CubicDialog(
 
 @Composable
 fun ConfirmDialog(
-    message:UIDialogMessage,
+    message: UIDialogMessage,
 ) {
     CubicDialog(title = {
             Text(

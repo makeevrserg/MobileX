@@ -4,11 +4,11 @@ import android.content.SharedPreferences
 import androidx.core.content.edit
 import kotlinx.coroutines.flow.MutableStateFlow
 
-class BoolSharedPref(
-    override val sharedPreferences: SharedPreferences,
+class BoolLocalStorage(
+    private val sharedPreferences: SharedPreferences,
     override val key: String,
     override val default: Boolean,
-) : ISharedPref<Boolean>() {
+) : ILocalStorage<Boolean>() {
     override val _mutableStateFlow: MutableStateFlow<Boolean> = MutableStateFlow(loadValue())
     override fun setValue(it: Boolean) {
         super.setValue(it)

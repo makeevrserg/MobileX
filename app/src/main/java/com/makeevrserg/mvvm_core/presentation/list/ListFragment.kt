@@ -2,13 +2,13 @@ package com.makeevrserg.mvvm_core.presentation.list
 
 import com.makeevrserg.mvvm_core.databinding.FragmentListBinding
 import com.makeevrserg.mvvm_core.presentation.list.adapter.ExampleAdapter
-import com.makeevrserg.mvvm_core.presentation.main.BindingFragment
 import com.makeevrserg.mvvmcore.core.lazyViewModel
+import com.makeevrserg.mvvmcore.core.presentation.BindingFragment
 import com.makeevrserg.mvvmcore.core.randomization.Randomization
 
 class ListFragment :
-    BindingFragment<FragmentListBinding, ListViewModel>(FragmentListBinding::inflate) {
-    override val viewModel: ListViewModel by lazyViewModel()
+    BindingFragment<FragmentListBinding>(FragmentListBinding::inflate) {
+    val viewModel: ListViewModel by lazyViewModel()
     private val adapter by lazy { ExampleAdapter() }
 
     private val list = Randomization.ofList(1000) {

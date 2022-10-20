@@ -1,4 +1,4 @@
-package com.makeevrserg.mvvmcore.core
+package com.makeevrserg.mvvmcore.core.ui
 
 /**
  * This class is created for handling ui dialogs from viewmodel by stateFlow or etc

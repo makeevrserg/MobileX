@@ -1,4 +1,4 @@
-package com.makeevrserg.mvvmcore.core
+package com.makeevrserg.mvvmcore.core.ui
 
 /**
  * This class allows you to handle snackbars and toast from viewModel by stateFlow or etc

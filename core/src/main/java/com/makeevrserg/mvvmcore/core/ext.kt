@@ -14,29 +14,35 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import java.io.Serializable
 
 /**
  * This function is intended to reduce boilerplate and callback-hell
  */
-fun <T> Flow<T>.collectOn(
+fun <T> MutableStateFlow<T>.collectOn(
     lifecycleOwner: LifecycleOwner,
     scope: CoroutineDispatcher = Dispatchers.Main,
     action: suspend CoroutineScope.(value: T) -> Unit
 ): Job = lifecycleOwner.lifecycleScope.launch(scope) {
-    collect {
+    if (this@collectOn.subscriptionCount.value >= 1) return@launch
+    collectLatest {
         action(it)
     }
 }
+
 /**
  * Lazy viewModel initialization in activities and fragments
  */
-inline fun <reified T : ViewModel> HasDefaultViewModelProviderFactory.lazyViewModel(): Lazy<T> = lazy {
-    defaultViewModelProviderFactory.create(T::class.java)
-}
+inline fun <reified T : ViewModel> HasDefaultViewModelProviderFactory.lazyViewModel(): Lazy<T> =
+    lazy {
+        defaultViewModelProviderFactory.create(T::class.java)
+    }
 
-inline fun <reified T: Serializable> simpleName() = T::class.java.simpleName
+inline fun <reified T : Serializable> simpleName() = T::class.java.simpleName
 
 /**
  * Save [Serializable] in bundle without passing a name

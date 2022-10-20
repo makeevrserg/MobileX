@@ -7,17 +7,17 @@ import com.github.terrakok.cicerone.androidx.FragmentScreen
 import com.makeevrserg.mvvmcore.core.routing.INavigationProvider
 import com.makeevrserg.mvvmcore.core.routing.RouteInfo
 
-class CiceroneNavigationProvider(private val router: Router) : INavigationProvider {
-    override fun replaceScreen(routeInfo: RouteInfo.NextScreen) {
-        router.replaceScreen(routeInfo.screenProvider as FragmentScreen)
+class CiceroneNavigationProvider(private val router: Router) : INavigationProvider<FragmentScreen> {
+    override fun replaceScreen(routeInfo: RouteInfo.NextScreen<FragmentScreen>) {
+        router.replaceScreen(routeInfo.screen as FragmentScreen)
     }
 
-    override fun clearBackStack(routeInfo: RouteInfo.NextScreen) {
-        router.newRootChain(routeInfo.screenProvider as FragmentScreen)
+    override fun clearBackStack(routeInfo: RouteInfo.NextScreen<FragmentScreen>) {
+        router.newRootChain(routeInfo.screen as FragmentScreen)
     }
 
-    override fun navigateTo(routeInfo: RouteInfo.NextScreen) {
-        router.navigateTo(routeInfo.screenProvider as FragmentScreen)
+    override fun navigateTo(routeInfo: RouteInfo.NextScreen<FragmentScreen>) {
+        router.navigateTo(routeInfo.screen as FragmentScreen)
     }
 
     override fun popBack(routeInfo: RouteInfo.PopBack) {

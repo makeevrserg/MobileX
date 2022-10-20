@@ -1,6 +1,6 @@
 package com.makeevrserg.mvvm_core.presentation.list
 
-import com.makeevrserg.mvvmcore.core.presentation.CoreViewModel
+import androidx.lifecycle.ViewModel
 
-class ListViewModel : CoreViewModel() {
+class ListViewModel : ViewModel() {
 }
