@@ -3,6 +3,7 @@ package com.makeevrserg.mvvm_core.presentation.main
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.makeevrserg.mvvm_core.main.NavigationProvider
+import com.makeevrserg.mvvm_core.presentation.compose.ComposeScreen
 import com.makeevrserg.mvvm_core.presentation.compose.ExampleComposeActivity
 import com.makeevrserg.mvvmcore.core.ui.UIDialogButton
 import com.makeevrserg.mvvmcore.core.ui.UIDialogMessage
@@ -19,13 +20,14 @@ import com.makeevrserg.mvvmcore.core.ui.nullableStateFlow
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
+import java.util.UUID
 
 
 class MainViewModel : ViewModel(), IUIRouteAction, IUIDialogAction, IUILoadingAction,
     IUIMessageAction {
     override val uiMessage: MutableStateFlow<SingleLiveEvent<UIMessage>> by emptyLiveEvent()
     override val uiDialog: MutableStateFlow<UIDialogMessage?> by nullableStateFlow()
-    override val uiLoading: MutableStateFlow<Boolean?> by nullableStateFlow()
+    override val uiLoading: MutableStateFlow<Boolean> = MutableStateFlow<Boolean>(false)
     override val uiRoute: MutableStateFlow<SingleLiveEvent<RouteInfo>> by emptyLiveEvent()
     fun onBasicNavigationClicked() {
         RouteInfo.NextScreen(NavigationProvider.Stack).navigate()
@@ -45,7 +47,9 @@ class MainViewModel : ViewModel(), IUIRouteAction, IUIDialogAction, IUILoadingAc
         setLoading(false)
     }
 
-
+    fun openComposeScreen(){
+        RouteInfo.NextScreen(ComposeScreen.Custom(UUID.randomUUID().toString())).navigate()
+    }
     fun onShowDialogClicked() {
         UIDialogMessage(
             title = UiText.DynamicString("Some Title"),

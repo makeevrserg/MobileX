@@ -5,7 +5,6 @@ import android.content.Context
 import android.view.View
 import com.github.terrakok.cicerone.androidx.FragmentScreen
 import com.makeevrserg.mvvm_core.databinding.FragmentMainBinding
-import com.makeevrserg.mvvm_core.main.App
 import com.makeevrserg.mvvm_core.main.CiceroneNavigationProvider
 import com.makeevrserg.mvvmcore.core.ui.UIDialogMessage
 import com.makeevrserg.mvvmcore.core.lazyViewModel
@@ -13,7 +12,7 @@ import com.makeevrserg.mvvmcore.core.presentation.BindingFragment
 import com.makeevrserg.mvvm_core.CoreAlertUiDialog
 import com.makeevrserg.mvvm_core.CoreProgressDialog
 import com.makeevrserg.mvvm_core.modules.RouterModule
-import com.makeevrserg.mvvmcore.core.routing.INavigationProvider
+import com.makeevrserg.mvvmcore.core.routing.IRouter
 import com.makeevrserg.mvvmcore.core.ui.dialog.IUiDialogListener
 import com.makeevrserg.mvvmcore.core.ui.loading.IUiLoadingListener
 import com.makeevrserg.mvvmcore.core.ui.message.IUiMessageListener
@@ -39,7 +38,7 @@ class MainFragment :
         val context = context ?: return@block null
         CoreProgressDialog.build(context)
     }
-    override val navigationProvider: INavigationProvider<FragmentScreen> =
+    override val navigationProvider: IRouter<FragmentScreen> =
         CiceroneNavigationProvider(RouterModule.value)
 
     override fun onBinding(binding: FragmentMainBinding) {

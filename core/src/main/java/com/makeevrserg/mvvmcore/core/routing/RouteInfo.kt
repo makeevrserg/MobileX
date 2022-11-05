@@ -15,12 +15,3 @@ sealed class RouteInfo {
     object PopBack : RouteInfo()
     class Intent<T>(val clazz: Class<T>) : RouteInfo()
 }
-
-interface INavigationProvider<T> {
-
-    fun replaceScreen(routeInfo: RouteInfo.NextScreen<T>)
-    fun clearBackStack(routeInfo: RouteInfo.NextScreen<T>)
-    fun navigateTo(routeInfo: RouteInfo.NextScreen<T>)
-    fun popBack(routeInfo: RouteInfo.PopBack)
-    fun <K> intent(context: Context, routeInfo: RouteInfo.Intent<K>)
-}

@@ -3,12 +3,11 @@ package com.makeevrserg.mvvm_core.presentation.stack
 import android.content.Context
 import com.github.terrakok.cicerone.androidx.FragmentScreen
 import com.makeevrserg.mvvm_core.databinding.FragmentStackBinding
-import com.makeevrserg.mvvm_core.main.App
 import com.makeevrserg.mvvm_core.main.CiceroneNavigationProvider
 import com.makeevrserg.mvvm_core.modules.RouterModule
 import com.makeevrserg.mvvmcore.core.lazyViewModel
 import com.makeevrserg.mvvmcore.core.presentation.BindingFragment
-import com.makeevrserg.mvvmcore.core.routing.INavigationProvider
+import com.makeevrserg.mvvmcore.core.routing.IRouter
 import com.makeevrserg.mvvmcore.core.ui.route.IUiRouteListener
 
 class StackFragment :
@@ -16,7 +15,7 @@ class StackFragment :
     IUiRouteListener<FragmentScreen> {
     val viewModel: StackViewModel by lazyViewModel()
     override val contextProvider: () -> Context? = { context }
-    override val navigationProvider: INavigationProvider<FragmentScreen> =
+    override val navigationProvider: IRouter<FragmentScreen> =
         CiceroneNavigationProvider(RouterModule.value)
 
     override fun onBinding(binding: FragmentStackBinding) {
