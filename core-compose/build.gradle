@@ -63,6 +63,7 @@ dependencies {
 
 
     implementation(project(":core"))
+    implementation(project(":ktx-core"))
 }
 afterEvaluate{
     publishing{

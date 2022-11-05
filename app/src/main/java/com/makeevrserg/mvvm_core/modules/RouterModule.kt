@@ -1,9 +1,9 @@
 package com.makeevrserg.mvvm_core.modules
 
 import com.github.terrakok.cicerone.Router
-import com.makeevrserg.mvvmcore.core.architecture.IModule
+import com.makeevrserg.mvvm_core.ktx_core.architecture.IModule
 
-object RouterModule:IModule<Router>() {
+object RouterModule: IModule<Router>() {
     override fun initializer(): Router {
         return CiceroneModule.value.router
     }

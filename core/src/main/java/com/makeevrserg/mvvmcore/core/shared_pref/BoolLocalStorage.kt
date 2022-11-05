@@ -8,7 +8,7 @@ class BoolLocalStorage(
     private val sharedPreferences: SharedPreferences,
     override val key: String,
     override val default: Boolean,
-) : ILocalStorage<Boolean>() {
+) : com.makeevrserg.mvvm_core.ktx_core.ILocalStorage<Boolean>() {
     override val _mutableStateFlow: MutableStateFlow<Boolean> = MutableStateFlow(loadValue())
     override fun setValue(it: Boolean) {
         super.setValue(it)

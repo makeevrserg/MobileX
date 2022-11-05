@@ -1,4 +1,4 @@
-package com.makeevrserg.mvvmcore.core.randomization
+package com.makeevrserg.mvvm_core.ktx_core
 
 import java.util.UUID
 import kotlin.random.Random

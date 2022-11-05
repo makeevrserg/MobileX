@@ -1,4 +1,4 @@
-package com.makeevrserg.mvvmcore.core.architecture
+package com.makeevrserg.mvvm_core.ktx_core.architecture
 
 abstract class ILateinit<T : Any> {
     fun initialize(value: T) {

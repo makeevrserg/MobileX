@@ -25,3 +25,4 @@ rootProject.name = "AndroidEssentials"
 include ':app'
 include ':core'
 include ':core-compose'
+include ':ktx-core'

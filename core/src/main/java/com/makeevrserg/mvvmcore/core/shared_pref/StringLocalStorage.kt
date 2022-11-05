@@ -8,7 +8,7 @@ class StringLocalStorage(
     private val sharedPreferences: SharedPreferences,
     override val key: String,
     override val default: String,
-) : ILocalStorage<String>() {
+) : com.makeevrserg.mvvm_core.ktx_core.ILocalStorage<String>() {
     override val _mutableStateFlow: MutableStateFlow<String> = MutableStateFlow(loadValue())
     override fun setValue(it: String) {
         super.setValue(it)

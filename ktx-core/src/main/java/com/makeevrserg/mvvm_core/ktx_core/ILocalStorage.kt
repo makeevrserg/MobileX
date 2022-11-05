@@ -1,4 +1,4 @@
-package com.makeevrserg.mvvmcore.core.shared_pref
+package com.makeevrserg.mvvm_core.ktx_core
 
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow

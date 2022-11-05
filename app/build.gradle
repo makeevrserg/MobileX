@@ -57,6 +57,7 @@ dependencies {
 //    implementation 'com.github.makeevrserg:MVVM-core:1.0.1'
     implementation(project(":core"))
     implementation(project(":core-compose"))
+    implementation(project(":ktx-core"))
 
     // compose
     implementation "androidx.activity:activity-compose:$activityCompose"
