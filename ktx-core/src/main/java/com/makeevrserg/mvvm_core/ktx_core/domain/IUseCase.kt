@@ -1,4 +1,4 @@
-package com.makeevrserg.mvvm_core.ktx_core.architecture
+package com.makeevrserg.mvvm_core.ktx_core.domain
 
 interface IUseCase<out Type, in Params> {
     abstract suspend fun run(params: Params): Type
