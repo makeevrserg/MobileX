@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "com.makeevrserg.mvvm_core.ktx_core"
+    namespace = "com.makeevrserg.mobilex.ktx_core"
     compileSdk = Dependencies.compileSdkVersion
 
     defaultConfig {

@@ -1,9 +1,0 @@
-package com.makeevrserg.mvvm_core.ktx_core.domain
-
-/**
- * Basic mapper for DTO objects
- */
-interface IMapper<I, O> {
-    fun toDTO(it: I): O
-    fun fromDTO(it: O): I
-}

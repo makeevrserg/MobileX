@@ -23,7 +23,7 @@ And of course, it breaks some of MVVM rules:
 - You are making dialogs interfaces in ViewModel using UIDialogMessage
 - You send messages to Fragment by UiText
 
-MVVMCore allows:
+mobilex allows:
 
 - [x] - Controlling navigation from ViewModel using RouteInfo
 - [x] - Show loading indicator which is blocking user interaction

@@ -21,7 +21,7 @@ dependencyResolutionManagement {
         jcenter()
     }
 }
-rootProject.name = "AndroidEssentials"
+rootProject.name = "MobileX"
 include(":app")
 include(":core")
 include(":core-compose")

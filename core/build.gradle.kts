@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace ="com.makeevrserg.mvvmcore.core"
+    namespace ="com.makeevrserg.mobilex.core"
     compileSdk = Dependencies.compileSdkVersion
 
     defaultConfig {

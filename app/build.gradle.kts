@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.makeevrserg.mvvm_core"
+    namespace = "com.makeevrserg.mobilex"
     compileSdk = Dependencies.compileSdkVersion
 
     defaultConfig {
-        applicationId = "com.makeevrserg.mvvm_core"
+        applicationId = "com.makeevrserg.mobilex"
         minSdk = Dependencies.minSdkVersion
         targetSdk = Dependencies.targetSdkVersion
         versionCode = 1
