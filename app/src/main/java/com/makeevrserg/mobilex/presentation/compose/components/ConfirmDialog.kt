@@ -11,7 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import com.makeevrserg.mobilex.core.ui.UIDialogMessage
+import com.makeevrserg.mobilex.ktx_core.UIDialogMessage
 import com.makeevrserg.mobilex.core_compose.asString
 
 @Composable

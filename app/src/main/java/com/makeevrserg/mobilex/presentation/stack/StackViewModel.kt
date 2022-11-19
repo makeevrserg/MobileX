@@ -1,12 +1,12 @@
 package com.makeevrserg.mobilex.presentation.stack
 
 import androidx.lifecycle.ViewModel
+import com.makeevrserg.mobilex.ktx_core.RouteInfo
 import com.makeevrserg.mobilex.main.MainActivity
 import com.makeevrserg.mobilex.main.NavigationProvider
-import com.makeevrserg.mobilex.core.routing.RouteInfo
-import com.makeevrserg.mobilex.core.ui.SingleLiveEvent
-import com.makeevrserg.mobilex.core.ui.emptyLiveEvent
-import com.makeevrserg.mobilex.core.ui.route.IUIRouteAction
+import com.makeevrserg.mobilex.ktx_core.ui.IUIRouteAction
+import com.makeevrserg.mobilex.ktx_core.SingleLiveEvent
+import com.makeevrserg.mobilex.ktx_core.emptyLiveEvent
 import kotlinx.coroutines.flow.MutableStateFlow
 
 class StackViewModel : ViewModel(), IUIRouteAction {

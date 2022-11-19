@@ -5,30 +5,19 @@ import androidx.lifecycle.viewModelScope
 import com.makeevrserg.mobilex.main.NavigationProvider
 import com.makeevrserg.mobilex.presentation.compose.ComposeScreen
 import com.makeevrserg.mobilex.presentation.compose.ExampleComposeActivity
-import com.makeevrserg.mobilex.core.ui.UIDialogButton
-import com.makeevrserg.mobilex.core.ui.UIDialogMessage
-import com.makeevrserg.mobilex.core.ui.UIMessage
-import com.makeevrserg.mobilex.core.routing.RouteInfo
-import com.makeevrserg.mobilex.core.ui.UiText
-import com.makeevrserg.mobilex.core.ui.SingleLiveEvent
-import com.makeevrserg.mobilex.core.ui.dialog.IUIDialogAction
-import com.makeevrserg.mobilex.core.ui.emptyLiveEvent
-import com.makeevrserg.mobilex.core.ui.loading.IUILoadingAction
-import com.makeevrserg.mobilex.core.ui.message.IUIMessageAction
-import com.makeevrserg.mobilex.core.ui.route.IUIRouteAction
-import com.makeevrserg.mobilex.core.ui.nullableStateFlow
+import com.makeevrserg.mobilex.ktx_core.*
+import com.makeevrserg.mobilex.ktx_core.ui.*
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
 import java.util.UUID
 
 
-class MainViewModel : ViewModel(), IUIRouteAction, IUIDialogAction, IUILoadingAction,
-    IUIMessageAction {
-    override val uiMessage: MutableStateFlow<SingleLiveEvent<UIMessage>> by emptyLiveEvent()
-    override val uiDialog: MutableStateFlow<UIDialogMessage?> by nullableStateFlow()
-    override val uiLoading: MutableStateFlow<Boolean> = MutableStateFlow<Boolean>(false)
-    override val uiRoute: MutableStateFlow<SingleLiveEvent<RouteInfo>> by emptyLiveEvent()
+class MainViewModel : ViewModel(),
+    IUIRouteAction by UIRouteAction(),
+    IUIDialogAction by UIDialogAction(),
+    IUILoadingAction by UILoadingAction(),
+    IUIMessageAction by UIMessageAction() {
     fun onBasicNavigationClicked() {
         RouteInfo.NextScreen(NavigationProvider.Stack).navigate()
     }
@@ -47,9 +36,10 @@ class MainViewModel : ViewModel(), IUIRouteAction, IUIDialogAction, IUILoadingAc
         setLoading(false)
     }
 
-    fun openComposeScreen(){
+    fun openComposeScreen() {
         RouteInfo.NextScreen(ComposeScreen.Custom(UUID.randomUUID().toString())).navigate()
     }
+
     fun onShowDialogClicked() {
         UIDialogMessage(
             title = UiText.DynamicString("Some Title"),

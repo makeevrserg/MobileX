@@ -5,7 +5,7 @@ import android.content.Intent
 import com.github.terrakok.cicerone.Router
 import com.github.terrakok.cicerone.androidx.FragmentScreen
 import com.makeevrserg.mobilex.core.routing.IRouter
-import com.makeevrserg.mobilex.core.routing.RouteInfo
+import com.makeevrserg.mobilex.ktx_core.RouteInfo
 
 class CiceroneNavigationProvider(private val router: Router) : IRouter<FragmentScreen> {
     override val isBackStackEmpty: Boolean

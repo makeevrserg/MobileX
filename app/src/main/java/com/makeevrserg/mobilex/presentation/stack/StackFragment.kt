@@ -8,7 +8,7 @@ import com.makeevrserg.mobilex.modules.RouterModule
 import com.makeevrserg.mobilex.core.lazyViewModel
 import com.makeevrserg.mobilex.core.presentation.BindingFragment
 import com.makeevrserg.mobilex.core.routing.IRouter
-import com.makeevrserg.mobilex.core.ui.route.IUiRouteListener
+import com.makeevrserg.mobilex.core.ui.IUiRouteListener
 
 class StackFragment :
     BindingFragment<FragmentStackBinding>(FragmentStackBinding::inflate),

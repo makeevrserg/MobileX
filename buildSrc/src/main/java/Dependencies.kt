@@ -23,8 +23,8 @@ object Dependencies {
         const val lifecycleViewModel = "2.5.1"
         const val constraintLayout = "2.1.2"
         const val cicerone = "7.1"
-        const val androidAppliaction = "8.0.0-alpha07"
-        const val androidLibrary = "8.0.0-alpha07"
+        const val androidAppliaction = "7.4.0-beta05"
+        const val androidLibrary = "7.4.0-beta05"
     }
 
     object Testing {
@@ -34,6 +34,7 @@ object Dependencies {
     }
 
     object Compose {
+        const val composeJetbrains = "1.2.0"
         const val activityCompose = "1.5.1"
         const val composeMaterial = "1.2.1"
         const val composeAnimation = "1.2.1"

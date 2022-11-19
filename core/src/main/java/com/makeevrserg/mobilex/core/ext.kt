@@ -36,33 +36,3 @@ inline fun <reified T : ViewModel> HasDefaultViewModelProviderFactory.lazyViewMo
     lazy {
         defaultViewModelProviderFactory.create(T::class.java)
     }
-
-inline fun <reified T : Serializable> simpleName() = T::class.java.simpleName
-
-/**
- * Save [Serializable] in bundle without passing a name
- */
-inline fun <reified T : Serializable> Bundle.getSerializable(): T? =
-    getSerializable(this, simpleName<T>(), T::class.java)
-
-/**
- * Get [Serializable] from bundle without passing a name and consider a version
- */
-fun <T : Serializable> getSerializable(bundle: Bundle, key: String, clazz: Class<T>): T? {
-    return if (Build.VERSION.SDK_INT >= 33) {
-        bundle.getSerializable(key, clazz)
-    } else bundle.getSerializable(key) as? T?
-}
-
-/**
- * When you'll recieve null from api, for example, this function will make a few attemptes to fetch non-null value
- */
-suspend fun <T> withGenericAttempt(maxAmount: Int, block: suspend () -> T?): T? {
-    var attemptsLeft = maxAmount
-    var result = block()
-    while (result == null && attemptsLeft > 0) {
-        result = block()
-        attemptsLeft--
-    }
-    return result
-}

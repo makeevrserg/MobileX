@@ -6,17 +6,17 @@ import android.view.View
 import com.github.terrakok.cicerone.androidx.FragmentScreen
 import com.makeevrserg.mobilex.databinding.FragmentMainBinding
 import com.makeevrserg.mobilex.main.CiceroneNavigationProvider
-import com.makeevrserg.mobilex.core.ui.UIDialogMessage
+import com.makeevrserg.mobilex.ktx_core.UIDialogMessage
 import com.makeevrserg.mobilex.core.lazyViewModel
 import com.makeevrserg.mobilex.core.presentation.BindingFragment
 import com.makeevrserg.mobilex.CoreAlertUiDialog
 import com.makeevrserg.mobilex.CoreProgressDialog
 import com.makeevrserg.mobilex.modules.RouterModule
 import com.makeevrserg.mobilex.core.routing.IRouter
-import com.makeevrserg.mobilex.core.ui.dialog.IUiDialogListener
-import com.makeevrserg.mobilex.core.ui.loading.IUiLoadingListener
-import com.makeevrserg.mobilex.core.ui.message.IUiMessageListener
-import com.makeevrserg.mobilex.core.ui.route.IUiRouteListener
+import com.makeevrserg.mobilex.core.ui.IUiDialogListener
+import com.makeevrserg.mobilex.core.ui.IUiLoadingListener
+import com.makeevrserg.mobilex.core.ui.IUiMessageListener
+import com.makeevrserg.mobilex.core.ui.IUiRouteListener
 
 
 

@@ -4,7 +4,7 @@ import android.content.Context
 import androidx.lifecycle.ViewModelStoreOwner
 import androidx.navigation.NavHostController
 import com.makeevrserg.mobilex.core.routing.IRouter
-import com.makeevrserg.mobilex.core.routing.RouteInfo
+import com.makeevrserg.mobilex.ktx_core.RouteInfo
 
 class NavHostRouter(
     private val navHostController: NavHostController,
