@@ -34,7 +34,7 @@ kotlin {
         }
         val androidMain by getting{
             dependencies{
-                implementation(project(":core"))
+                implementation(project(":android-core"))
             }
         }
     }

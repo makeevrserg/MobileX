@@ -26,6 +26,6 @@ dependencyResolutionManagement {
 rootProject.name = "MobileX"
 include(":app")
 include(":desktop")
-include(":core")
+include(":android-core")
 include(":core-compose")
 include(":ktx-core")

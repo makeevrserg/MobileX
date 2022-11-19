@@ -57,8 +57,8 @@ dependencies {
     testImplementation("junit:junit:${Dependencies.Testing.jUnit}")
     androidTestImplementation("androidx.test.ext:junit:${Dependencies.Testing.extJunit}")
     androidTestImplementation("androidx.test.espresso:espresso-core:${Dependencies.Testing.espressoCore}")
+    implementation(project(":android-core"))
 //    implementation "com.github.makeevrserg:MVVM-core:1.0.1"
-    implementation(project(":core"))
     implementation(project(":core-compose"))
     implementation(project(":ktx-core"))
 
