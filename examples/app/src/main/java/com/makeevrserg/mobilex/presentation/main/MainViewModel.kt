@@ -8,7 +8,6 @@ import com.makeevrserg.mobilex.presentation.compose.ExampleComposeActivity
 import com.makeevrserg.mobilex.ktx_core.*
 import com.makeevrserg.mobilex.ktx_core.ui.*
 import kotlinx.coroutines.delay
-import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
 import java.util.UUID
 

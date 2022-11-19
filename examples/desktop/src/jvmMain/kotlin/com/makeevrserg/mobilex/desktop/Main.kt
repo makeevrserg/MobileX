@@ -6,7 +6,6 @@ import androidx.compose.material.Button
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.singleWindowApplication
 import com.makeevrserg.mobilex.core_compose.ui.UIDialogListener
 import com.makeevrserg.mobilex.core_compose.ui.UiMessageListener
