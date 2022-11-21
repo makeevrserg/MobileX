@@ -2,13 +2,14 @@ import org.gradle.api.JavaVersion
 
 object Dependencies {
 
-    const val version = "2.0.2"
+    const val version = "2.0.3"
+    const val versionDep = "2.0.2"
     const val versionCode = 10
     const val compileSdkVersion = 33
     const val minSdkVersion = 21
     const val targetSdkVersion = 33
     const val buildTools = "7.2.2"
-
+    const val group = "ru.astrainteractive.mobilex"
     object Kotlin {
         const val version = "1.7.10"
         const val coroutines = "1.6.4"

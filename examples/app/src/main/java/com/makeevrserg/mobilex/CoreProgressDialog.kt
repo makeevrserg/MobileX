@@ -5,7 +5,7 @@ import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AlertDialog
-import com.makeevrserg.mobilex.core.R
+import com.makeevrserg.mobilex.android_core.R
 object CoreProgressDialog {
     fun build(context: Context): Dialog = AlertDialog.Builder(context).apply {
         this.setView(R.layout.progress_dialog)

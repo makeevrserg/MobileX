@@ -1,7 +1,12 @@
-
-plugins{
+plugins {
     `kotlin-dsl`
 }
-repositories{
+repositories {
     mavenCentral()
+    gradlePluginPortal()
+}
+val rootDirProject = file("../")
+
+kotlin {
+    sourceSets.getByName("main").kotlin.srcDir("buildSrc/src/main/kotlin")
 }

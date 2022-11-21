@@ -1,3 +1,6 @@
+group = Dependencies.group
+version = Dependencies.version
+
 plugins {
     kotlin("android").version(Dependencies.Kotlin.version).apply(false)
     id("com.android.application").version(Dependencies.Android.androidAppliaction).apply(false)

@@ -2,9 +2,14 @@ plugins {
     kotlin("multiplatform")
     id("com.android.library")
     id("org.jetbrains.compose")
+    id("convention.publication")
 }
+group = Dependencies.group
+version = Dependencies.version
+
 kotlin {
     android() {
+        publishLibraryVariants("release", "debug")
 //        apply(plugin = "kotlin-parcelize")
     }
     jvm("desktop") {
@@ -27,13 +32,13 @@ kotlin {
 
             }
         }
-        val desktopMain by getting{
+        val desktopMain by getting {
             dependencies {
                 implementation(compose.desktop.currentOs)
             }
         }
-        val androidMain by getting{
-            dependencies{
+        val androidMain by getting {
+            dependencies {
                 implementation(project(":android-core"))
             }
         }
@@ -49,6 +54,12 @@ android {
     }
     dependencies {
         implementation("io.coil-kt:coil-compose:2.2.2")
+    }
+    sourceSets {
+        named("main") {
+            manifest.srcFile("src/androidMain/AndroidManifest.xml")
+            res.srcDirs("src/androidMain/res", "src/commonMain/resources")
+        }
     }
 }
 

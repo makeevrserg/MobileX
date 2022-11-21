@@ -9,18 +9,17 @@ import androidx.compose.material.Text
 import androidx.compose.material.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.makeevrserg.mobilex.ktx_core.UIDialogMessage
-import com.makeevrserg.mobilex.core_compose.asString
-
 @Composable
 fun ConfirmDialog(
     message: UIDialogMessage,
 ) {
     CustomDialog(title = {
         Text(
-            text = message.title.asString(),
+            text = message.title.asString(LocalContext.current),
             modifier = Modifier
                 .padding(horizontal = 8.dp, vertical = 8.dp)
                 .fillMaxWidth(),
@@ -30,7 +29,7 @@ fun ConfirmDialog(
         )
     }, body = {
         Text(
-            text = message.description.asString(),
+            text = message.description.asString(LocalContext.current),
             modifier = Modifier
                 .padding(horizontal = 8.dp, vertical = 8.dp)
                 .fillMaxWidth(),
@@ -45,12 +44,12 @@ fun ConfirmDialog(
         ) {
             message.negativeButton?.let {
                 TextButton(onClick = it.onClick) {
-                    Text(it.text.asString(), color = MaterialTheme.colors.primary)
+                    Text(it.text.asString(LocalContext.current), color = MaterialTheme.colors.primary)
                 }
             }
             message.positiveButton?.let {
                 TextButton(onClick = it.onClick) {
-                    Text(it.text.asString(), color = MaterialTheme.colors.primary)
+                    Text(it.text.asString(LocalContext.current), color = MaterialTheme.colors.primary)
                 }
             }
         }

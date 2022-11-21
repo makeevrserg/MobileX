@@ -2,11 +2,16 @@ plugins {
     kotlin("multiplatform")
     id("com.android.library")
     kotlin("native.cocoapods")
+    id("convention.publication")
 }
 
+group = Dependencies.group
+version = Dependencies.version
 
 kotlin {
-    android()
+    android(){
+        publishLibraryVariants("release", "debug")
+    }
     iosX64()
     iosArm64()
     iosSimulatorArm64()
@@ -14,10 +19,8 @@ kotlin {
         compilations.all {
             kotlinOptions.jvmTarget = "11"
         }
-    }
-    js(IR) {
-        browser()
-        binaries.executable()
+
+
     }
     cocoapods {
         summary = "Some description for the Shared Module"
@@ -29,10 +32,6 @@ kotlin {
             baseName = "CoreKTX"
         }
     }
-    targets{
-        jvm()
-        android()
-    }
     sourceSets {
         val commonMain by getting {
             dependencies {
@@ -42,27 +41,22 @@ kotlin {
         val nonAndroidMain by creating {
             dependsOn(commonMain)
         }
-        val jsMain by getting{
-            dependsOn(nonAndroidMain)
-
-        }
-        val jvmMain by getting{
-            dependsOn(nonAndroidMain)
-        }
-
         val androidMain by getting {
             dependencies {
                 implementation("androidx.core:core-ktx:${Dependencies.Android.coreKTX}")
             }
         }
+        val jvmMain by getting {
+            dependsOn(nonAndroidMain)
 
-        val iosX64Main by getting{
+        }
+        val iosX64Main by getting {
             dependsOn(nonAndroidMain)
         }
-        val iosArm64Main by getting{
+        val iosArm64Main by getting {
             dependsOn(nonAndroidMain)
         }
-        val iosSimulatorArm64Main by getting{
+        val iosSimulatorArm64Main by getting {
             dependsOn(nonAndroidMain)
         }
         val iosMain by creating {
@@ -83,7 +77,12 @@ android {
         targetSdk = Dependencies.targetSdkVersion
     }
     dependencies {
-
         implementation("androidx.core:core-ktx:${Dependencies.Android.coreKTX}")
+    }
+    sourceSets {
+        named("main") {
+            manifest.srcFile("src/androidMain/AndroidManifest.xml")
+            res.srcDirs("src/androidMain/res", "src/commonMain/resources")
+        }
     }
 }
