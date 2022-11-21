@@ -29,8 +29,8 @@ kotlin {
                 implementation(compose.foundation)
                 implementation(compose.runtime)
                 implementation(compose.materialIconsExtended)
-                implementation(project(":core-compose"))
-                implementation(project(":ktx-core"))
+                implementation("ru.astrainteractive.mobilex:ktx-core:${Dependencies.versionDep}")
+                implementation("ru.astrainteractive.mobilex:core-compose:${Dependencies.versionDep}")
             }
         }
     }
