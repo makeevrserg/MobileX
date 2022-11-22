@@ -22,5 +22,5 @@ dependencies{
 
 ## [WIki](https://github.com/makeevrserg/MobileX/wiki)
 
-## [sample](https://github.com/makeevrserg/MobileX/tree/master/examples)
+## [Example](https://github.com/makeevrserg/MobileX/tree/master/examples)
 
