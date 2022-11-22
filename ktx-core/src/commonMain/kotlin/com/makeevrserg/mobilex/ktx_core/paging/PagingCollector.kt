@@ -7,7 +7,7 @@ import kotlinx.coroutines.flow.update
 class PagingCollector<T>(
     private val initialPage: Int,
     private val pager: IPager<T>,
-    private val onListUpdated:(List<T>)->Unit={},
+    private val onListUpdated: (List<T>) -> Unit = {},
 ) {
     private var pagingState = PagingState(
         initialPage,

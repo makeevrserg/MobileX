@@ -11,7 +11,7 @@ class ListFragment :
     private val adapter by lazy { ExampleAdapter() }
 
     private val list = com.makeevrserg.mobilex.ktx_core.Randomization.ofList(1000) {
-        com.makeevrserg.mobilex.ktx_core.Randomization.ExampleListItem
+        ExampleListItem
     }.groupBy { it.groupItem }.flatMap { (group, list) ->
         buildList<ExampleList> {
             add(ExampleList.Header(message = "${list.size} items"))
@@ -29,7 +29,7 @@ class ListFragment :
     }
 }
 
-val com.makeevrserg.mobilex.ktx_core.Randomization.ExampleListItem: ExampleList.Item
+val ExampleListItem: ExampleList.Item
     get() = ExampleList.Item()
-val com.makeevrserg.mobilex.ktx_core.Randomization.ExampleListHeader: ExampleList.Header
+val ExampleListHeader: ExampleList.Header
     get() = ExampleList.Header()

@@ -5,6 +5,6 @@ import com.makeevrserg.mobilex.core.adapter.IEasyAdapter
 
 
 class ExampleAdapter : IEasyAdapter<ExampleList, Int, ExampleList>(
-    ExampleHeaderViewHolder(),
-    ExampleItemViewHolder()
+    ExampleHeaderViewHolder,
+    ExampleItemViewHolder
 )

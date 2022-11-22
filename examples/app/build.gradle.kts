@@ -60,7 +60,8 @@ dependencies {
 //    implementation "com.github.makeevrserg:MVVM-core:1.0.1"
     implementation("ru.astrainteractive.mobilex:ktx-core:${Dependencies.versionDep}")
     implementation("ru.astrainteractive.mobilex:core-compose:${Dependencies.versionDep}")
-    implementation("ru.astrainteractive.mobilex:android-core:${Dependencies.versionDep}")
+//    implementation("ru.astrainteractive.mobilex:android-core:${Dependencies.versionDep}")
+    implementation(project(":android-core"))
 
     // compose
     implementation("androidx.activity:activity-compose:${Dependencies.Compose.activityCompose}")

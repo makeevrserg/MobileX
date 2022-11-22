@@ -5,14 +5,26 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewbinding.ViewBinding
 
-abstract class BasicViewHolder<B : ViewBinding, T>(override val inflater: (LayoutInflater, ViewGroup, Boolean) -> B) :
-    SealedViewHolder<B, T, T>()
+fun <B : ViewBinding, T, V : T> sealedViewHolder(
+    inflater: (LayoutInflater, ViewGroup, Boolean) -> B,
+    clazz: Class<V>,
+    viewType: Int,
+    onBind: (binding: B, item: V) -> Unit
+) = object : SealedViewHolder<B, T, V> {
+    override val inflater: (LayoutInflater, ViewGroup, Boolean) -> B = inflater
+    override val clazz: Class<V> = clazz
+    override val viewType: Int = viewType
+    override fun onBind(binding: B, item: V) {
+        onBind(binding, item)
+    }
+}
 
-abstract class SealedViewHolder<B : ViewBinding, T, V : T> {
-    abstract val inflater: (LayoutInflater, ViewGroup, Boolean) -> B
+interface SealedViewHolder<B : ViewBinding, T, V : T> {
+    val inflater: (LayoutInflater, ViewGroup, Boolean) -> B
+    val clazz: Class<V>
+    val viewType: Int
+
     abstract fun onBind(binding: B, item: V)
-    abstract val clazz: Class<V>
-    abstract val viewType: Int
     fun createViewHolder(parent: ViewGroup): RecyclerView.ViewHolder = createBinding(parent, this)
 
 }

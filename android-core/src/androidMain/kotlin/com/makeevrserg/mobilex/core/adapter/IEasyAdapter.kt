@@ -5,7 +5,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 
 abstract class IEasyAdapter<T : IDiffItem<K, V>, K, V>(
-    vararg viewHolders: SealedViewHolder<*, T, *>
+    vararg viewHolders: SealedViewHolder<*, *, *>
 ) : ListAdapter<T, RecyclerView.ViewHolder>(generateDiffCallback()) {
 
     private val viewHolders = viewHolders.toList()
@@ -28,7 +28,7 @@ abstract class IEasyAdapter<T : IDiffItem<K, V>, K, V>(
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val item = getItem(position) as T
-        (holder as UniqueViewHolder<T>).bind(item)
+        (holder as? UniqueViewHolder<T>)?.bind(item)
     }
 
 }
