@@ -8,7 +8,7 @@ import com.makeevrserg.mobilex.ktx_core.UiText
  * Compose support for [UiText]
  */
 @Composable
-fun UiText.asString(): String {
+fun UiText.asComposableString(): String {
     return when (this) {
         is UiText.DynamicString -> value
         is UiText.StringResource -> stringResource(id = resId)

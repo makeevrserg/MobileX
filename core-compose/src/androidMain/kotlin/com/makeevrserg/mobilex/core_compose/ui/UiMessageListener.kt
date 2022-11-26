@@ -14,7 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.zIndex
-import com.makeevrserg.mobilex.core_compose.asString
+import com.makeevrserg.mobilex.core_compose.asComposableString
 import com.makeevrserg.mobilex.ktx_core.ui.IUIMessageAction
 import com.makeevrserg.mobilex.ktx_core.ui.UIMessage
 import kotlinx.coroutines.launch
@@ -27,7 +27,7 @@ actual fun UiMessageListener(action: IUIMessageAction, snackbarZIndex: Float) {
     uiMessages.value?.let {
         when (it) {
             is UIMessage.SnackBar -> {
-                val text = it.uiText.asString()
+                val text = it.uiText.asComposableString()
                 coroutineScope.launch {
                     snackbarHostState.showSnackbar(text)
                 }
@@ -36,7 +36,7 @@ actual fun UiMessageListener(action: IUIMessageAction, snackbarZIndex: Float) {
             is UIMessage.Toast -> {
                 Toast.makeText(
                     LocalContext.current,
-                    it.uiText.asString(),
+                    it.uiText.asComposableString(),
                     Toast.LENGTH_SHORT
                 ).show()
             }
