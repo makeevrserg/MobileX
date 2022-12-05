@@ -18,6 +18,12 @@ class BoolLocalStorage(
         }
     }
 
+    override fun clear() {
+        sharedPreferences.edit {
+            remove(key)
+            _mutableStateFlow.value = default
+        }
+    }
     override fun loadValue(): Boolean = sharedPreferences.getBoolean(key, default) ?: default
 }
 

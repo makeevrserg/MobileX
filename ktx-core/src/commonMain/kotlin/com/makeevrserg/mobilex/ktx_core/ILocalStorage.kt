@@ -19,6 +19,6 @@ abstract class ILocalStorage<T> {
     open fun setValue(it: T) {
         _mutableStateFlow.value = it
     }
-
+    abstract fun clear()
     abstract fun loadValue(): T
 }

@@ -71,9 +71,9 @@ fun main() {
         UIDialogListener(viewModel) {
             UIDialog(it)
         }
-        UiLoadingListener(viewModel){
-
-        }
+//        UiLoadingListener(viewModel){
+//
+//        }
         Column {
             Button(onClick = viewModel::onMessageClicked) {
                 Text("Message")

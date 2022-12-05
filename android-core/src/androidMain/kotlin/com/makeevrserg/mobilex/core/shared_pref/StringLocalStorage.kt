@@ -17,6 +17,11 @@ class StringLocalStorage(
             putString(key, it)
         }
     }
-
+    override fun clear() {
+        sharedPreferences.edit {
+            remove(key)
+            _mutableStateFlow.value = default
+        }
+    }
     override fun loadValue(): String = sharedPreferences.getString(key, default) ?: default
 }

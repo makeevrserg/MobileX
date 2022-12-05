@@ -2,7 +2,7 @@ import org.gradle.api.JavaVersion
 
 object Dependencies {
 
-    const val version = "2.0.4"
+    const val version = "2.0.6"
     const val versionDep = "2.0.3"
     const val versionCode = 10
     const val compileSdkVersion = 33
