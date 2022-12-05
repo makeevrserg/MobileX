@@ -2,7 +2,7 @@ import org.gradle.api.JavaVersion
 
 object Dependencies {
 
-    const val version = "2.0.6"
+    const val version = "2.0.7"
     const val versionDep = "2.0.3"
     const val versionCode = 10
     const val compileSdkVersion = 33
@@ -24,8 +24,8 @@ object Dependencies {
         const val lifecycleViewModel = "2.5.1"
         const val constraintLayout = "2.1.2"
         const val cicerone = "7.1"
-        const val androidAppliaction = "7.4.0-beta05"
-        const val androidLibrary = "7.4.0-beta05"
+        const val androidAppliaction = "7.4.0-rc01"
+        const val androidLibrary = "7.4.0-rc01"
     }
 
     object Testing {

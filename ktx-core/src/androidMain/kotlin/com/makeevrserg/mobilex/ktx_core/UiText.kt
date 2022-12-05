@@ -50,3 +50,5 @@ actual sealed interface UiText {
         return line
     }
 }
+
+actual fun uiText(value: String): UiText = UiText.DynamicString(value)
