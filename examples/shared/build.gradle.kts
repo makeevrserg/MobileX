@@ -3,28 +3,13 @@ import org.jetbrains.compose.compose
 plugins {
     kotlin("multiplatform")
     id("com.android.library")
-    kotlin("native.cocoapods")
 }
 kotlin {
     android()
     iosX64()
     iosArm64()
     iosSimulatorArm64()
-    jvm("desktop") {
-//        compilations.all {
-//            kotlinOptions.jvmTarget = "11"
-//        }
-    }
-    cocoapods {
-        summary = "Some description for the Shared Module"
-        homepage = "Link to the Shared Module homepage"
-        version = "1.0"
-        ios.deploymentTarget = "14.1"
-        podfile = project.file("../iosApp/Podfile")
-        framework {
-            baseName = "shared"
-        }
-    }
+    jvm("desktop")
     sourceSets {
         val commonMain by getting {
             dependencies {
