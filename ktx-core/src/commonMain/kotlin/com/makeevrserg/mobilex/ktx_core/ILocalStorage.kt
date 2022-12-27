@@ -19,6 +19,11 @@ abstract class ILocalStorage<T> {
     open fun setValue(it: T) {
         _mutableStateFlow.value = it
     }
+    fun setValue(block:(T)->T) {
+        val prevValue = loadValue()
+        val newValue = block(prevValue)
+        setValue(newValue)
+    }
     abstract fun clear()
     abstract fun loadValue(): T
 }

@@ -1,8 +1,10 @@
+import com.makeevrserg.mobilex.MobileXApk
 import org.gradle.api.publish.maven.MavenPublication
 import org.gradle.api.tasks.bundling.Jar
-import org.gradle.initialization.Environment
 import org.gradle.kotlin.dsl.`maven-publish`
+import org.gradle.kotlin.dsl.registering
 import org.gradle.kotlin.dsl.signing
+import org.gradle.kotlin.dsl.withType
 import java.util.*
 
 plugins {
@@ -45,8 +47,8 @@ publishing {
         artifact(javadocJar.get())
         pom {
             name.set("MobileX")
-            group = Dependencies.group
-            version = Dependencies.version
+            group = MobileXApk.GROUP
+            version = MobileXApk.VERSION_NAME
             description.set("KMM library with frequently used code")
             url.set("https://github.com/makeevrserg/MobileX")
 

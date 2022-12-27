@@ -7,7 +7,7 @@ import com.makeevrserg.mobilex.core.presentation.BindingFragment
 
 class ListFragment :
     BindingFragment<FragmentListBinding>(FragmentListBinding::inflate) {
-    val viewModel: ListViewModel by lazyViewModel()
+    val viewModel: ListViewModel by lazy { ListViewModel() }
     private val adapter by lazy { ExampleAdapter() }
 
     private val list = com.makeevrserg.mobilex.ktx_core.Randomization.ofList(1000) {

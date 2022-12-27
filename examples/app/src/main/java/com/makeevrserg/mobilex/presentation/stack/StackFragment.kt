@@ -13,7 +13,7 @@ import com.makeevrserg.mobilex.core.ui.IUiRouteListener
 class StackFragment :
     BindingFragment<FragmentStackBinding>(FragmentStackBinding::inflate),
     IUiRouteListener<FragmentScreen> {
-    val viewModel: StackViewModel by lazyViewModel()
+    val viewModel: StackViewModel by lazy { StackViewModel() }
     override val contextProvider: () -> Context? = { context }
     override val navigationProvider: IRouter<FragmentScreen> =
         CiceroneNavigationProvider(RouterModule.value)

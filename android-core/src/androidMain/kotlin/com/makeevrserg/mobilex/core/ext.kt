@@ -2,6 +2,7 @@ package com.makeevrserg.mobilex.core
 
 import android.os.Build
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.HasDefaultViewModelProviderFactory
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.ViewModel

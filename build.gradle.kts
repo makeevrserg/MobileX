@@ -1,13 +1,13 @@
-group = Dependencies.group
-version = Dependencies.version
+group = libs.versions.group.get()
+version = libs.versions.version.get()
 
 plugins {
-    kotlin("android").version(Dependencies.Kotlin.version).apply(false)
-    id("com.android.application").version(Dependencies.Android.androidAppliaction).apply(false)
-    id("com.android.library").version(Dependencies.Android.androidLibrary).apply(false)
-    id("org.jetbrains.compose").version(Dependencies.Compose.composeJetbrains).apply(false)
-    kotlin("multiplatform").version(Dependencies.Kotlin.version).apply(false)
-    kotlin("jvm").version(Dependencies.Kotlin.version).apply(false)
+    alias(libs.plugins.kotlin.android) apply false
+    alias(libs.plugins.android.application) apply false
+    alias(libs.plugins.android.library) apply false
+    alias(libs.plugins.kotlin.compose) apply false
+    alias(libs.plugins.kotlin.jvm) apply false
+    alias(libs.plugins.kotlin.multiplatform) apply false
 }
 
 tasks.register("cleanx", Delete::class) {

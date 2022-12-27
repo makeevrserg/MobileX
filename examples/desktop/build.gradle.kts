@@ -18,7 +18,7 @@ kotlin {
         val commonMain by getting{
 
             dependencies {
-                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:${Dependencies.Kotlin.coroutines}")
+                implementation(libs.kotlin.coroutines.core)
             }
         }
         val jvmMain by getting {
@@ -29,8 +29,8 @@ kotlin {
                 implementation(compose.foundation)
                 implementation(compose.runtime)
                 implementation(compose.materialIconsExtended)
-                implementation("ru.astrainteractive.mobilex:ktx-core:${Dependencies.versionDep}")
-                implementation("ru.astrainteractive.mobilex:core-compose:${Dependencies.versionDep}")
+                implementation(libs.mobileX.core.ktx)
+                implementation(libs.mobileX.core.compose)
             }
         }
     }

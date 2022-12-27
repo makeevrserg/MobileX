@@ -1,18 +1,20 @@
+import com.makeevrserg.mobilex.MobileXApk
 plugins {
     id("com.android.application")
     kotlin("android")
+    id("import-convention")
 }
 
 android {
     namespace = "com.makeevrserg.mobilex"
-    compileSdk = Dependencies.compileSdkVersion
+    compileSdk = MobileXApk.COMPILE_SDK_VERSION
 
     defaultConfig {
         applicationId = "com.makeevrserg.mobilex"
-        minSdk = Dependencies.minSdkVersion
-        targetSdk = Dependencies.targetSdkVersion
+        minSdk = MobileXApk.MIN_SDK_VERSION
+        targetSdk = MobileXApk.TARGET_SDK_VERSION
         versionCode = 1
-        versionName = Dependencies.version
+        versionName = MobileXApk.VERSION_NAME
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -38,43 +40,51 @@ android {
         compose= true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = Dependencies.Compose.compose_kotlinCompilerExtensionVersion
+        kotlinCompilerExtensionVersion = "1.3.0"
+        kotlinCompilerVersion = "1.7.10"
     }
 }
 
 dependencies {
 
-    implementation("androidx.core:core-ktx:${Dependencies.Android.coreKTX}")
-    implementation("androidx.appcompat:appcompat:${Dependencies.Android.androidxAppCompat}")
-    implementation("com.google.android.material:material:${Dependencies.Android.androidMaterial}")
-    implementation("androidx.constraintlayout:constraintlayout:${Dependencies.Android.constraintLayout}")
+    // Kotlin core
+    implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.appcompat)
+    implementation(libs.kotlin.coroutines.core)
+    implementation(libs.androidx.lifecycle.viewModelKtx)
+    // Navigation
+    implementation(libs.androidx.cicerone)
+    // Android
+    implementation(libs.androidx.recyclerview)
+    implementation(libs.androidx.constraintlayout.android)
 
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:${Dependencies.Kotlin.coroutines}")
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:${Dependencies.Android.lifecycleViewModel}")
-
-    implementation("com.github.terrakok:cicerone:${Dependencies.Android.cicerone}")
-
-    testImplementation("junit:junit:${Dependencies.Testing.jUnit}")
-    androidTestImplementation("androidx.test.ext:junit:${Dependencies.Testing.extJunit}")
-    androidTestImplementation("androidx.test.espresso:espresso-core:${Dependencies.Testing.espressoCore}")
-//    implementation "com.github.makeevrserg:MVVM-core:1.0.1"
-    implementation("ru.astrainteractive.mobilex:ktx-core:${Dependencies.versionDep}")
-    implementation("ru.astrainteractive.mobilex:core-compose:${Dependencies.versionDep}")
-//    implementation("ru.astrainteractive.mobilex:android-core:${Dependencies.versionDep}")
+    // Project
     implementation(project(":android-core"))
+    implementation(project(":core-compose"))
+    implementation(project(":ktx-core"))
 
-    // compose
-    implementation("androidx.activity:activity-compose:${Dependencies.Compose.activityCompose}")
-    implementation("androidx.compose.material:material:${Dependencies.Compose.composeMaterial}")
-    implementation("androidx.compose.animation:animation:${Dependencies.Compose.composeAnimation}")
-    implementation("androidx.compose.ui:ui-tooling:${Dependencies.Compose.composeUiTooling}")
-    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:${Dependencies.Compose.lifecycleViewModelCompose}")
+    // Compose
+    implementation(platform(libs.androidx.compose.bom))
 
-    debugImplementation("androidx.compose.ui:ui-tooling:${Dependencies.Compose.composeUiTooling}")
-    implementation("androidx.compose.ui:ui-tooling-preview:${Dependencies.Compose.composeUiTooling}")
+    implementation("androidx.compose.ui:ui")
+    implementation("androidx.compose.ui:ui-tooling-preview")
+    implementation("androidx.compose.material3:material3")
+    implementation("androidx.compose.material:material")
+    implementation("androidx.compose.foundation:foundation")
+    implementation("androidx.compose.material:material-icons-core")
+    implementation("androidx.compose.material:material-icons-extended")
+    implementation("androidx.compose.material:material")
+    implementation("androidx.compose.runtime:runtime-livedata")
+    implementation(libs.androidx.lifecycle.viewModelCompose)
+
+    implementation(libs.androidx.activity.compose)
+    implementation(libs.androidx.lifecycle.viewModelCompose)
+    implementation(libs.google.accompanist.navigationAnimation)
 
 
-    implementation("com.google.accompanist:accompanist-navigation-animation:0.26.2-beta")
-    implementation("androidx.navigation:navigation-compose:2.5.1")
-    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.4.1")
+    implementation(libs.androidx.lifecycle.viewModelKtx)
+    implementation(libs.androidx.lifecycle.runtime)
+    implementation(libs.androidx.fragment.core)
+    implementation(libs.androidx.fragment.ktx)
+
 }

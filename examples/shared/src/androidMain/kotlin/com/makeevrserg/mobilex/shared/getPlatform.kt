@@ -9,7 +9,7 @@ class AndroidPlatform : Platform {
 
 actual fun getPlatform(): Platform = AndroidPlatform()
 
-val platformProvider = module { getPlatform() }
+actual val platformProvider = module { getPlatform() }
 
 class SharedClass {
     private val provider by platformProvider

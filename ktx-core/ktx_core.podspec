@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
     spec.name                     = 'ktx_core'
-    spec.version                  = '2.0.7-local'
+    spec.version                  = '2.0.7-local1'
     spec.homepage                 = ''
     spec.source                   = { :http=> ''}
     spec.authors                  = ''

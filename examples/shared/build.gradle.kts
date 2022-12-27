@@ -1,8 +1,9 @@
-import org.jetbrains.compose.compose
+import com.makeevrserg.mobilex.MobileXApk
 
 plugins {
     kotlin("multiplatform")
     id("com.android.library")
+    id("import-convention")
 }
 kotlin {
     android()
@@ -33,9 +34,10 @@ kotlin {
 }
 android {
     namespace = "com.makeevrserg.mobilex.shared"
-    compileSdk = Dependencies.compileSdkVersion
+    compileSdk = MobileXApk.COMPILE_SDK_VERSION
+
     defaultConfig {
-        minSdk = Dependencies.minSdkVersion
-        targetSdk = Dependencies.targetSdkVersion
+        minSdk = MobileXApk.MIN_SDK_VERSION
+        targetSdk = MobileXApk.TARGET_SDK_VERSION
     }
 }

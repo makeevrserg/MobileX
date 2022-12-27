@@ -24,7 +24,7 @@ class MainFragment :
     BindingFragment<FragmentMainBinding>(FragmentMainBinding::inflate),
     IUiRouteListener<FragmentScreen>, IUiDialogListener, IUiLoadingListener, IUiMessageListener {
 
-    private val viewModel: MainViewModel by lazyViewModel()
+    private val viewModel: MainViewModel by lazy { MainViewModel() }
     override val rootProvider: () -> View? = { binding?.root }
     override val contextProvider: () -> Context? = { context }
     override var currentDialog: Dialog? = null

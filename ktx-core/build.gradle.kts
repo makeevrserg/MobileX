@@ -1,31 +1,15 @@
 plugins {
-    kotlin("multiplatform")
-    id("com.android.library")
-    kotlin("native.cocoapods")
-    id("convention.publication")
+    id("kmm-library-convention")
 }
 
-group = Dependencies.group
-version = Dependencies.version
-
 kotlin {
-    android(){
-        publishLibraryVariants("release", "debug")
-    }
     iosX64()
     iosArm64()
     iosSimulatorArm64()
-    jvm {
-        compilations.all {
-            kotlinOptions.jvmTarget = "11"
-        }
-
-
-    }
     sourceSets {
         val commonMain by getting {
             dependencies {
-                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:${Dependencies.Kotlin.coroutines}")
+                implementation(libs.kotlin.coroutines.core)
             }
         }
         val nonAndroidMain by creating {
@@ -33,7 +17,7 @@ kotlin {
         }
         val androidMain by getting {
             dependencies {
-                implementation("androidx.core:core-ktx:${Dependencies.Android.coreKTX}")
+                implementation(libs.androidx.core.ktx)
             }
         }
         val jvmMain by getting {
@@ -55,19 +39,7 @@ kotlin {
 }
 android {
     namespace = "com.makeevrserg.mobilex.ktx_core"
-    compileSdk = Dependencies.compileSdkVersion
-
-    defaultConfig {
-        minSdk = Dependencies.minSdkVersion
-        targetSdk = Dependencies.targetSdkVersion
-    }
     dependencies {
-        implementation("androidx.core:core-ktx:${Dependencies.Android.coreKTX}")
-    }
-    sourceSets {
-        named("main") {
-            manifest.srcFile("src/androidMain/AndroidManifest.xml")
-            res.srcDirs("src/androidMain/res", "src/commonMain/resources")
-        }
+        implementation(libs.androidx.core.ktx)
     }
 }
