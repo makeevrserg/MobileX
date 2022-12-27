@@ -10,9 +10,8 @@ version = Dependencies.version
 kotlin {
     android() {
         publishLibraryVariants("release", "debug")
-//        apply(plugin = "kotlin-parcelize")
     }
-    jvm("desktop") {
+    jvm {
         compilations.all {
             kotlinOptions.jvmTarget = "11"
         }
@@ -32,7 +31,7 @@ kotlin {
 
             }
         }
-        val desktopMain by getting {
+        val jvmMain by getting {
             dependencies {
                 implementation(compose.desktop.currentOs)
             }
