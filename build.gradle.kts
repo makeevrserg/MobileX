@@ -1,5 +1,5 @@
-group = libs.versions.group.get()
-version = libs.versions.version.get()
+group = libs.versions.group
+version = libs.versions.version
 
 plugins {
     alias(libs.plugins.kotlin.android) apply false
