@@ -13,24 +13,7 @@ object MobileXApk {
     const val COMPILE_SDK_VERSION = 33
     const val buildTools = "7.2.2"
 
-    val VERSION_NAME = "2.0.7-local1"
-
-
-    val Project.KEY_ALIAS: String
-        get() = MobileXApk.getCredential(this, "KEY_ALIAS")
-    val Project.KEY_PASSWORD: String
-        get() = MobileXApk.getCredential(this, "KEY_PASSWORD")
-    val Project.STORE_PASSWORD: String
-        get() = MobileXApk.getCredential(this, "STORE_PASSWORD")
-
-    val Project.WEB_CLIENT_ID: String
-        get() = MobileXApk.getCredential(this, "WEB_CLIENT_ID")
-    val Project.BANNER_AD_UNIT_ID: String
-        get() = MobileXApk.getCredential(this, "BANNER_AD_UNIT_ID")
-    val Project.ACTIVITY_AD_UNIT_ID: String
-        get() = MobileXApk.getCredential(this, "ACTIVITY_AD_UNIT_ID")
-    val Project.INTERSITIAL_AD_UNIT_ID: String
-        get() = MobileXApk.getCredential(this, "INTERSITIAL_AD_UNIT_ID")
+    val VERSION_NAME = "2.0.8"
 
     fun getCredential(project: Project, path: String): String {
         val properties: Properties = Properties()

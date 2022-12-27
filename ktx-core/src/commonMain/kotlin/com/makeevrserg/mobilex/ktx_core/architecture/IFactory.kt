@@ -5,7 +5,14 @@ import kotlin.reflect.KProperty
 /**
  * IFactory is need for re-creating object, for example, viewModels
  */
-fun interface IFactory<T> {
-    fun provide(): T
+abstract class IFactory<T> : IDependency<T> {
+    protected abstract fun initializer(): T
+    override val value: T
+        get() = initializer()
 }
-inline operator fun <reified T, K> IFactory<T>.getValue(t: K?, property: KProperty<*>): T = provide()
+
+fun <T> value(initializer: () -> T) = object : IFactory<T>() {
+    override fun initializer(): T = initializer()
+}
+
+inline operator fun <reified T, K> IFactory<T>.getValue(t: K?, property: KProperty<*>): T = value
