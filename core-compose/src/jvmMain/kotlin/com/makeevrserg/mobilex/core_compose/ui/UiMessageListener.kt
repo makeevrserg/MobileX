@@ -12,19 +12,20 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.zIndex
 import com.makeevrserg.mobilex.ktx_core.ui.IUIMessageAction
 import com.makeevrserg.mobilex.ktx_core.ui.UIMessage
+import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
 @Composable
 actual fun UiMessageListener(action: IUIMessageAction, snackbarZIndex: Float) {
-    val coroutineScope = rememberCoroutineScope()
     val snackbarHostState = remember { SnackbarHostState() }
-    val uiMessages by action.uiMessage.collectAsState()
-    uiMessages.value?.let {
-        when (it) {
-            is UIMessage.Toast, is UIMessage.SnackBar -> {
-                val text = it.uiText.asString()
-                coroutineScope.launch {
-                    snackbarHostState.showSnackbar(text)
+    LaunchedEffect(Unit) {
+        action.uiMessage.collectLatest {
+            it.value?.let {
+                when (it) {
+                    is UIMessage.Toast, is UIMessage.SnackBar -> {
+                        val text = it.uiText.asString()
+                        snackbarHostState.showSnackbar(text)
+                    }
                 }
             }
         }

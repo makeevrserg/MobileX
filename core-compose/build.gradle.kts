@@ -26,6 +26,13 @@ kotlin {
         val androidMain by getting {
             dependencies {
                 implementation(project(":android-core"))
+                implementation(libs.androidx.lifecycle.runtime)
+                implementation(libs.androidx.lifecycle.extensions)
+                implementation(libs.androidx.lifecycle.viewModelCompose)
+                implementation(libs.androidx.lifecycle.liveDataKtx)
+                implementation(libs.androidx.lifecycle.extensions)
+                implementation(libs.androidx.lifecycle.viewModelKtx)
+                implementation(libs.androidx.core.ktx)
             }
         }
     }
@@ -33,6 +40,15 @@ kotlin {
 android {
     namespace = "com.makeevrserg.mobilex.core_compose"
     dependencies {
-        implementation(libs.coil)
+        implementation(libs.androidx.lifecycle.runtime)
+        implementation(libs.androidx.lifecycle.extensions)
+        implementation(libs.androidx.lifecycle.viewModelCompose)
+        implementation(libs.androidx.lifecycle.liveDataKtx)
+        implementation(libs.androidx.lifecycle.extensions)
+        implementation(libs.androidx.lifecycle.viewModelKtx)
+        implementation(libs.androidx.core.ktx)
+        implementation(libs.androidx.compose.bom)
+//        implementation("androidx.compose.material3:material3")
+        implementation("androidx.compose.material:material")
     }
 }

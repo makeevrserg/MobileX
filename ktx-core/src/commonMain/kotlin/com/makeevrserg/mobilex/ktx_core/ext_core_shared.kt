@@ -12,3 +12,4 @@ suspend fun <T> withGenericAttempt(maxAmount: Int, block: suspend () -> T?): T? 
     }
     return result
 }
+

@@ -13,7 +13,7 @@ object MobileXApk {
     const val COMPILE_SDK_VERSION = 33
     const val buildTools = "7.2.2"
 
-    val VERSION_NAME = "2.0.8"
+    val VERSION_NAME = "2.0.9"
 
     fun getCredential(project: Project, path: String): String {
         val properties: Properties = Properties()
