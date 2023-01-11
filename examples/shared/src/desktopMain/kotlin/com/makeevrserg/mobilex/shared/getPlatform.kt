@@ -1,6 +1,7 @@
 package com.makeevrserg.mobilex.shared
 
-import com.makeevrserg.mobilex.ktx_core.architecture.module
+import com.makeevrserg.mobile.di_container.module
+
 
 class DesktopPlatform : Platform {
     override val name: String = "Desktop ${System.getProperty("os.name")}"
@@ -8,4 +9,4 @@ class DesktopPlatform : Platform {
 
 actual fun getPlatform(): Platform = DesktopPlatform()
 
-val platformProvider = module { getPlatform() }
+actual val platformProvider = module { getPlatform() }

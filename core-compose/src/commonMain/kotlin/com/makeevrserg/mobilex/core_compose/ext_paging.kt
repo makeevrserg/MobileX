@@ -4,7 +4,7 @@ import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.foundation.lazy.grid.LazyGridState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import com.makeevrserg.mobilex.ktx_core.paging.PagingCollector
+import com.makeevrserg.mobilex.paging.PagingCollector
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 

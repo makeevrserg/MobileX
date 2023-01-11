@@ -3,7 +3,7 @@ package com.makeevrserg.mobilex
 import android.app.Dialog
 import android.content.Context
 import androidx.appcompat.app.AlertDialog
-import com.makeevrserg.mobilex.ktx_core.UIDialogMessage
+import com.makeevrserg.mobilex.ktx_core.action.components.UIDialogMessage
 
 object CoreAlertUiDialog {
     fun build(context: Context, uiDialogMessage: UIDialogMessage): Dialog =

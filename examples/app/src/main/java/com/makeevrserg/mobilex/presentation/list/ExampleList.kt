@@ -1,8 +1,8 @@
 package com.makeevrserg.mobilex.presentation.list
 
-import com.makeevrserg.mobilex.core.adapter.IDiffItem
+import com.makeevrserg.mobilex.ktx_core.Randomization
+import com.makeevrserg.mobilex.rvadapter.IDiffItem
 import kotlin.random.Random
-import  com.makeevrserg.mobilex.ktx_core.Randomization
 
 sealed class ExampleList : IDiffItem<Int, ExampleList> {
     override val instance: ExampleList

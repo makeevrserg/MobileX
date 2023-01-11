@@ -9,8 +9,8 @@ plugins {
     id("com.android.library")
     id("convention.publication")
 }
-group = MobileXApk.GROUP
-version = MobileXApk.VERSION_NAME
+group = libs.versions.group.get()
+version = libs.versions.version.get()
 
 kotlin {
     android() {

@@ -1,7 +1,7 @@
 package com.makeevrserg.mobilex.shared
 
-import com.makeevrserg.mobilex.ktx_core.architecture.getValue
-import com.makeevrserg.mobilex.ktx_core.architecture.module
+import com.makeevrserg.mobile.di_container.getValue
+import com.makeevrserg.mobile.di_container.module
 
 class AndroidPlatform : Platform {
     override val name: String = "Android ${android.os.Build.VERSION.SDK_INT}"

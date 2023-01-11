@@ -2,7 +2,7 @@ package com.makeevrserg.mobilex.core_compose
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.stringResource
-import com.makeevrserg.mobilex.ktx_core.UiText
+import com.makeevrserg.mobilex.ktx_core.action.components.UiText
 
 /**
  * Compose support for [UiText]

@@ -1,6 +1,6 @@
 package com.makeevrserg.mobilex.shared
 
-import com.makeevrserg.mobilex.ktx_core.architecture.module
+import com.makeevrserg.mobile.di_container.module
 import platform.UIKit.UIDevice
 
 class IOSPlatform: Platform {
@@ -9,4 +9,4 @@ class IOSPlatform: Platform {
 
 actual fun getPlatform(): Platform = IOSPlatform()
 
-val platformProvider = module { getPlatform() }
+actual val platformProvider = module { getPlatform() }

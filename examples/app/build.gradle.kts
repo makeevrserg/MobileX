@@ -14,7 +14,7 @@ android {
         minSdk = MobileXApk.MIN_SDK_VERSION
         targetSdk = MobileXApk.TARGET_SDK_VERSION
         versionCode = 1
-        versionName = MobileXApk.VERSION_NAME
+        versionName = libs.versions.version.get()
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -59,9 +59,12 @@ dependencies {
     implementation(libs.androidx.constraintlayout.android)
 
     // Project
-    implementation(project(":android-core"))
     implementation(project(":core-compose"))
     implementation(project(":ktx-core"))
+    implementation(project(":mvi"))
+    implementation(project(":paging"))
+    implementation(project(":rvadapter"))
+    implementation(project(":di-container"))
 
     // Compose
     implementation(platform(libs.androidx.compose.bom))

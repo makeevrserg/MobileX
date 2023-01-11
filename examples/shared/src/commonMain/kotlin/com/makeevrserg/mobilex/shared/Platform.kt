@@ -1,6 +1,6 @@
 package com.makeevrserg.mobilex.shared
 
-import com.makeevrserg.mobilex.ktx_core.architecture.IModule
+import com.makeevrserg.mobile.di_container.IModule
 
 interface Platform {
     val name: String

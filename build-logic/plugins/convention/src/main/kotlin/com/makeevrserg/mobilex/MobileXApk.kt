@@ -7,13 +7,9 @@ import java.util.Properties
 
 object MobileXApk {
     const val APPLICATION_ID = "com.makeevrserg.mobilex"
-    const val GROUP = "ru.astrainteractive.mobilex"
     const val MIN_SDK_VERSION = 21
     const val TARGET_SDK_VERSION = 33
     const val COMPILE_SDK_VERSION = 33
-    const val buildTools = "7.2.2"
-
-    val VERSION_NAME = "2.0.9"
 
     fun getCredential(project: Project, path: String): String {
         val properties: Properties = Properties()

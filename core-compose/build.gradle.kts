@@ -14,6 +14,9 @@ kotlin {
                 implementation(compose.preview)
                 implementation(compose.uiTooling)
                 implementation(project(":ktx-core"))
+                implementation(project(":di-container"))
+                implementation(project(":mvi"))
+                implementation(project(":paging"))
 
 
             }
@@ -25,7 +28,6 @@ kotlin {
         }
         val androidMain by getting {
             dependencies {
-                implementation(project(":android-core"))
                 implementation(libs.androidx.lifecycle.runtime)
                 implementation(libs.androidx.lifecycle.extensions)
                 implementation(libs.androidx.lifecycle.viewModelCompose)

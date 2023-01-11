@@ -6,26 +6,28 @@ import com.makeevrserg.mobilex.main.NavigationProvider
 import com.makeevrserg.mobilex.presentation.compose.ComposeScreen
 import com.makeevrserg.mobilex.presentation.compose.ExampleComposeActivity
 import com.makeevrserg.mobilex.ktx_core.*
-import com.makeevrserg.mobilex.ktx_core.ui.*
+import com.makeevrserg.mobilex.ktx_core.action.ActionContainer
+import com.makeevrserg.mobilex.ktx_core.action.ActionContainerHost
+import com.makeevrserg.mobilex.ktx_core.action.IActionContainer
+import com.makeevrserg.mobilex.ktx_core.action.components.RouteInfo
+import com.makeevrserg.mobilex.ktx_core.action.components.UIDialogMessage
+import com.makeevrserg.mobilex.ktx_core.action.components.UiText
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import java.util.UUID
 
 
-class MainViewModel : ViewModel(),
-    IUIRouteAction by UIRouteAction(),
-    IUIDialogAction by UIDialogAction(),
-    IUILoadingAction by UILoadingAction(),
-    IUIMessageAction by UIMessageAction() {
-    fun onBasicNavigationClicked() {
+class MainViewModel : ViewModel(), ActionContainerHost {
+    override val actionContainer: IActionContainer = ActionContainer()
+    fun onBasicNavigationClicked() = viewModelScope.launch {
         RouteInfo.NextScreen(NavigationProvider.Stack).navigate()
     }
 
-    fun onShowToastClicked() {
+    fun onShowToastClicked() = viewModelScope.launch {
         UiText.DynamicString("Toast").sendToast()
     }
 
-    fun onShoSnackbarClicked() {
+    fun onShoSnackbarClicked() = viewModelScope.launch {
         UiText.DynamicString("Snackbar").sendSnackbar()
     }
 
@@ -35,31 +37,31 @@ class MainViewModel : ViewModel(),
         setLoading(false)
     }
 
-    fun openComposeScreen() {
+    fun openComposeScreen() = viewModelScope.launch {
         RouteInfo.NextScreen(ComposeScreen.Custom(UUID.randomUUID().toString())).navigate()
     }
 
-    fun onShowDialogClicked() {
+    fun onShowDialogClicked() = viewModelScope.launch {
         UIDialogMessage(
             title = UiText.DynamicString("Some Title"),
             description = UiText.DynamicString("Some Description"),
             isCancellable = false,
-            positiveButton = UIDialogButton(
+            positiveButton = UIDialogMessage.UIDialogButton(
                 text = UiText.DynamicString("Positive"),
                 ::clearUiDialog
             ),
-            negativeButton = UIDialogButton(
+            negativeButton = UIDialogMessage.UIDialogButton(
                 text = UiText.DynamicString("Negative"),
                 ::clearUiDialog
             )
         ).send()
     }
 
-    fun onListOpenClicked() {
+    fun onListOpenClicked() = viewModelScope.launch {
         RouteInfo.NextScreen(NavigationProvider.List).navigate()
     }
 
-    fun onComposeActivityClicked() {
+    fun onComposeActivityClicked() = viewModelScope.launch {
         RouteInfo.Intent(ExampleComposeActivity::class.java).navigate()
     }
 

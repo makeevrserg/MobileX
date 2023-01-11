@@ -15,7 +15,6 @@ import androidx.navigation.NavType
 import androidx.navigation.navArgument
 import com.google.accompanist.navigation.animation.AnimatedNavHost
 import com.google.accompanist.navigation.animation.composable
-import com.makeevrserg.mobilex.core.routing.IRouter
 
 @ExperimentalAnimationApi
 private fun slideInAnimation(): (AnimatedContentScope<NavBackStackEntry>.() -> EnterTransition?) =
@@ -31,7 +30,6 @@ fun Navigation(
     navController: NavHostController,
     viewModelStoreOwner: ViewModelStoreOwner,
 ) {
-    val navRouter: IRouter<ComposeScreen> = NavHostRouter(navController, viewModelStoreOwner)
 
     AnimatedNavHost(
         navController = navController,
@@ -44,7 +42,7 @@ fun Navigation(
             enterTransition = slideInAnimation(),
             exitTransition = slideOutAnimation()
         ) {
-            MainScreen(navRouter)
+            MainScreen()
         }
         composable(
             route = ComposeScreen.Custom.route + "?string={string}",
@@ -54,7 +52,7 @@ fun Navigation(
                 type = NavType.StringType
             })
         ) {
-            CustomScreen(navRouter, it.arguments?.getString("string") ?: "null")
+            CustomScreen(it.arguments?.getString("string") ?: "null")
         }
     }
 }

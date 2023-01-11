@@ -17,6 +17,7 @@ kotlin {
         }
         val androidMain by getting {
             dependencies {
+                implementation(libs.google.android.material)
                 implementation(libs.androidx.core.ktx)
             }
         }
@@ -40,6 +41,23 @@ kotlin {
 android {
     namespace = "com.makeevrserg.mobilex.ktx_core"
     dependencies {
+        implementation(libs.google.android.material)
         implementation(libs.androidx.core.ktx)
+        implementation(libs.androidx.appcompat)
+        implementation(libs.androidx.constraintlayout.android)
+        implementation(libs.androidx.cicerone)
+        implementation(libs.androidx.fragment.ktx)
+        implementation(libs.androidx.activity.ktx)
+        implementation(libs.androidx.activity.core)
+        implementation(libs.androidx.fragment.core)
+
+        implementation(libs.kotlin.coroutines.core)
+        implementation(libs.androidx.viewbinding)
+        implementation(libs.androidx.lifecycle.viewModelKtx)
+        implementation(libs.androidx.lifecycle.runtime)
+        implementation(libs.androidx.fragment.ktx)
+        implementation(libs.androidx.activity.ktx)
+        implementation(libs.androidx.activity.core)
+        implementation(libs.androidx.fragment.core)
     }
 }

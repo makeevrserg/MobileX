@@ -1,19 +1,19 @@
 Pod::Spec.new do |spec|
     spec.name                     = 'ktx_core'
-    spec.version                  = '2.0.7-local1'
-    spec.homepage                 = ''
+    spec.version                  = '1.0'
+    spec.homepage                 = 'Link to the Shared Module homepage'
     spec.source                   = { :http=> ''}
     spec.authors                  = ''
     spec.license                  = ''
-    spec.summary                  = ''
-    spec.vendored_frameworks      = 'build/cocoapods/framework/ktx_core.framework'
+    spec.summary                  = 'Some description for the Shared Module'
+    spec.vendored_frameworks      = 'build/cocoapods/framework/CoreKTX.framework'
     spec.libraries                = 'c++'
-                
+    spec.ios.deployment_target = '14.1'
                 
                 
     spec.pod_target_xcconfig = {
         'KOTLIN_PROJECT_PATH' => ':ktx-core',
-        'PRODUCT_MODULE_NAME' => 'ktx_core',
+        'PRODUCT_MODULE_NAME' => 'CoreKTX',
     }
                 
     spec.script_phases = [

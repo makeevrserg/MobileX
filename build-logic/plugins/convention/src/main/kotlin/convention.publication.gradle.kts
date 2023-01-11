@@ -47,8 +47,8 @@ publishing {
         artifact(javadocJar.get())
         pom {
             name.set("MobileX")
-            group = MobileXApk.GROUP
-            version = MobileXApk.VERSION_NAME
+            group = libs.versions.group.get()
+            version = libs.versions.version.get()
             description.set("KMM library with frequently used code")
             url.set("https://github.com/makeevrserg/MobileX")
 

@@ -4,12 +4,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.State
 import androidx.compose.runtime.collectAsState
-import com.makeevrserg.mobilex.ktx_core.mvi.ContainerHost
+import com.makeevrserg.mobilex.mvi.ContainerHost
 import kotlinx.coroutines.flow.collectLatest
 
 
 @Composable
-fun <T : Any> ContainerHost<T, *, *>.collectState(): State<T> = this.container.stateFlow.collectAsState()
+fun <T : Any> ContainerHost<T, *, *>.collectState(): State<T> = this.container.mutableStateFlow.collectAsState()
 
 
 @Composable
