@@ -1,4 +1,4 @@
-package com.makeevrserg.mobilex.ktx_core
+package com.makeevrserg.mobilex.ktx_core.storage
 
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -6,7 +6,6 @@ import kotlinx.coroutines.flow.StateFlow
 /**
  * This class allows you to create dataSources of your configuration
  * Also supports stateFlow so you are able to be notified when configuration changed
- * There are few implementations: [BoolLocalStorage] and [StringLocalStorage]
  */
 abstract class ILocalStorage<T> {
     abstract val key: String

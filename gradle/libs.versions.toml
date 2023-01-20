@@ -1,7 +1,7 @@
 [versions]
 # Application
 group = "ru.astrainteractive.mobilex"
-version = "2.1.0"
+version = "2.1.0-l48"
 # Android
 application-versionCode = "10"
 application-versionString = "2.0.2"
@@ -53,7 +53,11 @@ koin = "3.2.2"
 mobileX = "2.0.7"
 # Compose
 kotlin-compose = "1.2.2"
+# Moko
+moko-generator-resource = "0.20.1"
 [libraries]
+# Moko
+moko-resources-core = { module = "dev.icerock.moko:resources", version.ref = "moko-generator-resource" }
 # Kotlin
 kotlin-gradlePlugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin-version" }
 kotlin-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlin-coroutines" }

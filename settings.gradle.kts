@@ -35,3 +35,7 @@ include(":mvi")
 include(":di-container")
 include(":paging")
 include(":rvadapter")
+// uitext
+include(":uitext:uitext-core")
+include(":uitext:uitext-mr")
+include(":uitext:uitext-compose")
