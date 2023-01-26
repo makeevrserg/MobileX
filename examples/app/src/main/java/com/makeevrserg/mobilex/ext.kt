@@ -11,7 +11,6 @@ import com.github.terrakok.cicerone.Cicerone
 import com.github.terrakok.cicerone.Router
 import com.github.terrakok.cicerone.androidx.AppNavigator
 import com.github.terrakok.cicerone.androidx.FragmentScreen
-import com.makeevrserg.mobilex.ktx_core.action.AndroidViewProvider
 
 fun Fragment.defaultFragmentViewProvider() = object : AndroidViewProvider {
     override fun getViewContext(): Context? = context

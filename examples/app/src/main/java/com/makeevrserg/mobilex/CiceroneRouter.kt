@@ -2,7 +2,6 @@ package com.makeevrserg.mobilex
 
 import com.github.terrakok.cicerone.Router
 import com.github.terrakok.cicerone.Screen
-import com.makeevrserg.mobilex.ktx_core.AndroidRouter
 import com.makeevrserg.mobilex.ktx_core.action.components.RouteInfo
 
 class CiceroneRouter(private val router: Router): AndroidRouter {

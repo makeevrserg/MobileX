@@ -34,6 +34,7 @@
             <option value="$PROJECT_DIR$/examples/shared" />
             <option value="$PROJECT_DIR$/ktx-core" />
             <option value="$PROJECT_DIR$/mvi" />
+            <option value="$PROJECT_DIR$/orbit-mvi" />
             <option value="$PROJECT_DIR$/paging" />
             <option value="$PROJECT_DIR$/rvadapter" />
             <option value="$PROJECT_DIR$/uitext" />

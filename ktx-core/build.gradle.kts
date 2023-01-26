@@ -12,9 +12,6 @@ kotlin {
                 implementation(libs.kotlin.coroutines.core)
             }
         }
-        val nonAndroidMain by creating {
-            dependsOn(commonMain)
-        }
         val androidMain by getting {
             dependencies {
                 implementation(libs.google.android.material)
@@ -22,15 +19,13 @@ kotlin {
             }
         }
         val jvmMain by getting {
-            dependsOn(nonAndroidMain)
-
+            dependsOn(commonMain)
         }
-
         val iosX64Main by getting
         val iosArm64Main by getting
         val iosSimulatorArm64Main by getting
         val iosMain by creating {
-            dependsOn(nonAndroidMain)
+            dependsOn(commonMain)
             iosX64Main.dependsOn(this)
             iosArm64Main.dependsOn(this)
             iosSimulatorArm64Main.dependsOn(this)
