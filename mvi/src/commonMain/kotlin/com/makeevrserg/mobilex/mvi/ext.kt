@@ -15,3 +15,10 @@ inline fun <reified T : Any,reified K : T> ContainerHost<T, *, *>.reduceState(bl
 suspend fun <T : Any> ContainerHost<*, T, *>.sideEffect(effect: T) {
     return this.container.send(effect)
 }
+
+suspend fun <T : Any> ContainerHost<*, T, *>.sideEffect(block: ()->T) {
+    return this.container.send(block())
+}
+fun <T : Any> ContainerHost<*, *, T>.intent(block: ()->T) {
+    return this.onIntent(block())
+}

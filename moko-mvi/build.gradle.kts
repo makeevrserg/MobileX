@@ -2,6 +2,7 @@ plugins {
     id("kmm-library-convention")
 }
 
+val mokoMvvm = "0.15.0"
 kotlin {
     iosX64()
     iosArm64()
@@ -11,6 +12,9 @@ kotlin {
             dependencies {
                 implementation(libs.kotlin.coroutines.core)
                 implementation(project(":ktx-core"))
+                implementation(project(":mvi"))
+                implementation("dev.icerock.moko:mvvm-core:$mokoMvvm")
+                implementation("dev.icerock.moko:mvvm-flow:$mokoMvvm")
             }
         }
         val androidMain by getting {
@@ -32,5 +36,5 @@ kotlin {
 
 }
 android {
-    namespace = "com.makeevrserg.mobilex.mvi"
+    namespace = "com.makeevrserg.mobilex.moko_mvi"
 }

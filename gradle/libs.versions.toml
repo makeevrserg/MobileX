@@ -1,7 +1,7 @@
 [versions]
 # Application
 group = "ru.astrainteractive.mobilex"
-version = "2.3.0"
+version = "2.3.1"
 # Android
 application-versionCode = "10"
 application-versionString = "2.0.2"
