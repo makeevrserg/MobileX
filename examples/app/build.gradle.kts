@@ -1,4 +1,5 @@
 import com.makeevrserg.mobilex.MobileXApk
+
 plugins {
     id("com.android.application")
     kotlin("android")
@@ -36,8 +37,8 @@ android {
         jvmTarget = "1.8"
     }
     buildFeatures {
-        viewBinding= true
-        compose= true
+        viewBinding = true
+        compose = true
     }
     composeOptions {
         kotlinCompilerExtensionVersion = "1.3.0"
@@ -65,7 +66,7 @@ dependencies {
     implementation(project(":paging"))
     implementation(project(":rvadapter"))
     implementation(project(":di-container"))
-
+    implementation("com.github.kirich1409:viewbindingpropertydelegate-noreflection:1.5.6")
     // Compose
     implementation(platform(libs.androidx.compose.bom))
 

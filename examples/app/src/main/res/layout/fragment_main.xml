@@ -5,45 +5,8 @@
     android:orientation="vertical">
 
     <Button
-        android:id="@+id/bShowToast"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Show toast" />
-
-    <Button
-        android:id="@+id/bShowSnackBar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Show Snackbar" />
-
-    <Button
-        android:id="@+id/bShowDialog"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Show Dialog" />
-
-    <Button
-        android:id="@+id/bShowLoading"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Show Loading" />
-
-
-    <Button
-        android:id="@+id/bNavigation"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Another fragment" />
-
-
-    <Button
         android:id="@+id/bListFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="List fragment" />
-    <Button
-        android:id="@+id/bComposeActivity"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Compose activity" />
 </LinearLayout>
