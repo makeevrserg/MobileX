@@ -1,24 +1,17 @@
 package com.makeevrserg.mobilex.ktx_core.storage
 
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 
+/**
+ * [StorageValue<T>] allows you to save/load values from your storage withou depending on SharedPreferences or other library
+ */
 interface StorageValue<T> {
-    /**
-     * The flow will be updated on [setValue]; [getValue] and [reset]
-     */
-    val stateFlow: StateFlow<T>
-
-    var value: T
-
+    val value: T
+    fun loadValue(): T
+    fun saveValue(value: T)
+    fun saveValue(block: (T) -> T)
     fun reset()
 
-    fun update(block: (T) -> T) {
-        value = block(value)
-    }
-
-    interface Optional<T : Any> : StorageValue<T> {
-        val default: T
-        override var value: T
-    }
 }
 
