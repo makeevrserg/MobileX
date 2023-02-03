@@ -1,7 +1,10 @@
+import com.makeevrserg.mobilex.MobileXApk.APPLICATION_ID
+
 plugins {
     id("org.jetbrains.compose")
-    id("kmm-library-convention")
+    id("compose-library-convention")
 }
+
 kotlin {
     sourceSets {
         val commonMain by getting {
@@ -39,8 +42,9 @@ kotlin {
         }
     }
 }
+
 android {
-    namespace = "com.makeevrserg.mobilex.core_compose"
+    namespace = "$APPLICATION_ID.core_compose"
     dependencies {
         implementation(libs.androidx.lifecycle.runtime)
         implementation(libs.androidx.lifecycle.extensions)

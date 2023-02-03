@@ -1,6 +1,8 @@
+import com.makeevrserg.mobilex.MobileXApk.APPLICATION_ID
+
 plugins {
     id("org.jetbrains.compose")
-    id("kmm-library-convention")
+    id("compose-library-convention")
 }
 kotlin {
     sourceSets {
@@ -39,16 +41,5 @@ kotlin {
     }
 }
 android {
-    namespace = "com.makeevrserg.mobilex.uitext_compose"
-    dependencies {
-        implementation(libs.androidx.lifecycle.runtime)
-        implementation(libs.androidx.lifecycle.extensions)
-        implementation(libs.androidx.lifecycle.viewModelCompose)
-        implementation(libs.androidx.lifecycle.liveDataKtx)
-        implementation(libs.androidx.lifecycle.extensions)
-        implementation(libs.androidx.lifecycle.viewModelKtx)
-        implementation(libs.androidx.core.ktx)
-        implementation(libs.androidx.compose.bom)
-        implementation("androidx.compose.material:material")
-    }
+    namespace = "$APPLICATION_ID.uitext_compose"
 }
