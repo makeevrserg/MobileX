@@ -1,6 +1,6 @@
 package com.makeevrserg.mobilex.shared
 
-import com.makeevrserg.mobile.di_container.IModule
+import com.makeevrserg.mobile.di_container.Module
 
 interface Platform {
     val name: String
@@ -8,4 +8,4 @@ interface Platform {
 
 expect fun getPlatform(): Platform
 
-expect val platformProvider: IModule<Platform>
+expect val platformProvider: Module<Platform>

@@ -3,10 +3,10 @@ package com.makeevrserg.mobile.di_container
 import kotlin.reflect.KProperty
 
 /**
- * [IModule] could be used to create Singletons with only one initialization
+ * [Module] could be used to create Singletons with only one initialization
  * If you want to use singleton which could be reloadable see [IReloadable]
  */
-abstract class IModule<T> : IDependency<T> {
+abstract class Module<T> : Dependency<T> {
     protected abstract fun initializer(): T
     private val lazyValue by lazy {
         initializer()
@@ -15,8 +15,8 @@ abstract class IModule<T> : IDependency<T> {
         get() = lazyValue
 }
 
-fun <T> module(initializer: () -> T) = object : IModule<T>() {
+fun <T> module(initializer: () -> T) = object : Module<T>() {
     override fun initializer(): T = initializer()
 }
 
-inline operator fun <reified T, K> IModule<T>.getValue(t: K?, property: KProperty<*>): T = value
+inline operator fun <reified T, K> Module<T>.getValue(t: K?, property: KProperty<*>): T = value

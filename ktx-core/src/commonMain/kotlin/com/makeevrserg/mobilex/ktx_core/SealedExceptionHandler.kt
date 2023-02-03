@@ -1,9 +1,9 @@
-package com.makeevrserg.mobile.di_container
+package com.makeevrserg.mobilex.ktx_core
 
-fun interface SealedExceptionHandler<T : Exception> {
+fun interface SealedExceptionHandler<T : Throwable> {
     fun handle(e: T)
     companion object{
-        inline fun <reified T : Exception, reified L> handle(
+        inline fun <reified T : Throwable, reified L> handle(
             handler: SealedExceptionHandler<T>,
             block: () -> L
         ) = runCatching(block).onFailure {

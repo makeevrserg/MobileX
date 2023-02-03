@@ -2,13 +2,13 @@ package com.makeevrserg.mobile.di_container
 
 import kotlin.reflect.KProperty
 
-abstract class ILateinit<T : Any> {
+abstract class Lateinit<T : Any>: Dependency<T> {
     fun initialize(value: T) {
         if (this::value.isInitialized) throw IllegalStateException("Lateinit value already initialized!")
         this.value = value
     }
 
-    lateinit var value: T
+    final override lateinit var value: T
         private set
 }
-inline operator fun <reified T: Any, K> ILateinit<T>.getValue(t: K?, property: KProperty<*>): T = value
+inline operator fun <reified T: Any, K> Lateinit<T>.getValue(t: K?, property: KProperty<*>): T = value
