@@ -1,7 +1,7 @@
 import com.makeevrserg.mobilex.MobileXApk.APPLICATION_ID
 
 plugins {
-    id("kmm-library-convention")
+    id("android-library-convention")
 }
 
 kotlin {

@@ -8,25 +8,25 @@ import kotlinx.coroutines.flow.StateFlow
  */
 class DefaultFlowStorageValue<T>(
     private val default: T,
-    private val loadValue: () -> T,
-    private val saveValue: (T) -> Unit
+    private val loadSettingsValue: () -> T,
+    private val saveSettingsValue: (T) -> Unit
 ) : FlowStorageValue<T> {
 
     private val mutableStateFlow by lazy {
-        MutableStateFlow(loadValue())
+        MutableStateFlow(loadSettingsValue.invoke())
     }
     override val stateFlow: StateFlow<T>
         get() = mutableStateFlow
 
-    override val value: T
-        get() = stateFlow.value
-
     override fun loadValue(): T {
-        return loadValue.invoke()
+        val newValue = loadSettingsValue.invoke()
+        mutableStateFlow.value = newValue
+        return newValue
     }
 
     override fun saveValue(value: T) {
-        saveValue.invoke(value)
+        saveSettingsValue.invoke(value)
+        mutableStateFlow.value = value
     }
 
     override fun reset() {
