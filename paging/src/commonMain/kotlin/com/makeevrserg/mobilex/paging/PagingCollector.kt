@@ -1,42 +1,44 @@
 package com.makeevrserg.mobilex.paging
 
+import com.makeevrserg.mobilex.paging.data.PagedListDataSource
+import com.makeevrserg.mobilex.paging.state.PagingState
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.flow.updateAndGet
 
 
-class PagingCollector<T>(
-    private val initialPage: Int,
-    private val pager: IPager<T>,
-    private val onListUpdated: (List<T>) -> Unit = {},
+class PagingCollector<T, K : Any>(
+    parentScope: CoroutineScope,
+    private val initialPagingState: PagingState<K>,
+    private val pager: PagedListDataSource<T, K>,
 ) {
-    private var pagingState = PagingState(
-        initialPage,
-        false
-    )
-    private var isLoading: Boolean = false
+    var pagingStateFlow: MutableStateFlow<PagingState<K>> = MutableStateFlow(initialPagingState)
+
     val list = MutableStateFlow<List<T>>(emptyList())
     fun reset() {
         list.value = emptyList()
-        pagingState.isLastPage = false
-        isLoading = false
-        pagingState.page = initialPage
+        pagingStateFlow.value = initialPagingState
     }
 
     suspend fun loadNextPage() {
-        if (pagingState.isLastPage) return
-        if (isLoading) return
-        isLoading = true
-        val nextList = pager.getList(pagingState)
+        var currentPagingState = pagingStateFlow.value.run {
+            if (isLastPage) return
+            if (isLoading) return
+            pagingStateFlow.updateAndGet { copyPagingState(isLoading = true) }
+        }
+        val nextList = pager.getList(currentPagingState)
         if (!nextList.isNullOrEmpty())
-            pagingState.page += 1
+            currentPagingState = currentPagingState.copyPagingState(page = currentPagingState.getNextPage())
         if (nextList != null && nextList.isEmpty())
-            pagingState.isLastPage = true
+            currentPagingState = currentPagingState.copyPagingState(isLastPage = true)
         list.update {
             it.toMutableList().apply {
                 nextList?.let(::addAll)
             }
         }
-        onListUpdated(list.value)
-        isLoading = false
+        pagingStateFlow.update {
+            currentPagingState.copyPagingState(isLoading = false)
+        }
     }
 }

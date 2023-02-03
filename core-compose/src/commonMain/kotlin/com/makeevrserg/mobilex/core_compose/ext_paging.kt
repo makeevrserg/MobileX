@@ -23,7 +23,7 @@ fun LazyGridState.isScrolledToTheEnd(): Boolean {
 
 
 @Composable
-fun <T> PagingCollector<T>.collect(state: LazyListState, key: Any = state) {
+fun <T> PagingCollector<T,*>.collect(state: LazyListState, key: Any = state) {
     if (state.isScrolledToTheEnd())
         LaunchedEffect(key1 = key) {
             withContext(Dispatchers.IO) {
@@ -35,7 +35,7 @@ fun <T> PagingCollector<T>.collect(state: LazyListState, key: Any = state) {
 }
 
 @Composable
-fun <T> PagingCollector<T>.collect(state: LazyGridState, key: Any = state) {
+fun <T> PagingCollector<T,*>.collect(state: LazyGridState, key: Any = state) {
     if (state.isScrolledToTheEnd())
         LaunchedEffect(key1 = key) {
             withContext(Dispatchers.IO) {
