@@ -4,11 +4,11 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.viewbinding.ViewBinding
-import com.makeevrserg.mobilex.rvadapter.UniqueViewHolder
+import com.makeevrserg.mobilex.rvadapter.UniqueViewBinder
 
-abstract class SharedViewHolder<T : Any, V : ViewBinding>(
+abstract class DefaultViewBinder<T : Any, V : ViewBinding>(
     val inflater: (layoutInflater: LayoutInflater, viewGroup: ViewGroup, attachToParent: Boolean) -> V
-) : UniqueViewHolder<T, V>, DiffUtil.ItemCallback<T>() {
+) : UniqueViewBinder<T, V>, DiffUtil.ItemCallback<T>() {
     override fun inflate(parent: ViewGroup, viewType: Int): V {
         val layoutInflater = LayoutInflater.from(parent.context)
         return inflater(layoutInflater, parent, false)

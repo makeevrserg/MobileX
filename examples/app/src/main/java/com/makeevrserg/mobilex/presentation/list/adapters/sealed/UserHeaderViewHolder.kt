@@ -2,10 +2,10 @@ package com.makeevrserg.mobilex.presentation.list.adapters.sealed
 
 import com.makeevrserg.mobilex.databinding.ItemHeaderBinding
 import com.makeevrserg.mobilex.presentation.list.models.SealedUser
-import com.makeevrserg.mobilex.rvadapter.sealed.SealedViewHolder
+import com.makeevrserg.mobilex.rvadapter.sealed.SealedViewBinder
 
 
-class UserHeaderViewHolder : SealedViewHolder<SealedUser, SealedUser.Header, ItemHeaderBinding>(
+class UserHeaderViewHolder : SealedViewBinder<SealedUser, SealedUser.Header, ItemHeaderBinding>(
     SealedUser.Header::class.java,
     ItemHeaderBinding::inflate
 ) {
