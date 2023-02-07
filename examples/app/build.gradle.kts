@@ -58,7 +58,7 @@ dependencies {
     // Android
     implementation(libs.androidx.recyclerview)
     implementation(libs.androidx.constraintlayout.android)
-
+    implementation(libs.google.android.material)
     // Project
     implementation(project(":core-compose"))
     implementation(project(":ktx-core"))

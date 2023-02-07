@@ -10,11 +10,11 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
-                // Core
-                implementation(libs.kotlin.coroutines.core)
+                // Coroutines
+                compileOnly(libs.kotlin.coroutines.core)
                 // Moko
-                implementation("dev.icerock.moko:mvvm-core:$mokoMvvm")
-                implementation("dev.icerock.moko:mvvm-flow:$mokoMvvm")
+                compileOnly("dev.icerock.moko:mvvm-core:$mokoMvvm")
+                compileOnly("dev.icerock.moko:mvvm-flow:$mokoMvvm")
                 // Local
                 implementation(project(":ktx-core"))
                 implementation(project(":mvi"))

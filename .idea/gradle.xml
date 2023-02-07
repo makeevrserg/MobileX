@@ -36,6 +36,7 @@
             <option value="$PROJECT_DIR$/moko-mvi" />
             <option value="$PROJECT_DIR$/mvi" />
             <option value="$PROJECT_DIR$/paging" />
+            <option value="$PROJECT_DIR$/rsocket" />
             <option value="$PROJECT_DIR$/rvadapter" />
             <option value="$PROJECT_DIR$/uitext" />
             <option value="$PROJECT_DIR$/uitext/uitext-compose" />

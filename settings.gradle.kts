@@ -36,6 +36,7 @@ include(":moko-mvi")
 include(":di-container")
 include(":paging")
 include(":rvadapter")
+include(":rsocket")
 // uitext
 include(":uitext:uitext-core")
 include(":uitext:uitext-mr")

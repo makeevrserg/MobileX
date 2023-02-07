@@ -8,18 +8,13 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
+                // Moko
+                compileOnly(libs.moko.resources.core)
+                // Local
                 implementation(project(":uitext:uitext-core"))
-                api(libs.moko.resources.core)
-            }
-        }
-        val androidMain by getting {
-            dependencies {
-                implementation(libs.google.android.material)
-                implementation(libs.androidx.core.ktx)
             }
         }
     }
-
 }
 android {
     namespace = "$APPLICATION_ID.utiext_mr"

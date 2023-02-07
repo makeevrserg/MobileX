@@ -6,19 +6,23 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
     kotlin("multiplatform")
     id("org.jetbrains.compose")
+    kotlin("plugin.serialization")
 }
 kotlin {
     jvm {
         compilations.all {
             kotlinOptions.jvmTarget = "11"
         }
-        withJava()
+//        withJava()
     }
     sourceSets {
-        val commonMain by getting{
+        val commonMain by getting {
 
             dependencies {
                 implementation(libs.kotlin.coroutines.core)
+                implementation(project(":rsocket"))
+                implementation(project(":di-container"))
+                implementation(libs.kotlin.serialization.json)
             }
         }
         val jvmMain by getting {
@@ -31,6 +35,9 @@ kotlin {
                 implementation(compose.materialIconsExtended)
                 implementation(libs.mobileX.core.ktx)
                 implementation(libs.mobileX.core.compose)
+
+                implementation("com.squareup.okhttp3:okhttp:4.10.0")
+                implementation("org.mongodb:mongo-java-driver:3.12.11")
             }
         }
     }

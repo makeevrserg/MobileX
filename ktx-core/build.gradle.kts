@@ -8,12 +8,8 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
-                implementation(libs.kotlin.coroutines.core)
-            }
-        }
-        val androidMain by getting {
-            dependencies {
-                implementation(libs.google.android.material)
+                // Coroutines
+                compileOnly(libs.kotlin.coroutines.core)
                 implementation(libs.androidx.core.ktx)
             }
         }

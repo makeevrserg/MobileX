@@ -8,8 +8,8 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
-                // Core
-                implementation(libs.kotlin.coroutines.core)
+                // Coroutines
+                compileOnly(libs.kotlin.coroutines.core)
                 // Local
                 implementation(project(":ktx-core"))
             }

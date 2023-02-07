@@ -8,8 +8,8 @@ kotlin {
     sourceSets {
         val androidMain by getting {
             dependencies {
-                implementation(libs.androidx.core.ktx)
-                implementation("androidx.recyclerview:recyclerview:1.2.1")
+                // RecyclerView
+                compileOnly("androidx.recyclerview:recyclerview:1.2.1")
             }
         }
     }
