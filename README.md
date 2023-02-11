@@ -16,7 +16,7 @@ Add required modules to your module`s build.gradle file:
 dependencies{
   implementation("ru.astrainteractive.mobilex:core-compose:<version>") // Android/Desktop
   implementation("ru.astrainteractive.mobilex:ktx-core:<version>")  // Android/Desktop/IOS
-  implementation("ru.astrainteractive.mobilex:di-container:<version>")  // Android/Desktop/IOS
+  implementation("ru.astrainteractive.mobilex:service-locator:<version>")  // Android/Desktop/IOS
   implementation("ru.astrainteractive.mobilex:mvi:<version>")  // Android/Desktop/IOS
   implementation("ru.astrainteractive.mobilex:paging:<version>")  // Android/Desktop/IOS
   implementation("ru.astrainteractive.mobilex:rvadapter:<version>")  // Android

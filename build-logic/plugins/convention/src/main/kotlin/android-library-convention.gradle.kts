@@ -7,7 +7,6 @@ import org.gradle.kotlin.dsl.project
 plugins {
     kotlin("multiplatform")
     id("com.android.library")
-    id("convention.publication")
 }
 group = libs.versions.group.get()
 version = libs.versions.version.get()

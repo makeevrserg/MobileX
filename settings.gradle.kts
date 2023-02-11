@@ -26,18 +26,25 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "MobileX"
+// Examples
 include(":examples:app")
 include(":examples:desktop")
 include(":examples:shared")
+// Compose
 include(":core-compose")
+// KTX
 include(":ktx-core")
-include(":mvi")
-include(":moko-mvi")
-include(":di-container")
+// MVI
+include(":mvi:mvi-core")
+include(":mvi:mvi-moko")
+// DI
+include(":service-locator")
 include(":paging")
+// Adapter
 include(":rvadapter")
-include(":rsocket")
-// uitext
+// Sockets
+//include(":rsocket")
+// UIText
 include(":uitext:uitext-core")
 include(":uitext:uitext-mr")
 include(":uitext:uitext-compose")

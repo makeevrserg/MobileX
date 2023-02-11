@@ -3,6 +3,7 @@ import com.makeevrserg.mobilex.MobileXApk.APPLICATION_ID
 plugins {
     id("org.jetbrains.compose")
     id("compose-library-convention")
+    id("convention.publication")
 }
 
 kotlin {
@@ -19,8 +20,8 @@ kotlin {
                 compileOnly(compose.uiTooling)
                 // Local
                 implementation(project(":ktx-core"))
-                implementation(project(":di-container"))
-                implementation(project(":mvi"))
+                implementation(project(":service-locator"))
+                implementation(project(":mvi:mvi-core"))
                 implementation(project(":paging"))
 
 

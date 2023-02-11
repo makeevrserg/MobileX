@@ -3,6 +3,7 @@ import com.makeevrserg.mobilex.MobileXApk.APPLICATION_ID
 plugins {
     id("org.jetbrains.compose")
     id("compose-library-convention")
+    id("convention.publication")
 }
 kotlin {
     sourceSets {

@@ -2,6 +2,7 @@ import com.makeevrserg.mobilex.MobileXApk.APPLICATION_ID
 
 plugins {
     id("android-library-convention")
+    id("convention.publication")
 }
 
 kotlin {

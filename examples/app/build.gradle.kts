@@ -1,23 +1,16 @@
 import com.makeevrserg.mobilex.MobileXApk
 
 plugins {
-    id("com.android.application")
-    kotlin("android")
-    id("import-convention")
+    id("android-app-convention")
 }
 
 android {
     namespace = "com.makeevrserg.mobilex"
-    compileSdk = MobileXApk.COMPILE_SDK_VERSION
 
     defaultConfig {
         applicationId = "com.makeevrserg.mobilex"
-        minSdk = MobileXApk.MIN_SDK_VERSION
-        targetSdk = MobileXApk.TARGET_SDK_VERSION
         versionCode = 1
         versionName = libs.versions.version.get()
-
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
@@ -28,13 +21,6 @@ android {
                 "proguard-rules.pro"
             )
         }
-    }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
-    }
-    kotlinOptions {
-        jvmTarget = "1.8"
     }
     buildFeatures {
         viewBinding = true
@@ -65,7 +51,7 @@ dependencies {
     implementation(project(":mvi"))
     implementation(project(":paging"))
     implementation(project(":rvadapter"))
-    implementation(project(":di-container"))
+    implementation(project(":service-locator"))
     implementation("com.github.kirich1409:viewbindingpropertydelegate-noreflection:1.5.6")
     // Compose
     implementation(platform(libs.androidx.compose.bom))

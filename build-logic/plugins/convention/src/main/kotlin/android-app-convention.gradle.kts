@@ -2,7 +2,7 @@ import com.makeevrserg.mobilex.MobileXApk
 
 plugins {
     id("com.android.application")
-    id("kotlin-android")
+    kotlin("android")
 }
 
 android {

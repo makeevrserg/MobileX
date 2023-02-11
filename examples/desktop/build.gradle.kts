@@ -20,8 +20,8 @@ kotlin {
 
             dependencies {
                 implementation(libs.kotlin.coroutines.core)
-                implementation(project(":rsocket"))
-                implementation(project(":di-container"))
+//                implementation(project(":rsocket"))
+                implementation(project(":service-locator"))
                 implementation(libs.kotlin.serialization.json)
             }
         }

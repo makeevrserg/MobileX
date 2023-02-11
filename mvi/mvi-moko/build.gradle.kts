@@ -2,6 +2,7 @@ import com.makeevrserg.mobilex.MobileXApk.APPLICATION_ID
 
 plugins {
     id("kmm-library-convention")
+    id("convention.publication")
 }
 
 val mokoMvvm = "0.15.0"
@@ -17,7 +18,7 @@ kotlin {
                 compileOnly("dev.icerock.moko:mvvm-flow:$mokoMvvm")
                 // Local
                 implementation(project(":ktx-core"))
-                implementation(project(":mvi"))
+                implementation(project(":mvi:mvi-core"))
             }
         }
     }

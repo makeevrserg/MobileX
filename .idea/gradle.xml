@@ -33,10 +33,10 @@
             <option value="$PROJECT_DIR$/examples/desktop" />
             <option value="$PROJECT_DIR$/examples/shared" />
             <option value="$PROJECT_DIR$/ktx-core" />
-            <option value="$PROJECT_DIR$/moko-mvi" />
             <option value="$PROJECT_DIR$/mvi" />
+            <option value="$PROJECT_DIR$/mvi/mvi-core" />
+            <option value="$PROJECT_DIR$/mvi/mvi-moko" />
             <option value="$PROJECT_DIR$/paging" />
-            <option value="$PROJECT_DIR$/rsocket" />
             <option value="$PROJECT_DIR$/rvadapter" />
             <option value="$PROJECT_DIR$/uitext" />
             <option value="$PROJECT_DIR$/uitext/uitext-compose" />
