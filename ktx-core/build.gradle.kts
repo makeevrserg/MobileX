@@ -11,6 +11,11 @@ kotlin {
             dependencies {
                 // Coroutines
                 compileOnly(libs.kotlin.coroutines.core)
+            }
+        }
+        val androidMain by getting {
+            dependencies {
+                // Android core
                 implementation(libs.androidx.core.ktx)
             }
         }

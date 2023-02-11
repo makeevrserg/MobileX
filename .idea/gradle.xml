@@ -27,7 +27,6 @@
             <option value="$PROJECT_DIR$/build-logic/plugins" />
             <option value="$PROJECT_DIR$/build-logic/plugins/convention" />
             <option value="$PROJECT_DIR$/core-compose" />
-            <option value="$PROJECT_DIR$/di-container" />
             <option value="$PROJECT_DIR$/examples" />
             <option value="$PROJECT_DIR$/examples/app" />
             <option value="$PROJECT_DIR$/examples/desktop" />
@@ -38,6 +37,7 @@
             <option value="$PROJECT_DIR$/mvi/mvi-moko" />
             <option value="$PROJECT_DIR$/paging" />
             <option value="$PROJECT_DIR$/rvadapter" />
+            <option value="$PROJECT_DIR$/service-locator" />
             <option value="$PROJECT_DIR$/uitext" />
             <option value="$PROJECT_DIR$/uitext/uitext-compose" />
             <option value="$PROJECT_DIR$/uitext/uitext-core" />
