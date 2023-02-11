@@ -13,17 +13,30 @@ repositories {
 ```
 Add required modules to your module`s build.gradle file:
 ```groovy
-dependencies{
-  implementation("ru.astrainteractive.mobilex:core-compose:<version>") // Android/Desktop
-  implementation("ru.astrainteractive.mobilex:ktx-core:<version>")  // Android/Desktop/IOS
-  implementation("ru.astrainteractive.mobilex:service-locator:<version>")  // Android/Desktop/IOS
-  implementation("ru.astrainteractive.mobilex:mvi:<version>")  // Android/Desktop/IOS
-  implementation("ru.astrainteractive.mobilex:paging:<version>")  // Android/Desktop/IOS
-  implementation("ru.astrainteractive.mobilex:rvadapter:<version>")  // Android
+dependencies {
+    // This modules are ready to use
+    implementation("ru.astrainteractive.mobilex:ktx-core:<version>")  // Android/Desktop/IOS
+    implementation("ru.astrainteractive.mobilex:service-locator:<version>")  // Android/Desktop/IOS
+    // This module is under investigation, but ready to use
+    implementation("ru.astrainteractive.mobilex:paging:<version>")  // Android/Desktop/IOS
+    // I will not ever work with android views, but this module still here
+    implementation("ru.astrainteractive.mobilex:rvadapter:<version>")  // Android
+    // In this modules breaking changes will come eventually
+    implementation("ru.astrainteractive.mobilex:core-compose:<version>") // Android/Desktop
+    implementation("ru.astrainteractive.mobilex:mvi:mvi-core:<version>")  // Android/Desktop/IOS
+    implementation("ru.astrainteractive.mobilex:mvi:mvi-moko:<version>")  // Android/Desktop/IOS
+    // Probably this modules will be deleted as moko-resources has everything i needed
+    implementation("ru.astrainteractive.mobilex:uitext:uitext-compose:<version>")
+    // Android/Desktop/IOS
+    implementation("ru.astrainteractive.mobilex:uitext:uitext-core:<version>")
+    // Android/Desktop/IOS
+    implementation("ru.astrainteractive.mobilex:uitext:uitext-mr:<version>")  // Android/Desktop/IOS
 }
 ```
 
-## [WIki](https://github.com/makeevrserg/MobileX/wiki)
 
-## [Example](https://github.com/makeevrserg/MobileX/tree/master/examples)
+### [KTX-Core WIki](https://github.com/makeevrserg/MobileX/blob/master/docs/ktx-core.MD)
+### [Service-Locator WIki](https://github.com/makeevrserg/MobileX/blob/master/docs/ktx-core.MD)
+
+### [Example WIP](https://github.com/makeevrserg/MobileX/tree/master/examples)
 
