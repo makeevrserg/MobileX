@@ -36,7 +36,7 @@ dependencies {
 
 
 ### [KTX-Core WIki](https://github.com/makeevrserg/MobileX/blob/master/docs/ktx-core.MD)
-### [Service-Locator WIki](https://github.com/makeevrserg/MobileX/blob/master/docs/ktx-core.MD)
+### [Service-Locator WIki](https://github.com/makeevrserg/MobileX/blob/master/docs/service-locator.MD)
 
 ### [Example WIP](https://github.com/makeevrserg/MobileX/tree/master/examples)
 
