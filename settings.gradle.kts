@@ -45,6 +45,6 @@ include(":rvadapter")
 // Sockets
 //include(":rsocket")
 // UIText
-include(":uitext:uitext-core")
-include(":uitext:uitext-mr")
-include(":uitext:uitext-compose")
+//include(":uitext:uitext-core")
+//include(":uitext:uitext-mr")
+//include(":uitext:uitext-compose")

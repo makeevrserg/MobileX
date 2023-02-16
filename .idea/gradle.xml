@@ -38,10 +38,6 @@
             <option value="$PROJECT_DIR$/paging" />
             <option value="$PROJECT_DIR$/rvadapter" />
             <option value="$PROJECT_DIR$/service-locator" />
-            <option value="$PROJECT_DIR$/uitext" />
-            <option value="$PROJECT_DIR$/uitext/uitext-compose" />
-            <option value="$PROJECT_DIR$/uitext/uitext-core" />
-            <option value="$PROJECT_DIR$/uitext/uitext-mr" />
           </set>
         </option>
       </GradleProjectSettings>
