@@ -1,7 +1,7 @@
 [versions]
 # Application
 group = "ru.astrainteractive.mobilex"
-version = "2.5.1"
+version = "2.5.2"
 # Android
 application-versionCode = "10"
 application-versionString = "2.0.2"
@@ -10,47 +10,45 @@ application-minSdk = "21"
 application-targetSdk = "33"
 # Kotlin
 kotlin-version = "1.7.10"
-kotlin-coroutines = "1.6.3"
+kotlin-coroutines = "1.6.4"
 kotlin-compilerExtensionVersion = "1.3.0"
 kotlin-android-application = "7.2.2"
-kotlin-serialization-json = "1.3.3"
+kotlin-serialization-json = "1.4.1"
 # Androidx
 androidx-lifecycle = "2.5.1"
 androidx-lifecycle-ext = "2.2.0"
-androidx-compose-bom = "2022.10.00"
-androidx-fragment = "1.2.5"
-androidx-core = "1.2.0"
-androidx-appcompat = "1.1.0"
-androidx-room = "2.5.0-beta01"
-androidx-test-extJunit = "1.1.3"
-androidx-navigation-compose = "2.5.1"
-androidx-activity-compose = "1.4.0"
-androidx-activity-ktx = "1.6.0-alpha04"
-androidx-lifecycle-viewModelCompose = "2.4.1"
+androidx-compose-bom = "2023.01.00"
+androidx-fragment = "1.5.5"
+androidx-core = "1.9.0"
+androidx-appcompat = "1.6.1"
+androidx-room = "2.5.0"
+androidx-test-extJunit = "1.1.5"
+androidx-navigation-compose = "2.5.3"
+androidx-activity-compose = "1.6.1"
+androidx-activity-ktx = "1.8.0-alpha01"
+androidx-lifecycle-viewModelCompose = "2.5.1"
 androidx-constraintlayout-compose = "1.0.1"
-androidx-constraintlayout-android = "2.1.2"
-androidx-viewbinding = "7.1.2"
+androidx-constraintlayout-android = "2.1.4"
+androidx-viewbinding = "7.4.1"
 androidx-recyclerview = "1.2.1"
 androidx-cicerone = "7.1"
 leakcanary = "2.8.1"
 # Google
-google-coroutinesPlayServices = "1.6.1"
-google-android-material = "1.5.0"
-google-auth = "20.2.0"
-google-ads = "21.1.0"
+google-coroutinesPlayServices = "1.6.4"
+google-android-material = "1.8.0"
+google-auth = "20.4.1"
+google-ads = "21.5.0"
 google-crashlytics = "2.9.0"
 google-services = "4.3.10"
-google-accompanist = "0.26.2-beta"
-google-firebase-bom = "30.1.0"
+google-accompanist = "0.29.0-alpha"
+google-firebase-bom = "31.2.2"
 # Test
 test-junit = "4.13.2"
 # Other
 ktor = "2.1.2"
-coil = "2.0.0-rc03"
+coil = "2.2.2"
 # Koin
 koin = "3.2.2"
-# MobileX
-mobileX = "2.0.7"
 # Compose
 kotlin-compose = "1.2.2"
 # Moko
@@ -116,10 +114,6 @@ koin-android = { module = "io.insert-koin:koin-android", version.ref = "koin" }
 koin-androidx-workmanager = { module = "io.insert-koin:koin-androidx-workmanager", version.ref = "koin" }
 koin-androidx-navigation = { module = "io.insert-koin:koin-androidx-navigation", version.ref = "koin" }
 koin-androidx-compose = { module = "io.insert-koin:koin-androidx-compose", version.ref = "koin" }
-# MobileX
-mobileX-core-android = { module = "ru.astrainteractive.mobilex:android-core", version.ref = "mobileX" }
-mobileX-core-compose = { module = "ru.astrainteractive.mobilex:core-compose", version.ref = "mobileX" }
-mobileX-core-ktx = { module = "ru.astrainteractive.mobilex:ktx-core", version.ref = "mobileX" }
 # Other
 coil = { module = "io.coil-kt:coil-compose", version.ref = "coil" }
 [plugins]

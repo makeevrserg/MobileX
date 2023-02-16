@@ -48,7 +48,8 @@ dependencies {
     // Project
     implementation(project(":core-compose"))
     implementation(project(":ktx-core"))
-    implementation(project(":mvi"))
+    implementation(project(":mvi:mvi-core"))
+    implementation(project(":mvi:mvi-moko"))
     implementation(project(":paging"))
     implementation(project(":rvadapter"))
     implementation(project(":service-locator"))

@@ -13,14 +13,13 @@ kotlin {
         compilations.all {
             kotlinOptions.jvmTarget = "11"
         }
-//        withJava()
+        withJava()
     }
     sourceSets {
         val commonMain by getting {
 
             dependencies {
                 implementation(libs.kotlin.coroutines.core)
-//                implementation(project(":rsocket"))
                 implementation(project(":service-locator"))
                 implementation(libs.kotlin.serialization.json)
             }
@@ -33,11 +32,6 @@ kotlin {
                 implementation(compose.foundation)
                 implementation(compose.runtime)
                 implementation(compose.materialIconsExtended)
-                implementation(libs.mobileX.core.ktx)
-                implementation(libs.mobileX.core.compose)
-
-                implementation("com.squareup.okhttp3:okhttp:4.10.0")
-                implementation("org.mongodb:mongo-java-driver:3.12.11")
             }
         }
     }
