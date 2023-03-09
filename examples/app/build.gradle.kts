@@ -46,7 +46,6 @@ dependencies {
     implementation(libs.androidx.constraintlayout.android)
     implementation(libs.google.android.material)
     // Project
-    implementation(project(":core-compose"))
     implementation(project(":ktx-core"))
     implementation(project(":mvi:mvi-core"))
     implementation(project(":mvi:mvi-moko"))

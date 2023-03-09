@@ -30,8 +30,6 @@ rootProject.name = "MobileX"
 include(":examples:app")
 include(":examples:desktop")
 include(":examples:shared")
-// Compose
-include(":core-compose")
 // KTX
 include(":ktx-core")
 // MVI

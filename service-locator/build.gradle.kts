@@ -6,6 +6,6 @@ plugins {
 }
 
 android {
-    namespace = "$APPLICATION_ID.di_container"
+    namespace = "$APPLICATION_ID.service_locator"
 }
 
