@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest package="com.makeevrserg.mobilex.di_container" />
+<manifest package="com.makeevrserg.mobilex.service_locator" />

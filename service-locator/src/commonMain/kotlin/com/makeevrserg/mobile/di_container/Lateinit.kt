@@ -5,6 +5,7 @@ import kotlin.reflect.KProperty
 /**
  * Is there a better way?
  * [Lateinit] need to store Context for example and other stuff
+ * [value] is always the same
  */
 class Lateinit<T : Any> : Dependency<T> {
     fun initialize(value: T) {
@@ -16,4 +17,7 @@ class Lateinit<T : Any> : Dependency<T> {
         private set
 }
 
+/**
+ * Getting [Lateinit.value]
+ */
 inline operator fun <reified T : Any, K> Lateinit<T>.getValue(t: K?, property: KProperty<*>): T = value

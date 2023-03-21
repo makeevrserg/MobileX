@@ -25,12 +25,6 @@ dependencies {
     implementation("ru.astrainteractive.mobilex:core-compose:<version>") // Android/Desktop
     implementation("ru.astrainteractive.mobilex:mvi:mvi-core:<version>")  // Android/Desktop/IOS
     implementation("ru.astrainteractive.mobilex:mvi:mvi-moko:<version>")  // Android/Desktop/IOS
-    // Probably this modules will be deleted as moko-resources has everything i needed
-    implementation("ru.astrainteractive.mobilex:uitext:uitext-compose:<version>")
-    // Android/Desktop/IOS
-    implementation("ru.astrainteractive.mobilex:uitext:uitext-core:<version>")
-    // Android/Desktop/IOS
-    implementation("ru.astrainteractive.mobilex:uitext:uitext-mr:<version>")  // Android/Desktop/IOS
 }
 ```
 
