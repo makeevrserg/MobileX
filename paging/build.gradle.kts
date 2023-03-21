@@ -10,7 +10,7 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 // Coroutines
-                compileOnly(libs.kotlin.coroutines.core)
+                implementation(libs.kotlin.coroutines.core)
             }
         }
     }
