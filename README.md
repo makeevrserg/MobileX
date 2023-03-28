@@ -17,14 +17,10 @@ dependencies {
     // This modules are ready to use
     implementation("ru.astrainteractive.mobilex:ktx-core:<version>")  // Android/Desktop/IOS
     implementation("ru.astrainteractive.mobilex:service-locator:<version>")  // Android/Desktop/IOS
-    // This module is under investigation, but ready to use
+    // This module is WIP, but ready to use
     implementation("ru.astrainteractive.mobilex:paging:<version>")  // Android/Desktop/IOS
     // I will not ever work with android views, but this module still here
     implementation("ru.astrainteractive.mobilex:rvadapter:<version>")  // Android
-    // In this modules breaking changes will come eventually
-    implementation("ru.astrainteractive.mobilex:core-compose:<version>") // Android/Desktop
-    implementation("ru.astrainteractive.mobilex:mvi:mvi-core:<version>")  // Android/Desktop/IOS
-    implementation("ru.astrainteractive.mobilex:mvi:mvi-moko:<version>")  // Android/Desktop/IOS
 }
 ```
 
