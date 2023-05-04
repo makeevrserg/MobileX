@@ -26,9 +26,7 @@ jobs:
         with:
           java-version: 11
       - name: Give gradle permission
-        run: |
-          chmod +x gradlew
-          ./gradlew PublishPrimaryVersion --stacktrace
+        run: chmod +x gradlew
       - name: Prebuild library
         run: ./gradlew publishToMavenLocal --stacktrace
       - name: Publish library
