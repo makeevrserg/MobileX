@@ -1,4 +1,4 @@
-import com.makeevrserg.mobilex.MobileXApk.APPLICATION_ID
+@file:Suppress("UnusedPrivateMember")
 
 plugins {
     id("kmm-library-convention")
@@ -9,6 +9,9 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
+                // Kotlin
+                implementation(libs.kotlin.tooling.core)
+                implementation(libs.kotlin.gradle)
                 // Coroutines
                 implementation(libs.kotlin.coroutines.core)
             }
@@ -23,5 +26,5 @@ kotlin {
 }
 
 android {
-    namespace = "$APPLICATION_ID.ktx_core"
+    namespace = "${libs.versions.library.group.get()}.ktxcore"
 }

@@ -6,7 +6,6 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.flow.updateAndGet
 
-
 class PagingCollector<T, K : Any>(
     private val initialPagingState: PagingState<K>,
     private val pager: PagedListDataSource<T, K>,
@@ -29,10 +28,12 @@ class PagingCollector<T, K : Any>(
             pagingStateFlow.updateAndGet { copyPagingState(isLoading = true) }
         }
         val nextList = pager.getList(currentPagingState)
-        if (!nextList.isNullOrEmpty())
+        if (!nextList.isNullOrEmpty()) {
             currentPagingState = currentPagingState.copyPagingState(page = currentPagingState.getNextPage())
-        if (nextList != null && nextList.isEmpty())
+        }
+        if (nextList != null && nextList.isEmpty()) {
             currentPagingState = currentPagingState.copyPagingState(isLastPage = true)
+        }
         listStateFlow.update {
             it.toMutableList().apply {
                 nextList?.let(::addAll)

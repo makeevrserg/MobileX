@@ -1,30 +1,47 @@
-
 pluginManagement {
     includeBuild("build-logic")
     repositories {
-        maven("https://oss.sonatype.org/content/repositories/snapshots/")
-        maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
-        maven("https://plugins.gradle.org/m2/")
-        maven("https://jitpack.io")
-        gradlePluginPortal()
-        mavenCentral()
-        jcenter()
         google()
+        mavenLocal()
+        mavenCentral()
+        gradlePluginPortal()
+        maven("https://repo.extendedclip.com/content/repositories/placeholderapi/")
+        maven("https://hub.spigotmc.org/nexus/content/repositories/snapshots/")
+        maven("https://papermc.io/repo/repository/maven-public/")
+        maven("https://repo.papermc.io/repository/maven-public/")
+        maven("https://nexus.scarsz.me/content/groups/public/")
+        maven("https://repo.dmulloy2.net/repository/public/")
+        maven("https://oss.sonatype.org/content/groups/public/")
+        maven("https://repo.essentialsx.net/snapshots/")
+        maven("https://repo.maven.apache.org/maven2/")
+        maven("https://maven.enginehub.org/repo/")
+        maven("https://repo1.maven.org/maven2/")
+        maven("https://plugins.gradle.org/m2/")
+        maven("https://maven.playpro.com")
+        maven("https://jitpack.io")
     }
 }
 dependencyResolutionManagement {
-    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
-        maven("https://oss.sonatype.org/content/repositories/snapshots/")
-        maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
-        maven("https://plugins.gradle.org/m2/")
-        maven("https://jitpack.io")
-        gradlePluginPortal()
-        mavenCentral()
-        jcenter()
         google()
+        mavenLocal()
+        mavenCentral()
+        maven("https://repo.extendedclip.com/content/repositories/placeholderapi/")
+        maven("https://hub.spigotmc.org/nexus/content/repositories/snapshots/")
+        maven("https://papermc.io/repo/repository/maven-public/")
+        maven("https://repo.papermc.io/repository/maven-public/")
+        maven("https://nexus.scarsz.me/content/groups/public/")
+        maven("https://repo.dmulloy2.net/repository/public/")
+        maven("https://oss.sonatype.org/content/groups/public/")
+        maven("https://repo.essentialsx.net/snapshots/")
+        maven("https://repo.maven.apache.org/maven2/")
+        maven("https://maven.enginehub.org/repo/")
+        maven("https://repo1.maven.org/maven2/")
+        maven("https://maven.playpro.com")
+        maven("https://jitpack.io")
     }
 }
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 rootProject.name = "MobileX"
 // KTX
 include(":ktx-core")

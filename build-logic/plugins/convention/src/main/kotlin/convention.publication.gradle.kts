@@ -1,60 +1,41 @@
-import com.makeevrserg.mobilex.MobileXApk
 import org.gradle.api.publish.maven.MavenPublication
-import org.gradle.api.tasks.bundling.Jar
-import org.gradle.kotlin.dsl.`maven-publish`
-import org.gradle.kotlin.dsl.registering
 import org.gradle.kotlin.dsl.signing
 import org.gradle.kotlin.dsl.withType
 import java.util.*
 
 plugins {
-    `maven-publish`
-    signing
+    id("org.jetbrains.kotlin.multiplatform")
+    id("org.gradle.maven-publish")
+    id("signing")
 }
-
-// Grabbing secrets from local.properties file or from environment variables, which could be used on CI
-val secretPropsFile = project.rootProject.file(".gradle/gradle.properties")
-val properties = Properties().apply { load(secretPropsFile.reader()) }
-val signingKeyId = properties.getProperty("signing.keyId")
-val signingPassword = properties.getProperty("signing.password")
-val signingSecretKeyRingFile = properties.getProperty("signing.secretKeyRingFile")
-val ossrhUsername = properties.getProperty("ossrhUsername")
-val ossrhPassword = properties.getProperty("ossrhPassword")
-
-ext["signing.keyId"] = signingKeyId
-ext["signing.password"] = signingPassword
-ext["signing.secretKeyRingFile"] = signingSecretKeyRingFile
-ext["ossrhUsername"] = ossrhUsername
-ext["ossrhPassword"] = ossrhPassword
-
-val javadocJar by tasks.registering(Jar::class) {
-    archiveClassifier.set("javadoc")
+kotlin {
+    android {
+        publishAllLibraryVariants()
+        publishLibraryVariantsGroupedByFlavor = true
+    }
 }
-
 publishing {
-    repositories {
-        maven {
-            name = "sonatype"
-            setUrl("https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/")
-            credentials {
-                username = ossrhUsername
-                password = ossrhPassword
-            }
+    repositories.maven("https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/") {
+        name = "OSSRH"
+
+        credentials {
+            username = System.getenv("OSSRH_USER")
+            password = System.getenv("OSSRH_KEY")
         }
     }
     publications.withType<MavenPublication> {
-
-        artifact(javadocJar.get())
         pom {
-            name.set("MobileX")
-            group = libs.versions.group.get()
-            version = libs.versions.version.get()
-            description.set("KMM library with frequently used code")
+            name.set(libs.versions.library.name)
+            description.set(libs.versions.library.description)
             url.set("https://github.com/makeevrserg/MobileX")
+
+            group = libs.versions.library.group.get()
+            version = libs.versions.library.version.string.get()
 
             licenses {
                 license {
                     name.set("MIT")
+                    distribution.set("repo")
                     url.set("https://github.com/makeevrserg/MobileX/blob/main/LICENSE.md")
                 }
             }
@@ -75,5 +56,13 @@ publishing {
 }
 
 signing {
-    sign(publishing.publications)
+    val signingKeyId: String? = System.getenv("SIGNING_KEY_ID")
+    val signingPassword: String? = System.getenv("SIGNING_PASSWORD")
+    val signingKey: String? = System.getenv("SIGNING_KEY")?.let { base64Key ->
+        String(Base64.getDecoder().decode(base64Key))
+    }
+    if (signingKeyId != null) {
+        useInMemoryPgpKeys(signingKeyId, signingKey, signingPassword)
+        sign(publishing.publications)
+    }
 }

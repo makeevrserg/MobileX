@@ -1,4 +1,4 @@
-import com.makeevrserg.mobilex.MobileXApk.APPLICATION_ID
+@file:Suppress("UnusedPrivateMember")
 
 plugins {
     id("kmm-library-convention")
@@ -14,8 +14,7 @@ kotlin {
             }
         }
     }
-
 }
 android {
-    namespace = "$APPLICATION_ID.paging"
+    namespace = "${libs.versions.library.group.get()}.paging"
 }
