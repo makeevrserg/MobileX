@@ -3,6 +3,7 @@
 library-group = "ru.astrainteractive.mobilex"
 library-version-code = "10"
 library-version-string = "2.0.2"
+
 # Android
 library-sdk-compile = "33"
 library-sdk-min = "21"
@@ -12,12 +13,14 @@ library-sdk-target = "33"
 lint-detekt = "1.22.0"
 lint-detekt-ruleset-compiler = "0.0.2"
 lint-detekt-ruleset-ktlint = "0.48.0"
+
 # Android
 android-recyclerview = "1.2.1"
 androidx-core-ktx = "1.9.0"
-android-gradle = "7.3.0"
+android-gradle = "7.4.0"
+
 # Kotlin
-kotlin-version = "1.7.10"
+kotlin-version = "1.8.21"
 kotlin-coroutines-core = "1.7.0-RC"
 
 [libraries]
@@ -30,14 +33,19 @@ lint-detekt-ruleset-ktlint = { module = "io.gitlab.arturbosch.detekt:detekt-form
 android-recyclerview = { module = "androidx.recyclerview:recyclerview", version.ref = "android-recyclerview" }
 androidx-core-ktx = { module = "androidx.core:core-ktx", version.ref = "androidx-core-ktx" }
 android-tools-buildgradle = { module = "com.android.tools.build:gradle", version.ref = "android-gradle" }
+
 # Kotlin
 kotlin-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlin-coroutines-core" }
+kotlin-tooling-core = { module = "org.jetbrains.kotlin:kotlin-tooling-core", version.ref = "kotlin-version" }
 kotlin-gradle = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin-version" }
 
 [plugins]
+# Kotlin
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin-version" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin-version" }
 kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin-version" }
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin-version" }
+
+# Android
 android-application = { id = "com.android.application", version.ref = "android-gradle" }
 android-library = { id = "com.android.library", version.ref = "android-gradle" }

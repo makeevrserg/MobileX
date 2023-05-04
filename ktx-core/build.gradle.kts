@@ -1,3 +1,4 @@
+@file:Suppress("UnusedPrivateMember")
 
 plugins {
     id("kmm-library-convention")
@@ -8,6 +9,9 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
+                // Kotlin
+                implementation(libs.kotlin.tooling.core)
+                implementation(libs.kotlin.gradle)
                 // Coroutines
                 implementation(libs.kotlin.coroutines.core)
             }

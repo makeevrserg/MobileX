@@ -1,3 +1,4 @@
+@file:Suppress("UnusedPrivateMember")
 
 plugins {
     id("kmm-library-convention")
@@ -13,7 +14,6 @@ kotlin {
             }
         }
     }
-
 }
 android {
     namespace = "${libs.versions.library.group.get()}.paging"

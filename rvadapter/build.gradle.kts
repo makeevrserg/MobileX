@@ -1,6 +1,9 @@
 
+
+@file:Suppress("UnusedPrivateMember")
+
 plugins {
-    id("android-library-convention")
+    id("kmm-library-convention")
     id("convention.publication")
 }
 

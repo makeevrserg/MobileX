@@ -16,7 +16,9 @@ class SingleTypeAdapter<T : Any, V : ViewBinding>(
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        val holder = holder as? DefaultViewHolder<T, V> ?: throw ClassCastException("holder should be DefaultViewHolder<T,V> How did you manage to change it?")
+        val holder = holder as? DefaultViewHolder<T, V> ?: throw ClassCastException(
+            "holder should be DefaultViewHolder<T,V> How did you manage to change it?"
+        )
         getItem(position)?.let(holder::bind)
     }
 }

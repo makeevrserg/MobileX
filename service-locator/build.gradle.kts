@@ -7,4 +7,3 @@ plugins {
 android {
     namespace = "${libs.versions.library.group.get()}.servicelocator"
 }
-
