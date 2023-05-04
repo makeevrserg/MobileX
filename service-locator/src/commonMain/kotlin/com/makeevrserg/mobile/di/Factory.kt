@@ -1,18 +1,10 @@
 package com.makeevrserg.mobile.di
 
 /**
- * [Factory] is useful for re-creating object, for example, viewModels
- * [value] is different on each method call
+ * [Factory] is a fun interface which can build data for your classes
+ *
+ * It's look similar to [Provider] but it's more convenient to use different naming for this two
  */
-abstract class Factory<T> : Dependency<T> {
-    protected abstract fun initializer(): T
-    override val value: T
-        get() = initializer()
-}
-
-/**
- * Create [Factory] in kotlin-way
- */
-fun <T> factory(initializer: () -> T) = object : Factory<T>() {
-    override fun initializer(): T = initializer()
+fun interface Factory<out T> {
+    fun build(): T
 }

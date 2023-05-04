@@ -1,23 +1,27 @@
 package com.makeevrserg.mobile.di
 
-import kotlin.reflect.KProperty
-
 /**
- * Is there a better way?
- * [Lateinit] need to store Context for example and other stuff
- * [value] is always the same
+ * [Lateinit] is used for components which can't be initialized internally
+ * For example: Velocity @inject properties, Android context or spigot plugin instance
+ *
+ * It can't be initialized twice and can't be accessed until initialization
  */
 class Lateinit<T : Any> : Dependency<T> {
+    private lateinit var instance: T
+
     fun initialize(value: T) {
-        check(this::value.isInitialized) { "Lateinit value already initialized!" }
-        this.value = value
+        check(!::instance.isInitialized) { "Value already initialized" }
+        this.instance = value
     }
 
-    override lateinit var value: T
-        private set
-}
+    fun initialize(factory: Factory<T>) {
+        val value = factory.build()
+        initialize(value)
+    }
 
-/**
- * Getting [Lateinit.value]
- */
-inline operator fun <reified T : Any, K> Lateinit<T>.getValue(t: K?, property: KProperty<*>): T = value
+    override val value: T
+        get() {
+            check(::instance.isInitialized) { "Value is not initialized yet" }
+            return instance
+        }
+}

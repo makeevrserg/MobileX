@@ -1,8 +1,9 @@
 [versions]
 # Application
+library-name = "MobileX"
+library-description = "KMM library with frequently used code"
 library-group = "ru.astrainteractive.mobilex"
-library-version-code = "10"
-library-version-string = "2.0.2"
+library-version-string = "2.1.0"
 
 # Android
 library-sdk-compile = "33"

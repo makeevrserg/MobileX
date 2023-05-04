@@ -45,10 +45,10 @@ publishing {
 
         artifact(javadocJar.get())
         pom {
-            name.set("MobileX")
+            name.set(libs.versions.library.name)
             group = libs.versions.library.group.get()
             version = libs.versions.library.version.string.get()
-            description.set("KMM library with frequently used code")
+            description.set(libs.versions.library.description)
             url.set("https://github.com/makeevrserg/MobileX")
 
             licenses {
