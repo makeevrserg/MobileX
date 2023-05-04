@@ -25,10 +25,12 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 11
+      - name: Give gradle permission
+        run: chmod +x gradlew
       - name: Prebuild library
-        run: ./gradlew publishToMavenLocal
+        run: ./gradlew publishToMavenLocal --stacktrace
       - name: Publish library
-        run: ./gradlew publish --no-parallel
+        run: ./gradlew publish --no-parallel --stacktrace
   release:
     name: Create release
     needs: publish
