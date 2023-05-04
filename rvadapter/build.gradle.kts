@@ -1,4 +1,3 @@
-import com.makeevrserg.mobilex.MobileXApk.APPLICATION_ID
 
 plugins {
     id("android-library-convention")
@@ -10,13 +9,13 @@ kotlin {
         val androidMain by getting {
             dependencies {
                 // RecyclerView
-                implementation("androidx.recyclerview:recyclerview:1.2.1")
+                implementation(libs.android.recyclerview)
             }
         }
     }
 }
 
 android {
-    namespace = "$APPLICATION_ID.rvadapter"
+    namespace = "${libs.versions.library.group.get()}.rvadapter"
     buildFeatures.viewBinding = true
 }

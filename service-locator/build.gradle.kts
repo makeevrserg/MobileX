@@ -1,4 +1,3 @@
-import com.makeevrserg.mobilex.MobileXApk.APPLICATION_ID
 
 plugins {
     id("kmm-library-convention")
@@ -6,6 +5,6 @@ plugins {
 }
 
 android {
-    namespace = "$APPLICATION_ID.service_locator"
+    namespace = "${libs.versions.library.group.get()}.servicelocator"
 }
 

@@ -1,15 +1,11 @@
-import com.makeevrserg.mobilex.MobileXApk
-import org.gradle.kotlin.dsl.dependencies
 import org.gradle.kotlin.dsl.kotlin
-import org.gradle.kotlin.dsl.named
-import org.gradle.kotlin.dsl.project
 
 plugins {
     kotlin("multiplatform")
     id("com.android.library")
 }
-group = libs.versions.group.get()
-version = libs.versions.version.get()
+group = libs.versions.library.group.get()
+version = libs.versions.library.version.string.get()
 
 kotlin {
     iosX64()
@@ -39,11 +35,11 @@ kotlin {
     }
 }
 android {
-    compileSdk = MobileXApk.COMPILE_SDK_VERSION
+    compileSdk = libs.versions.library.sdk.compile.get().toInt()
 
     defaultConfig {
-        minSdk = MobileXApk.MIN_SDK_VERSION
-        targetSdk = MobileXApk.TARGET_SDK_VERSION
+        minSdk = libs.versions.library.sdk.min.get().toInt()
+        targetSdk = libs.versions.library.sdk.target.get().toInt()
     }
     sourceSets {
         named("main") {

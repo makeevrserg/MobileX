@@ -1,4 +1,3 @@
-import com.makeevrserg.mobilex.MobileXApk
 
 plugins {
     id("com.android.application")
@@ -6,10 +5,11 @@ plugins {
 }
 
 android {
-    compileSdk = MobileXApk.COMPILE_SDK_VERSION
+    compileSdk = libs.versions.library.sdk.compile.get().toInt()
+
     defaultConfig {
-        minSdk = MobileXApk.MIN_SDK_VERSION
-        targetSdk = MobileXApk.TARGET_SDK_VERSION
+        minSdk = libs.versions.library.sdk.min.get().toInt()
+        targetSdk = libs.versions.library.sdk.target.get().toInt()
         multiDexEnabled = true
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
