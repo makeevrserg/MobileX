@@ -3,7 +3,7 @@
 @file:Suppress("UnusedPrivateMember")
 
 plugins {
-    id("kmm-library-convention")
+    id("android-library-convention")
     id("convention.publication")
 }
 
