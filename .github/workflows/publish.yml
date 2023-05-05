@@ -10,6 +10,7 @@ jobs:
     name: Create release
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v1
       - uses: SebRollen/toml-action@v1.0.2
         id: version
         with:
