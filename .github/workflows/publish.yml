@@ -33,14 +33,24 @@ jobs:
     needs: publish
     runs-on: ubuntu-latest
     steps:
+      - uses: SebRollen/toml-action@v1.0.2
+        id: version
+        with:
+          file: './gradle/libs.versions.toml'
+          field: 'versions.library-version-string'
+      - uses: SebRollen/toml-action@v1.0.2
+        id: name
+        with:
+          file: './gradle/libs.versions.toml'
+          field: 'versions.library-name'
       - name: Create Release
         id: create_release
-        uses: actions/create-release@v1
+        uses: softprops/action-gh-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.ACTIONS_TOKEN }}
         with:
-          commitish: ${{ github.ref }}
-          tag_name: release/${{ github.event.inputs.version }}
-          release_name: ${{ github.event.inputs.version }}
+          tag_name: ${{ steps.version.outputs.value }}
+          release_name: ${{ steps.name.outputs.value }} - ${{ steps.version.outputs.value }}
           body: "Empty body filled here"
-          draft: true
+          draft: false
+          prerelease: true

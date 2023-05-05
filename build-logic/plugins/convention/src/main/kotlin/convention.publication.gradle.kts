@@ -12,8 +12,11 @@ plugins {
 }
 
 // Grabbing secrets from local.properties file or from environment variables, which could be used on CI
-val secretPropsFile = project.rootProject.file("local.properties")
-val properties = Properties().apply { load(secretPropsFile.reader()) }
+val properties = Properties().apply {
+    val secretPropsFile = project.rootProject.file("local.properties")
+    if (secretPropsFile.exists())
+        load(secretPropsFile.reader())
+}
 
 val SIGNING_KEY_ID = System.getenv("SIGNING_KEY_ID") ?: properties.getProperty("signing.keyId")
 val SIGNING_PASSWORD = System.getenv("SIGNING_PASSWORD") ?: properties.getProperty("signing.password")
@@ -69,8 +72,9 @@ publishing {
 }
 
 tasks.create("Base64FromGPG") {
-    val SIGNING_SECRET_KEY_RING_FILE = properties.getProperty("signing.secretKeyRingFile")
-    val SIGNING_KEY = Base64.getEncoder().encodeToString(File(SIGNING_SECRET_KEY_RING_FILE).readBytes())
+    val SIGNING_SECRET_KEY_RING_FILE = properties.getProperty("signing.secretKeyRingFile") ?: return@create
+    val bytes = File(SIGNING_SECRET_KEY_RING_FILE).readBytes()
+    val SIGNING_KEY = Base64.getEncoder().encodeToString(bytes)
     File("./key.txt").apply {
         if (!exists()) {
             createNewFile()
