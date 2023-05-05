@@ -1,3 +1,5 @@
+@file:Suppress("VariableNaming")
+
 import org.gradle.api.publish.maven.MavenPublication
 import org.gradle.api.tasks.bundling.Jar
 import org.gradle.kotlin.dsl.`maven-publish`
@@ -14,14 +16,19 @@ plugins {
 // Grabbing secrets from local.properties file or from environment variables, which could be used on CI
 val properties = Properties().apply {
     val secretPropsFile = project.rootProject.file("local.properties")
-    if (secretPropsFile.exists())
+    if (secretPropsFile.exists()) {
         load(secretPropsFile.reader())
+    }
 }
 
 val SIGNING_KEY_ID = System.getenv("SIGNING_KEY_ID") ?: properties.getProperty("signing.keyId")
+
 val SIGNING_PASSWORD = System.getenv("SIGNING_PASSWORD") ?: properties.getProperty("signing.password")
+
 val OSSRH_USERNAME = System.getenv("OSSRH_USERNAME") ?: properties.getProperty("ossrhUsername")
+
 val OSSRH_PASSWORD = System.getenv("OSSRH_PASSWORD") ?: properties.getProperty("ossrhPassword")
+
 val SIGNING_KEY = System.getenv("SIGNING_KEY") ?: properties.getProperty("signing.base64")
 
 val javadocJar by tasks.registering(Jar::class) {
@@ -74,6 +81,7 @@ publishing {
 tasks.create("Base64FromGPG") {
     val SIGNING_SECRET_KEY_RING_FILE = properties.getProperty("signing.secretKeyRingFile") ?: return@create
     val bytes = File(SIGNING_SECRET_KEY_RING_FILE).readBytes()
+
     val SIGNING_KEY = Base64.getEncoder().encodeToString(bytes)
     File("./key.txt").apply {
         if (!exists()) {
