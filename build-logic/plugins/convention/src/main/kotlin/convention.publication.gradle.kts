@@ -1,5 +1,6 @@
 @file:Suppress("VariableNaming")
 
+import gradle.kotlin.dsl.accessors._9a33c1b87debd34fc7734fd23358d5b5.kotlin
 import org.gradle.api.publish.maven.MavenPublication
 import org.gradle.api.tasks.bundling.Jar
 import org.gradle.kotlin.dsl.`maven-publish`
@@ -33,6 +34,12 @@ val SIGNING_KEY = System.getenv("SIGNING_KEY") ?: properties.getProperty("signin
 
 val javadocJar by tasks.registering(Jar::class) {
     archiveClassifier.set("javadoc")
+}
+kotlin {
+    android {
+        publishLibraryVariants("release", "debug")
+        publishLibraryVariantsGroupedByFlavor = true
+    }
 }
 
 publishing {
