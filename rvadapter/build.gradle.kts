@@ -19,6 +19,6 @@ kotlin {
 }
 
 android {
-    namespace = "${libs.versions.library.group.get()}.rvadapter"
+    namespace = "${libs.versions.project.group.get()}.rvadapter"
     buildFeatures.viewBinding = true
 }

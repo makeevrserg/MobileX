@@ -26,5 +26,5 @@ kotlin {
 }
 
 android {
-    namespace = "${libs.versions.library.group.get()}.ktxcore"
+    namespace = "${libs.versions.project.group.get()}.ktxcore"
 }

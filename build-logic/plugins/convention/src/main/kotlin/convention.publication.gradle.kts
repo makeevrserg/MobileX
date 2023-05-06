@@ -50,10 +50,10 @@ publishing {
 
         artifact(javadocJar.get())
         pom {
-            name.set(libs.versions.library.name.get())
-            group = libs.versions.library.group.get()
-            version = libs.versions.library.version.string.get()
-            description.set(libs.versions.library.description.get())
+            name.set(libs.versions.project.name.get())
+            group = libs.versions.project.group.get()
+            version = libs.versions.project.version.string.get()
+            description.set(libs.versions.project.description.get())
             url.set("https://github.com/makeevrserg/MobileX")
 
             licenses {
