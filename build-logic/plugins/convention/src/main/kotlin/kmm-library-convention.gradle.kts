@@ -7,7 +7,7 @@ plugins {
     id("com.android.library")
 }
 group = libs.versions.project.group.get()
-version = libs.versions.project.version.string.get()
+version = libs.versions.project.version.get()
 java {
     java.sourceCompatibility = JavaVersion.VERSION_11
     java.targetCompatibility = JavaVersion.VERSION_11
