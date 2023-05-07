@@ -19,9 +19,7 @@ kotlin {
     iosX64()
     iosArm64()
     iosSimulatorArm64()
-    android() {
-        publishLibraryVariants("release", "debug")
-    }
+    android()
     jvm {
         compilations.all {
             kotlinOptions.jvmTarget = "11"
