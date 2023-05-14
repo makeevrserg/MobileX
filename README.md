@@ -1,6 +1,7 @@
 [![version](https://img.shields.io/maven-central/v/ru.astrainteractive.mobilex/ktx-core?style=flat-square)](https://github.com/makeevrserg/MobileX)
 [![kotlin_version](https://img.shields.io/badge/kotlin-1.7.10-blueviolet?style=flat-square)](https://github.com/makeevrserg/MobileX)
 [![platforms](https://img.shields.io/badge/platform-jvm%7Candroid%7Cios-blue?style=flat-square)](https://github.com/makeevrserg/MobileX)
+[![java_version](https://img.shields.io/badge/java-11-blueviolet?style=flat-square)](https://github.com/makeevrserg/MobileX)
 # MobileX
 Core library which I'm using in my projects - it helps to reduce boiler-plate code
 

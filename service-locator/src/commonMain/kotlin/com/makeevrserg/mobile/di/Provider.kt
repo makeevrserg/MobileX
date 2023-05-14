@@ -1,5 +1,7 @@
 package com.makeevrserg.mobile.di
 
+import kotlin.reflect.KProperty
+
 /**
  * [Provider] is a fun interface which can provider some data for your dependency
  *
@@ -8,3 +10,5 @@ package com.makeevrserg.mobile.di
 fun interface Provider<out T> {
     fun provide(): T
 }
+
+inline operator fun <reified T, K> Provider<T>.getValue(t: K?, property: KProperty<*>): T = provide()
