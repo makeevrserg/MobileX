@@ -7,7 +7,7 @@ package com.makeevrserg.mobile.di
  */
 class Single<out T>(factory: Factory<T>) : Dependency<T> {
     private val instance by lazy {
-        factory.build()
+        factory.create()
     }
     override val value: T
         get() = instance

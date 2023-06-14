@@ -15,7 +15,7 @@ class Lateinit<T : Any> : Dependency<T> {
     }
 
     fun initialize(factory: Factory<T>) {
-        val value = factory.build()
+        val value = factory.create()
         initialize(value)
     }
 
