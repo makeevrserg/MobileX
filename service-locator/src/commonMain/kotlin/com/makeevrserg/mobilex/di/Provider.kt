@@ -1,4 +1,4 @@
-package com.makeevrserg.mobile.di
+package com.makeevrserg.mobilex.di
 
 /**
  * [Provider] is a fun interface which can provider some data for your dependency

@@ -1,4 +1,4 @@
-package com.makeevrserg.mobile.di
+package com.makeevrserg.mobilex.di
 
 /**
  * [Lateinit] is used for components which can't be initialized internally

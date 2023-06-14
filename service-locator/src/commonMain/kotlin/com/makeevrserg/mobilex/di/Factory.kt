@@ -1,4 +1,4 @@
-package com.makeevrserg.mobile.di
+package com.makeevrserg.mobilex.di
 
 /**
  * [Factory] is a fun interface which can build data for your classes
