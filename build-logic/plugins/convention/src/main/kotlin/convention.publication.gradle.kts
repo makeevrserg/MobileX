@@ -25,12 +25,12 @@ publishing {
     }
     publications.withType<MavenPublication> {
         pom {
-            name.set(libs.versions.library.name)
-            description.set(libs.versions.library.description)
+            name.set(libs.versions.project.name)
+            description.set(libs.versions.project.description)
             url.set("https://github.com/makeevrserg/MobileX")
 
-            group = libs.versions.library.group.get()
-            version = libs.versions.library.version.string.get()
+            group = libs.versions.project.group.get()
+            version = libs.versions.project.version.string.get()
 
             licenses {
                 license {

@@ -5,6 +5,7 @@
 plugins {
     id("kmm-library-convention")
     id("convention.publication")
+    id("dokka-convention")
 }
 
 kotlin {
@@ -19,6 +20,6 @@ kotlin {
 }
 
 android {
-    namespace = "${libs.versions.library.group.get()}.rvadapter"
+    namespace = "${libs.versions.project.group.get()}.rvadapter"
     buildFeatures.viewBinding = true
 }

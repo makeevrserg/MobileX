@@ -1,5 +1,5 @@
-group = libs.versions.library.group
-version = libs.versions.library.version
+group = libs.versions.project.group
+version = libs.versions.project.version
 
 plugins {
     alias(libs.plugins.kotlin.android) apply false
@@ -9,6 +9,7 @@ plugins {
     alias(libs.plugins.kotlin.multiplatform) apply false
     alias(libs.plugins.kotlin.serialization) apply false
     id("detekt-convention")
+    id("dokka-root")
 }
 
 tasks.register("cleanx", Delete::class) {

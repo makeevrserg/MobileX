@@ -6,8 +6,8 @@ plugins {
     kotlin("multiplatform")
     id("com.android.library")
 }
-group = libs.versions.library.group.get()
-version = libs.versions.library.version.string.get()
+group = libs.versions.project.group.get()
+version = libs.versions.project.version.string.get()
 java {
     java.sourceCompatibility = JavaVersion.VERSION_11
     java.targetCompatibility = JavaVersion.VERSION_11
@@ -43,11 +43,11 @@ kotlin {
     }
 }
 android {
-    compileSdk = libs.versions.library.sdk.compile.get().toInt()
+    compileSdk = libs.versions.project.sdk.compile.get().toInt()
 
     defaultConfig {
-        minSdk = libs.versions.library.sdk.min.get().toInt()
-        targetSdk = libs.versions.library.sdk.target.get().toInt()
+        minSdk = libs.versions.project.sdk.min.get().toInt()
+        targetSdk = libs.versions.project.sdk.target.get().toInt()
     }
     sourceSets {
         named("main") {

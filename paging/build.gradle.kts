@@ -16,5 +16,5 @@ kotlin {
     }
 }
 android {
-    namespace = "${libs.versions.library.group.get()}.paging"
+    namespace = "${libs.versions.project.group.get()}.paging"
 }

@@ -3,6 +3,7 @@
 plugins {
     id("kmm-library-convention")
     id("convention.publication")
+    id("dokka-convention")
 }
 
 kotlin {
@@ -26,5 +27,5 @@ kotlin {
 }
 
 android {
-    namespace = "${libs.versions.library.group.get()}.ktxcore"
+    namespace = "${libs.versions.project.group.get()}.ktxcore"
 }
