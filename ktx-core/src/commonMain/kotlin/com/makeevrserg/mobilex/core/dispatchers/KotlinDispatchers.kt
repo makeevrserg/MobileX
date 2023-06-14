@@ -1,4 +1,4 @@
-package com.makeevrserg.mobilex.core.platform
+package com.makeevrserg.mobilex.core.dispatchers
 
 import kotlinx.coroutines.CoroutineDispatcher
 
