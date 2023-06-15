@@ -1,41 +1,71 @@
+@file:Suppress("VariableNaming")
+
+import gradle.kotlin.dsl.accessors._9a33c1b87debd34fc7734fd23358d5b5.kotlin
 import org.gradle.api.publish.maven.MavenPublication
+import org.gradle.api.tasks.bundling.Jar
+import org.gradle.kotlin.dsl.`maven-publish`
+import org.gradle.kotlin.dsl.registering
 import org.gradle.kotlin.dsl.signing
 import org.gradle.kotlin.dsl.withType
 import java.util.*
 
 plugins {
-    id("org.jetbrains.kotlin.multiplatform")
-    id("org.gradle.maven-publish")
-    id("signing")
+    `maven-publish`
+    signing
+}
+
+// Grabbing secrets from local.properties file or from environment variables, which could be used on CI
+val properties = Properties().apply {
+    val secretPropsFile = project.rootProject.file("local.properties")
+    if (secretPropsFile.exists()) {
+        load(secretPropsFile.reader())
+    }
+}
+
+val SIGNING_KEY_ID = System.getenv("SIGNING_KEY_ID") ?: properties.getProperty("signing.keyId")
+
+val SIGNING_PASSWORD = System.getenv("SIGNING_PASSWORD") ?: properties.getProperty("signing.password")
+
+val OSSRH_USERNAME = System.getenv("OSSRH_USERNAME") ?: properties.getProperty("ossrhUsername")
+
+val OSSRH_PASSWORD = System.getenv("OSSRH_PASSWORD") ?: properties.getProperty("ossrhPassword")
+
+val SIGNING_KEY = System.getenv("SIGNING_KEY") ?: properties.getProperty("signing.base64")
+
+val javadocJar by tasks.registering(Jar::class) {
+    archiveClassifier.set("javadoc")
 }
 kotlin {
     android {
-        publishAllLibraryVariants()
+        publishLibraryVariants("release", "debug")
         publishLibraryVariantsGroupedByFlavor = true
     }
 }
-publishing {
-    repositories.maven("https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/") {
-        name = "OSSRH"
 
-        credentials {
-            username = System.getenv("OSSRH_USER")
-            password = System.getenv("OSSRH_KEY")
+publishing {
+    repositories {
+        maven {
+            name = "sonatype"
+            setUrl("https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/")
+            credentials {
+                username = OSSRH_USERNAME
+                password = OSSRH_PASSWORD
+            }
         }
     }
     publications.withType<MavenPublication> {
-        pom {
-            name.set(libs.versions.project.name)
-            description.set(libs.versions.project.description)
-            url.set("https://github.com/makeevrserg/MobileX")
 
+        artifact(javadocJar.get())
+        pom {
+            name.set(libs.versions.project.name.get())
             group = libs.versions.project.group.get()
-            version = libs.versions.project.version.string.get()
+            version = libs.versions.project.version.get()
+            description.set(libs.versions.project.description.get())
+            url.set("https://github.com/makeevrserg/MobileX")
 
             licenses {
                 license {
                     name.set("MIT")
-                    distribution.set("repo")
                     url.set("https://github.com/makeevrserg/MobileX/blob/main/LICENSE.md")
                 }
             }
@@ -55,14 +85,20 @@ publishing {
     }
 }
 
+tasks.create("Base64FromGPG") {
+    val SIGNING_SECRET_KEY_RING_FILE = properties.getProperty("signing.secretKeyRingFile") ?: return@create
+    val bytes = File(SIGNING_SECRET_KEY_RING_FILE).readBytes()
+
+    val SIGNING_KEY = Base64.getEncoder().encodeToString(bytes)
+    File("./key.txt").apply {
+        if (!exists()) {
+            createNewFile()
+            writeText(SIGNING_KEY)
+        }
+    }
+}
+
 signing {
-    val signingKeyId: String? = System.getenv("SIGNING_KEY_ID")
-    val signingPassword: String? = System.getenv("SIGNING_PASSWORD")
-    val signingKey: String? = System.getenv("SIGNING_KEY")?.let { base64Key ->
-        String(Base64.getDecoder().decode(base64Key))
-    }
-    if (signingKeyId != null) {
-        useInMemoryPgpKeys(signingKeyId, signingKey, signingPassword)
-        sign(publishing.publications)
-    }
+    useInMemoryPgpKeys(SIGNING_KEY_ID, SIGNING_KEY, SIGNING_PASSWORD)
+    sign(publishing.publications)
 }

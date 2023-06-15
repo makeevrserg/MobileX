@@ -12,7 +12,6 @@ kotlin {
             dependencies {
                 // Kotlin
                 implementation(libs.kotlin.tooling.core)
-                implementation(libs.kotlin.gradle)
                 // Coroutines
                 implementation(libs.kotlin.coroutines.core)
             }

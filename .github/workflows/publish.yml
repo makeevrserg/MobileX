@@ -1,23 +1,29 @@
 name: Publish release
 
 on:
-  workflow_dispatch:
-    inputs:
-      version:
-        description: 'Version'
-        default: '1.0.0'
-        required: true
+  push:
+    branches:
+      - master
 
 jobs:
+  gradle_validation:
+    uses: ./.github/workflows/gradle-wrapper-validation.yml
+  detekt_validation:
+    needs: gradle_validation
+    uses: ./.github/workflows/detekt-validation.yml
+  tests_validation:
+    needs: gradle_validation
+    uses: ./.github/workflows/tests-validation.yml
   publish:
     name: Publish library at mavenCentral
     runs-on: macOS-latest
+    needs: [gradle_validation, detekt_validation, tests_validation]
     env:
-      OSSRH_USER: ${{ secrets.OSSRH_USER }}
-      OSSRH_KEY: ${{ secrets.OSSRH_KEY }}
-      SIGNING_KEY_ID: ${{ secrets.SIGNING_KEYID }}
+      SIGNING_KEY_ID: ${{ secrets.SIGNING_KEY_ID }}
       SIGNING_PASSWORD: ${{ secrets.SIGNING_PASSWORD }}
-      SIGNING_KEY: ${{ secrets.GPG_KEY_CONTENTS }}
+      OSSRH_USERNAME: ${{ secrets.OSSRH_USERNAME }}
+      OSSRH_PASSWORD: ${{ secrets.OSSRH_PASSWORD }}
+      SIGNING_KEY: ${{ secrets.SIGNING_KEY }}
 
     steps:
       - uses: actions/checkout@v1
@@ -32,18 +38,28 @@ jobs:
       - name: Publish library
         run: ./gradlew publish --no-parallel --stacktrace
   release:
+    needs: [ publish ]
     name: Create release
-    needs: publish
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v1
+      - uses: SebRollen/toml-action@v1.0.2
+        id: version
+        with:
+          file: 'gradle/libs.versions.toml'
+          field: 'versions.project-version'
+      - uses: SebRollen/toml-action@v1.0.2
+        id: name
+        with:
+          file: 'gradle/libs.versions.toml'
+          field: 'versions.project-name'
       - name: Create Release
         id: create_release
-        uses: actions/create-release@v1
+        uses: softprops/action-gh-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.ACTIONS_TOKEN }}
         with:
-          commitish: ${{ github.ref }}
-          tag_name: release/${{ github.event.inputs.version }}
-          release_name: ${{ github.event.inputs.version }}
-          body: "Empty body filled here"
-          draft: true
+          tag_name: ${{ steps.version.outputs.value }}
+          name: ${{ steps.name.outputs.value }} - ${{ steps.version.outputs.value }}
+          draft: false
+          prerelease: false
