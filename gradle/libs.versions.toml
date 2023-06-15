@@ -3,7 +3,7 @@
 project-name = "MobileX"
 project-description = "KMM library with frequently used code"
 project-group = "ru.astrainteractive.mobilex"
-project-version = "2.6.6"
+project-version-string = "2.7.0"
 
 # Android
 project-sdk-compile = "33"
@@ -24,7 +24,16 @@ android-gradle = "7.4.0"
 kotlin-version = "1.8.21"
 kotlin-coroutines-core = "1.7.0-RC"
 
+# Dokka
+dokka = "1.8.10"
+
 [libraries]
+# Dokka
+dokka-android = { module = "org.jetbrains.dokka:android-documentation-plugin", version.ref = "dokka" }
+dokka-gradle-plugin = { module = "org.jetbrains.dokka:dokka-gradle-plugin", version.ref = "dokka" }
+dokka-core = { module = "org.jetbrains.dokka:dokka-core", version.ref = "dokka" }
+dokka-base = { module = "org.jetbrains.dokka:dokka-base", version.ref = "dokka" }
+
 # Linter
 lint-detekt-gradle = { module = "io.gitlab.arturbosch.detekt:detekt-gradle-plugin", version.ref = "lint-detekt" }
 lint-detekt-ruleset-compiler = { module = "com.braisgabin.detekt:kotlin-compiler-wrapper", version.ref = "lint-detekt-ruleset-compiler" }

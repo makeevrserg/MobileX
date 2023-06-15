@@ -6,20 +6,19 @@ import android.content.Context
 import android.content.ContextWrapper
 import android.content.pm.PackageManager
 import android.os.Build
-import android.os.VibrationEffect
 import android.os.Vibrator
+import android.os.VibratorManager
 import androidx.annotation.IntRange
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.core.content.getSystemService
 
 @SuppressLint("MissingPermission")
-fun Context.vibratePhone(length: Long = 200) {
-    val vibrator = getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
-    if (!vibrator.hasVibrator()) return
-    if (Build.VERSION.SDK_INT >= 26) {
-        vibrator.vibrate(VibrationEffect.createOneShot(length, VibrationEffect.DEFAULT_AMPLITUDE))
+fun Context.getVibratorOrNull(): Vibrator? {
+    return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+        getSystemService<VibratorManager>()?.defaultVibrator
     } else {
-        vibrator.vibrate(length)
+        getSystemService<Vibrator>()
     }
 }
 

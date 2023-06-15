@@ -5,6 +5,7 @@
 plugins {
     id("android-library-convention")
     id("convention.publication")
+    id("dokka-convention")
 }
 
 kotlin {

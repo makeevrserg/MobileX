@@ -1,4 +1,4 @@
-package com.makeevrserg.mobile.di
+package com.makeevrserg.mobilex.di
 
 /**
  * [Single] is a singleton value which will be a unique and single instant
@@ -7,7 +7,7 @@ package com.makeevrserg.mobile.di
  */
 class Single<out T>(factory: Factory<T>) : Dependency<T> {
     private val instance by lazy {
-        factory.build()
+        factory.create()
     }
     override val value: T
         get() = instance

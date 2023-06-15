@@ -1,4 +1,4 @@
-package com.makeevrserg.mobile.di
+package com.makeevrserg.mobilex.di
 
 import kotlin.reflect.KProperty
 

@@ -9,6 +9,7 @@ plugins {
     alias(libs.plugins.kotlin.multiplatform) apply false
     alias(libs.plugins.kotlin.serialization) apply false
     id("detekt-convention")
+    id("dokka-root")
 }
 
 tasks.register("cleanx", Delete::class) {

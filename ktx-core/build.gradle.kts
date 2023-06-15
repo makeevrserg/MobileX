@@ -3,6 +3,7 @@
 plugins {
     id("kmm-library-convention")
     id("convention.publication")
+    id("dokka-convention")
 }
 
 kotlin {

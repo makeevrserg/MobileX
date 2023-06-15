@@ -59,7 +59,7 @@ publishing {
         pom {
             name.set(libs.versions.project.name.get())
             group = libs.versions.project.group.get()
-            version = libs.versions.project.version.get()
+            version = libs.versions.project.version.string.get()
             description.set(libs.versions.project.description.get())
             url.set("https://github.com/makeevrserg/MobileX")
 

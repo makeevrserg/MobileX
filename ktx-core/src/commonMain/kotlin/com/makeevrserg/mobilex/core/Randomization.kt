@@ -22,6 +22,6 @@ object Randomization {
         Float::class -> Random.nextDouble(Double.MAX_VALUE).toFloat()
         Char::class -> randomString()
         Boolean::class -> Random.nextBoolean()
-        else -> throw IllegalArgumentException("Unknown type $klazz")
+        else -> error("Unknown type $klazz")
     }
 }
