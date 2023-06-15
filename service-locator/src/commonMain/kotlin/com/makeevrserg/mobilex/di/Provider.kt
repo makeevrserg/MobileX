@@ -2,8 +2,6 @@ package com.makeevrserg.mobilex.di
 
 import kotlin.reflect.KProperty
 
-import kotlin.reflect.KProperty
-
 /**
  * [Provider] is a fun interface which can provider some data for your dependency
  *
