@@ -47,7 +47,7 @@ jobs:
         id: version
         with:
           file: 'gradle/libs.versions.toml'
-          field: 'versions.project-version'
+          field: 'versions.project-version-string'
       - uses: SebRollen/toml-action@v1.0.2
         id: name
         with:
