@@ -1,11 +1,13 @@
 [![version](https://img.shields.io/maven-central/v/ru.astrainteractive.mobilex/ktx-core?style=flat-square)](https://github.com/makeevrserg/MobileX)
 [![kotlin_version](https://img.shields.io/badge/kotlin-1.8.21-blueviolet?style=flat-square)](https://github.com/makeevrserg/MobileX)
 [![platforms](https://img.shields.io/badge/platform-jvm%7Candroid%7Cios-blue?style=flat-square)](https://github.com/makeevrserg/MobileX)
-[![java_version](https://img.shields.io/badge/java-11-blueviolet?style=flat-square)](https://github.com/makeevrserg/MobileX)
 
 # MobileX
 
 Core library which I'm using in my projects - it helps to reduce boiler-plate code
+
+## Docs
+See docs page [here](docs/index.md) 
 
 ## Setup
 
@@ -31,17 +33,8 @@ dependencies {
 }
 ```
 
-### Documentation with dokka
+### Auto Documentation with dokka
 
 ```bash
 ./gradlew dokkaHtmlMultiModule
 ```
-
-### Hand-crafted documentation
-
-- #### [KTX-Core WIki](https://github.com/makeevrserg/MobileX/blob/master/docs/ktx-core.MD)
-
-- #### [Service-Locator WIki](https://github.com/makeevrserg/MobileX/blob/master/docs/service-locator.MD)
-
-- #### [Example WIP](https://github.com/makeevrserg/MobileX/tree/master/examples)
-
