@@ -1,3 +1,5 @@
+@file:Suppress("Filename")
+
 package com.makeevrserg.mobilex.core
 
 import kotlinx.coroutines.CoroutineDispatcher
