@@ -3,12 +3,19 @@
 @file:Suppress("UnusedPrivateMember")
 
 plugins {
-    id("android-library-convention")
-    id("convention.publication")
-    id("dokka-convention")
+    kotlin("multiplatform")
+    id("com.android.library")
 }
 
 kotlin {
+    targetHierarchy.default()
+    // android
+    androidTarget()
+    // jvm
+    jvm()
+    // ios
+    ios()
+    iosSimulatorArm64()
     sourceSets {
         val androidMain by getting {
             dependencies {

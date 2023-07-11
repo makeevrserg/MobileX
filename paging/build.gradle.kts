@@ -1,11 +1,19 @@
 @file:Suppress("UnusedPrivateMember")
 
 plugins {
-    id("kmm-library-convention")
-    id("convention.publication")
+    kotlin("multiplatform")
+    id("com.android.library")
 }
 
 kotlin {
+    targetHierarchy.default()
+    // android
+    androidTarget()
+    // jvm
+    jvm()
+    // ios
+    ios()
+    iosSimulatorArm64()
     sourceSets {
         val commonMain by getting {
             dependencies {
