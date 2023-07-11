@@ -1,3 +1,5 @@
+@file:Suppress("Filename")
+
 package com.makeevrserg.mobilex.core
 
 inline fun <reified T : kotlin.Enum<T>> T.addIndex(offset: Int, values: Array<T>): T {
