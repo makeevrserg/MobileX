@@ -3,8 +3,8 @@ version = libs.versions.project.version
 
 buildscript {
     dependencies {
-        classpath("ru.astrainteractive.gradleplugin:convention:0.0.2")
-        classpath("ru.astrainteractive.gradleplugin:android:0.0.2")
+        classpath("ru.astrainteractive.gradleplugin:convention:0.0.9")
+        classpath("ru.astrainteractive.gradleplugin:android:0.0.9")
     }
 }
 
