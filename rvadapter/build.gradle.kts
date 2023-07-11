@@ -1,5 +1,3 @@
-
-
 @file:Suppress("UnusedPrivateMember")
 
 plugins {
@@ -11,11 +9,6 @@ kotlin {
     targetHierarchy.default()
     // android
     androidTarget()
-    // jvm
-    jvm()
-    // ios
-    ios()
-    iosSimulatorArm64()
     sourceSets {
         val androidMain by getting {
             dependencies {

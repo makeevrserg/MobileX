@@ -3,8 +3,8 @@ version = libs.versions.project.version
 
 buildscript {
     dependencies {
-        classpath("ru.astrainteractive.gradleplugin:convention:0.0.9")
-        classpath("ru.astrainteractive.gradleplugin:android:0.0.9")
+        classpath("ru.astrainteractive.gradleplugin:convention:0.0.10")
+        classpath("ru.astrainteractive.gradleplugin:android:0.0.10")
     }
 }
 
@@ -27,6 +27,7 @@ subprojects.forEach {
     it.plugins.withId("org.jetbrains.kotlin.jvm") {
         it.apply(plugin = "ru.astrainteractive.gradleplugin.java.core")
     }
+    it.apply(plugin = "ru.astrainteractive.gradleplugin.stub.javadoc")
     it.plugins.withId("com.android.library") {
         it.apply(plugin = "ru.astrainteractive.gradleplugin.android.core")
     }
