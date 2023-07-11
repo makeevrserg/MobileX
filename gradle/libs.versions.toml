@@ -3,7 +3,7 @@
 project-name = "MobileX"
 project-description = "KMM library with frequently used code"
 project-group = "ru.astrainteractive.mobilex"
-project-version-string = "2.7.1"
+project-version-string = "2.7.2"
 
 # Android
 project-sdk-compile = "33"
