@@ -1,5 +1,8 @@
 @file:Suppress("UnusedPrivateMember")
 
+import ru.astrainteractive.gradleplugin.util.ProjectProperties.projectInfo
+
+
 plugins {
     kotlin("multiplatform")
     id("com.android.library")
@@ -24,5 +27,5 @@ kotlin {
     }
 }
 android {
-    namespace = "${libs.versions.project.group.get()}.paging"
+    namespace = "${projectInfo.group}.paging"
 }

@@ -1,3 +1,5 @@
+import ru.astrainteractive.gradleplugin.util.ProjectProperties.projectInfo
+
 plugins {
     kotlin("multiplatform")
     id("com.android.library")
@@ -14,5 +16,5 @@ kotlin {
     iosSimulatorArm64()
 }
 android {
-    namespace = "${libs.versions.project.group.get()}.servicelocator"
+    namespace = "${projectInfo.group}.servicelocator"
 }

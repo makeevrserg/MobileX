@@ -1,6 +1,3 @@
-group = libs.versions.project.group
-version = libs.versions.project.version
-
 buildscript {
     dependencies {
         classpath("ru.astrainteractive.gradleplugin:convention:0.0.10")
