@@ -1,5 +1,5 @@
 [![version](https://img.shields.io/maven-central/v/ru.astrainteractive.mobilex/ktx-core?style=flat-square)](https://github.com/makeevrserg/MobileX)
-[![kotlin_version](https://img.shields.io/badge/kotlin-1.8.21-blueviolet?style=flat-square)](https://github.com/makeevrserg/MobileX)
+[![kotlin_version](https://img.shields.io/badge/kotlin-1.9.0-blueviolet?style=flat-square)](https://github.com/makeevrserg/MobileX)
 [![platforms](https://img.shields.io/badge/platform-jvm%7Candroid%7Cios-blue?style=flat-square)](https://github.com/makeevrserg/MobileX)
 
 # MobileX
