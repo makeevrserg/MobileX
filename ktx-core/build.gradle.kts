@@ -8,7 +8,10 @@ plugins {
 kotlin {
     targetHierarchy.default()
     // android
-    androidTarget()
+    androidTarget {
+        publishLibraryVariants("release", "debug")
+        publishLibraryVariantsGroupedByFlavor = true
+    }
     // jvm
     jvm()
     // ios
