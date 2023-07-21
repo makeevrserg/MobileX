@@ -3,7 +3,7 @@ name: Publish release
 on:
   push:
     branches:
-      - master
+      - none
 
 jobs:
   gradle_validation:
