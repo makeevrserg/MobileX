@@ -5,9 +5,9 @@
 # MobileX [DEPRECATED]
 
 ### This repository now deprecated. Please yous KLibs libraries instead. It will be soon archived
-- [KDI](https://github.com/makeevrserg/KDI) for manual DI
-- [KStorage](https://github.com/makeevrserg/KStorage) for key-value storage wrapper
-- KTX library will be published later
+- [KDI](https://github.com/makeevrserg/klibs.kdi) for manual DI
+- [KStorage](https://github.com/makeevrserg/klibs.kstorage) for key-value storage wrapper
+- [MiKro](https://github.com/makeevrserg/klibs.mikro) for ktx
 
 ## MobileX
 
